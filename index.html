@@ -54,11 +54,12 @@ input,select{font:inherit;color:inherit}
 
 /* time card */
 .card{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
-.timecard{padding:16px 16px 18px;margin-top:22px}
-.q{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink);display:flex;justify-content:space-between;align-items:baseline}
+.timecard{padding:32px 22px 36px;margin-top:0}
+.homebody{min-height:calc(100dvh - 240px);display:flex;flex-direction:column;justify-content:center}
+.q{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink);display:flex;justify-content:space-between;align-items:baseline}
 .q .r{font-family:var(--sans);font-style:normal;font-size:10px;color:var(--faint)}
 .tv{display:flex;align-items:baseline;gap:7px;margin-top:10px}
-.tv b{font-family:var(--serif);font-size:46px;line-height:.8;color:var(--teal-ink);font-variant-numeric:tabular-nums}
+.tv b{font-family:var(--serif);font-size:68px;line-height:.8;color:var(--teal-ink);font-variant-numeric:tabular-nums}
 .tv span{font-size:12px;color:var(--muted)}
 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:26px;background:transparent;margin:12px 0 4px}
 input[type=range]::-webkit-slider-runnable-track{height:26px;border-radius:999px;background:var(--track)}
@@ -137,10 +138,10 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .catsub{font-size:11.5px;color:var(--faint);margin:0 2px 10px}
 
 /* bottom nav */
-.nav{position:absolute;left:0;right:0;bottom:0;height:72px;background:color-mix(in srgb,var(--surface) 95%,transparent);
-  border-top:1px solid var(--line);display:flex;align-items:flex-start;padding:9px 8px 0;backdrop-filter:blur(8px)}
-.tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--faint);padding-top:2px}
-.tab svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.nav{position:absolute;left:0;right:0;bottom:0;height:64px;background:color-mix(in srgb,var(--surface) 95%,transparent);
+  border-top:1px solid var(--line);display:flex;align-items:center;padding:0 8px;backdrop-filter:blur(8px)}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--faint)}
+.tab svg{width:25px;height:25px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .tab .lb{font-size:10px;font-weight:600;color:var(--muted);letter-spacing:.1px}
 .tab.on{color:var(--teal)}
 .tab.on .lb{color:var(--teal-ink);font-weight:700}
@@ -171,45 +172,273 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .sheet .act button{flex:1;border-radius:12px;padding:14px;font-size:15px;font-weight:700}
 .sheet .cancel{background:var(--bg);border:1px solid var(--line);color:var(--muted)}
 .sheet .save{background:var(--teal);color:#fff}
+
+/* Aujourd'hui — lignes légères */
+.allok{background:var(--teal-soft);color:var(--teal-ink);border-radius:13px;padding:13px 16px;margin:16px 0 4px;font-size:14px;text-align:center}
+.aroom{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-style:italic;font-size:17px;color:color-mix(in srgb,var(--hue) 72%,var(--ink));margin:20px 2px 2px}
+.aroom .adot{width:9px;height:9px;border-radius:50%;background:var(--hue)}
+.aline{display:flex;align-items:center;gap:12px;padding:12px 4px;border-bottom:1px solid var(--line)}
+.aline .achk{flex:none;width:22px;height:22px;border-radius:7px;border:1.6px solid var(--muted);background:var(--bg);position:relative}
+.aline .achk.on{background:var(--ok);border-color:var(--ok)}
+.aline .achk.on::after{content:"";position:absolute;left:7px;top:3px;width:5px;height:10px;border:2px solid #fff;border-top:0;border-left:0;transform:rotate(42deg)}
+.aline .an{flex:1;min-width:0;font-size:14.5px}
+.aline.done .an{text-decoration:line-through;color:var(--muted)}
+.aline .apill{flex:none;font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px}
+.aline .apill.todo{background:var(--soon-soft);color:var(--soon)}
+.aline .apill.late{background:var(--late-soft);color:var(--late)}
+
+/* Chez moi — galerie de cartes carrées */
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.gcard{aspect-ratio:1/1;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;
+  background:color-mix(in srgb,var(--hue) 13%,var(--surface));border:1px solid color-mix(in srgb,var(--hue) 26%,transparent);
+  border-radius:18px;padding:15px;text-align:left;position:relative;transition:transform .1s}
+.gcard:active{transform:scale(.97)}
+.gcard .gav{width:40px;height:40px;border-radius:11px;background:color-mix(in srgb,var(--hue) 22%,var(--surface));color:color-mix(in srgb,var(--hue) 82%,var(--ink));display:grid;place-items:center;font-family:var(--serif);font-size:20px;border:1px solid color-mix(in srgb,var(--hue) 30%,transparent)}
+.gcard .gtop{display:flex;flex-direction:column;gap:3px}
+.gcard .gnm{font-family:var(--serif);font-size:22px;line-height:1;color:color-mix(in srgb,var(--hue) 78%,var(--ink))}
+.gcard .gmeta{font-size:11.5px;color:var(--muted)}
+.gcard .gpill{position:absolute;top:14px;right:14px;width:11px;height:11px;border-radius:50%;border:2px solid var(--surface)}
+.gcard .gpill.late{background:var(--late)} .gcard .gpill.todo,.gcard .gpill.soon{background:var(--soon)} .gcard .gpill.ok{background:var(--ok)}
+
+/* Chez moi — petits carrés à icônes */
+.rooms{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px}
+.rtile{display:flex;flex-direction:column;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:15px 8px 12px;text-align:center;position:relative;transition:transform .1s}
+.rtile:active{transform:scale(.96)}
+.rtile .ric{color:color-mix(in srgb,var(--hue) 68%,var(--ink))}
+.rtile .ric svg{width:30px;height:30px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
+.rtile .rtn{font-size:12px;font-weight:600;line-height:1.15;color:var(--ink)}
+.rtile .rtc{font-size:10px;color:var(--muted)}
+.rtile .rdot{position:absolute;top:9px;right:9px;width:8px;height:8px;border-radius:50%}
+.rtile .rdot.late{background:var(--late)} .rtile .rdot.todo,.rtile .rdot.soon{background:var(--soon)}
+
+/* Aujourd'hui — pièce finie repliée + tâche faite barrée sans coche */
+.aroomdone{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-style:italic;font-size:16px;color:var(--faint);margin:18px 2px 6px;opacity:.8;border-bottom:1px solid var(--line);padding-bottom:10px}
+.aroomdone .adot{width:8px;height:8px;border-radius:50%;background:var(--hue);opacity:.45}
+.aroomdone .afin{margin-left:auto;font-family:var(--sans);font-style:normal;font-size:11px;font-weight:700;color:var(--ok)}
+.aline .afait{flex:none;font-size:10px;font-weight:700;color:var(--faint)}
+
+/* Silhouette + niveau */
+.hr{display:flex;align-items:center;gap:9px}
+.silh{width:40px;height:40px;border-radius:50%;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;flex:none}
+.silh svg{width:21px;height:21px;stroke:var(--muted);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+/* Teaser Aujourd'hui sur Maintenant */
+.teaser{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:15px 16px;width:100%;text-align:left;color:var(--ink);font-size:14px}
+.teaser .go{color:var(--faint);font-size:18px}
+.teaser b{font-family:var(--serif);font-size:19px;color:var(--clay);margin-right:3px}
+.teaser.calm{justify-content:center;color:var(--teal-ink);background:var(--teal-soft);border-color:transparent}
+/* Choisis — conseil + boutons */
+.advice{background:var(--teal);color:#fff;border-radius:14px;padding:14px 16px;margin:16px 0 0;font-size:14px;line-height:1.5}
+.advice b{font-weight:700;color:#fff}
+.planbtns{display:flex;gap:10px;margin-top:12px}
+.btn-ghost{flex:1;border:1px solid var(--line);background:var(--surface);color:var(--muted);font-weight:700;font-size:14px;padding:14px;border-radius:14px}
+.btn-go{flex:1.6;border:0;background:var(--clay);color:#fff;font-weight:700;font-size:14px;padding:14px;border-radius:14px;box-shadow:0 6px 16px rgba(189,106,70,.26)}
+.btn-go:active,.btn-ghost:active{transform:scale(.98)}
+/* Exécution (grand reset) */
+.execnow{background:var(--surface);border:1px solid var(--line);border-left:4px solid color-mix(in srgb,var(--hue) 70%,var(--surface));border-radius:18px;padding:18px 18px 16px;margin-top:6px;box-shadow:var(--shadow)}
+.execroom{display:flex;align-items:center;gap:7px;font-family:var(--serif);font-style:italic;font-size:15px;color:color-mix(in srgb,var(--hue) 72%,var(--ink))}
+.execroom .adot{width:9px;height:9px;border-radius:50%}
+.exectask{font-family:var(--serif);font-size:30px;line-height:1.08;margin:8px 0 6px;text-wrap:balance}
+.execmeta{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.execdone{margin-top:16px;width:100%;border:0;background:var(--teal);color:#fff;font-weight:700;font-size:15px;padding:15px;border-radius:13px;box-shadow:0 6px 16px rgba(45,124,126,.26)}
+.execdone:active{transform:scale(.98)}
+.execend{text-align:center;font-size:12.5px;color:var(--muted);margin:14px 0 2px}
+.execend b{color:var(--teal-ink);font-variant-numeric:tabular-nums}
+.execlbl{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--faint);margin:20px 2px 6px}
+.execline{display:flex;align-items:center;gap:11px;padding:13px 4px;border-bottom:1px solid var(--line)}
+.execline .exdot{flex:none;width:9px;height:9px;border-radius:50%}
+.execline .exn{flex:1;min-width:0;font-size:14.5px}
+.execline .exm{flex:none;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.execline.done .exn{text-decoration:line-through;color:var(--muted)}
+.execline .exfait{flex:none;font-size:10px;font-weight:700;color:var(--faint)}
+.execfoot{margin-top:18px}
+.execfoot .btn-go{width:100%}
+/* Moi / réglages */
+.moicard{padding:18px}
+.moilvl{display:flex;align-items:center;gap:15px}
+.moin{flex:none;width:52px;height:52px;border-radius:50%;background:color-mix(in srgb,var(--clay) 15%,var(--surface));color:var(--clay);font-family:var(--serif);font-size:30px;display:grid;place-items:center}
+.moiname{font-family:var(--serif);font-size:19px;color:var(--ink)}
+.moisub{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{height:8px;border-radius:999px;background:var(--track);overflow:hidden;margin:7px 0 4px}
+.bar i{display:block;height:100%;background:var(--clay);border-radius:999px}
+.setlist{margin-top:16px;display:flex;flex-direction:column;gap:9px}
+.setrow{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 15px;width:100%;text-align:left}
+.setrow .sett{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.setrow .setn{font-size:14.5px;font-weight:700;color:var(--ink)}
+.setrow .sets{font-size:11.5px;color:var(--muted)}
+.setrow .go{color:var(--faint);font-size:18px}
+/* Niveau fusionné silhouette */
+.me{display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 14px 5px 6px;box-shadow:0 1px 2px rgba(60,45,33,.05)}
+.me .mesilh{width:32px;height:32px;border-radius:50%;background:color-mix(in srgb,var(--clay) 14%,var(--surface));display:grid;place-items:center;flex:none}
+.me .mesilh svg{width:19px;height:19px;stroke:var(--clay);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.me .melvl{display:flex;flex-direction:column;line-height:1.15;text-align:left}
+.me .melvl b{font-size:11.5px;color:var(--ink);font-weight:700}
+.me .melvl span{font-size:10px;color:var(--muted)}
+/* Exécution — options + recalcul */
+.execopts{display:flex;gap:8px;margin-top:10px}
+.execopts button{flex:1;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:12px;font-weight:600;padding:9px;border-radius:10px}
+.execopts button:active{transform:scale(.98)}
+.recalc{border:0;background:none;color:var(--teal-ink);font-size:11px;font-weight:700;padding:2px 4px;margin-left:4px;text-decoration:underline;text-underline-offset:2px}
+.execline .exstarted{flex:none;font-size:10px;font-weight:700;color:var(--teal-ink)}
+/* Conseil agrandi + toggle plan */
+.advicebig{font-family:var(--serif);font-size:23px;line-height:1.3;color:var(--ink);margin:18px 2px 2px;text-wrap:balance}
+.advicebig i{font-style:italic}
+.plantoggle{display:block;width:100%;text-align:center;margin-top:16px;background:none;border:0;color:var(--muted);font-size:13px;font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--faint)}
+.plantoggle span{color:var(--faint);text-decoration:none;font-weight:500}
+/* Chez moi — toute la maison + filtres */
+.allhouse{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:15px 16px;width:100%;text-align:left;margin-top:14px}
+.allhouse .ahic{width:40px;height:40px;border-radius:11px;background:color-mix(in srgb,var(--clay) 14%,var(--surface));display:grid;place-items:center;flex:none;border:1px solid color-mix(in srgb,var(--clay) 22%,transparent)}
+.allhouse .ahic svg{width:22px;height:22px;stroke:var(--clay);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.allhouse .ahtx{flex:1;min-width:0;display:flex;flex-direction:column}
+.allhouse .ahn{font-size:15px;font-weight:700;color:var(--ink)}
+.allhouse .ahs{font-size:11.5px;color:var(--muted)}
+.allhouse .go{color:var(--faint);font-size:18px}
+.filters{display:flex;gap:7px;margin:16px 0 0;flex-wrap:wrap}
+.fchip{border:1px solid var(--line);background:var(--surface);color:var(--muted);font-size:12px;font-weight:600;padding:7px 13px;border-radius:999px}
+.fchip.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.apill.encours{background:var(--teal-soft);color:var(--teal-ink)}
+/* Coach première visite */
+.coachhome{margin-top:18px;background:var(--ink);color:var(--bg);border-radius:12px;padding:11px 14px;font-size:12.5px;font-weight:600;text-align:center}
+.coachhome b{font-weight:700}
+/* Sheet compte */
+.auth-h{font-family:var(--serif);font-size:24px;text-align:center}
+.auth-s{font-size:12px;color:var(--muted);text-align:center;margin:6px 8px 16px;line-height:1.35}
+.authbtn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border-radius:12px;padding:13px;font-size:14px;font-weight:700;margin-top:9px;border:0}
+.authbtn.apple{background:var(--ink);color:var(--bg)}
+.authbtn.google{background:var(--bg);color:var(--ink);border:1px solid var(--line)}
+.authbtn.mail{background:transparent;color:var(--muted);font-weight:600}
+.auth-s b{font-weight:700;color:var(--teal-ink)}
+.auth-free{text-align:center;font-size:11px;color:var(--muted);margin-top:12px}
+.auth-later{text-align:center;font-size:12.5px;color:var(--faint);font-weight:600;margin-top:10px;text-decoration:underline;text-underline-offset:2px}
+/* Onboarding overlay */
+#onboard{position:absolute;inset:0;z-index:45;background:var(--bg);display:none;flex-direction:column;overflow-y:auto;
+  padding:30px 20px calc(22px + env(safe-area-inset-bottom,0px));
+  background-image:radial-gradient(120% 55% at 100% -8%,color-mix(in srgb,var(--clay) 12%,transparent),transparent 60%),radial-gradient(120% 60% at -10% 2%,color-mix(in srgb,var(--teal) 9%,transparent),transparent 55%)}
+#onboard.show{display:flex}
+#coach{position:absolute;inset:0;z-index:60;display:none}
+#coach.show{display:block}
+.cm-spot{position:absolute;border-radius:16px;box-shadow:0 0 0 9999px rgba(38,29,22,.60);border:2px solid var(--teal);transition:all .24s ease;pointer-events:auto;cursor:pointer}
+.cm-bubble{position:absolute;width:244px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 15px;box-shadow:0 14px 34px rgba(60,45,33,.26);animation:cmpop .26s ease}
+@keyframes cmpop{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
+.cm-h{font-family:var(--serif);font-size:21px;line-height:1.1;margin-bottom:4px}
+.cm-s{font-size:13px;color:var(--muted);line-height:1.4;margin-bottom:13px}
+.cm-row{display:flex;align-items:center;justify-content:space-between}
+.cm-dots{display:flex;gap:5px}
+.cm-dots i{width:6px;height:6px;border-radius:50%;background:var(--line);transition:all .25s}
+.cm-dots i.on{background:var(--teal);width:16px;border-radius:999px}
+.cm-btns{display:flex;align-items:center;gap:12px}
+.cm-skip{color:var(--faint);font-size:12.5px;font-weight:600}
+.cm-next{background:var(--teal);color:#fff;border:0;border-radius:999px;padding:8px 16px;font:inherit;font-size:13px;font-weight:700}
+.ob-step{font-size:11px;font-weight:700;color:var(--clay);letter-spacing:.06em;text-transform:uppercase}
+.ob-h{font-family:var(--serif);font-size:32px;line-height:1.08;margin:8px 0 4px;text-wrap:balance}
+.ob-s{font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.4;max-width:30ch}
+.ob-pass{margin-top:auto;text-align:center;padding:18px 0 4px;color:var(--faint);font-weight:600;font-size:13.5px;text-decoration:underline;text-underline-offset:3px}
+.ob-cont{flex:none;width:100%;margin-top:20px}
+.hcard{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:17px 16px;width:100%;text-align:left;margin-bottom:12px}
+.hcard .hi{width:48px;height:48px;border-radius:13px;background:color-mix(in srgb,var(--teal) 10%,var(--surface));display:grid;place-items:center;color:var(--teal-ink);flex:none}
+.hcard .hi svg{width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hcard .hn{font-size:16px;font-weight:700;display:block}
+.hcard .hd{font-size:12px;color:var(--muted);display:block;margin-top:2px}
+.obrooms{display:flex;flex-wrap:wrap;gap:9px}
+.obrt{display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--teal);box-shadow:inset 0 0 0 1px var(--teal);border-radius:13px;padding:8px 11px}
+.obrt .ri{width:18px;height:18px;flex:none;color:color-mix(in srgb,var(--hue) 68%,var(--ink));stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.obrt .nm{font-size:13px;font-weight:600}
+.obrt input{font:inherit;font-size:13px;font-weight:600;border:0;background:transparent;width:96px;outline:none;border-bottom:1.5px solid var(--teal);color:var(--ink)}
+.obrt .pen{width:14px;height:14px;flex:none;color:var(--faint);stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.obrt .rm{border:0;background:none;color:var(--faint);font-size:17px;line-height:1;padding:0 2px}
+.obrt.add{border-style:dashed;border-color:var(--line);box-shadow:none;background:transparent;color:var(--muted)}
+.obrt.add.on{border-color:var(--teal);color:var(--teal-ink)}
+.obsug{margin-top:12px;background:color-mix(in srgb,var(--teal-soft) 40%,var(--surface));border:1px solid var(--line);border-radius:14px;padding:12px}
+.obsug-h{font-size:12px;font-weight:700;color:var(--teal-ink);margin-bottom:9px}
+.obsug-chips{display:flex;flex-wrap:wrap;gap:8px}
+.sugchip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 13px;font:inherit;font-size:12.5px;font-weight:600;color:var(--ink)}
+.sugchip.other{border-style:dashed;color:var(--muted)}
+.obopt{display:flex;flex-direction:column;gap:12px}
+.oboc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;width:100%;text-align:left}
+.oboc.on{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
+.oboc .t{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.oboc .t .rec{font-size:9px;font-weight:700;color:#fff;background:var(--clay);padding:2px 8px;border-radius:999px}
+.oboc .d{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.35}
+/* Avatar Moi fixe (tous écrans) */
+#meBtn{position:absolute;top:20px;right:18px;z-index:25;display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 13px 5px 6px;box-shadow:0 1px 3px rgba(60,45,33,.08)}
+#meBtn .mesilh2{width:30px;height:30px;border-radius:50%;background:color-mix(in srgb,var(--clay) 14%,var(--surface));display:grid;place-items:center;flex:none}
+#meBtn svg{width:18px;height:18px;stroke:var(--clay);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+#meBtn .melbl{font-size:12px;font-weight:700;color:var(--ink);white-space:nowrap}
+/* Centrages */
+.planbody{min-height:calc(100dvh - 250px);display:flex;flex-direction:column;justify-content:center}
+.victory{min-height:calc(100dvh - 280px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.victory .stars{display:flex;gap:11px;font-size:26px;margin-bottom:14px}
+.victory .st1{color:var(--teal)} .victory .st2{color:var(--ink)} .victory .st3{color:var(--clay)}
+.victory .vbig{font-family:var(--serif);font-size:36px;line-height:1.1;color:var(--ink)}
+.victory .vsmall{font-size:14px;color:var(--muted);margin-top:8px}
+/* Ajout — chips pièces + déjà fait */
+.addchips{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.addchip{border:1px solid var(--line);background:var(--bg);color:var(--muted);font-size:12.5px;font-weight:600;padding:8px 13px;border-radius:999px}
+.addchip.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.addchip.hero{border-style:dashed}
+.addchip.hero.on{background:var(--clay);border-color:var(--clay);border-style:solid}
+.dchip{border:1px solid var(--line);background:var(--bg);color:var(--muted);font-size:12.5px;font-weight:600;padding:8px 14px;border-radius:999px}
+.dchip.on{background:var(--teal);border-color:var(--teal);color:#fff}
+/* Espacement accueil + pop-up plan + confettis */
+.door.solo{margin-top:20px}
+.victory{position:relative}
+.victory .cf{position:absolute;opacity:.92;pointer-events:none}
+.plansheet{max-height:82vh;overflow-y:auto}
+.pop-grip{width:40px;height:4px;border-radius:999px;background:var(--line);margin:2px auto 14px}
+.pop-h{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--muted);margin:0 2px 2px}
+.pop-empty{text-align:center;padding:14px 0 6px}
+.pop-empty .pe-star{font-size:30px;color:var(--teal)}
+.pop-empty .pe-big{font-family:var(--serif);font-size:26px;color:var(--ink);margin-top:8px}
+.pop-empty .pe-small{font-size:13px;color:var(--muted);margin-top:4px}
+.pop-rows{margin-top:4px}
 </style>
 </head>
 <body>
 <div class="phone">
   <div id="screen"></div>
+  <button id="meBtn" onclick="openMoi()" aria-label="Moi"><span class="mesilh2"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20c0-4.2 3.4-7 7.5-7s7.5 2.8 7.5 7"/></svg></span><span class="melbl" id="melbl">Niveau 4</span></button>
 
   <nav class="nav" id="nav">
-    <button class="tab" data-tab="accueil">
-      <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.3V20h14V9.3"/></svg>
-      <span class="lb">Accueil</span>
+    <button class="tab" data-tab="maintenant" aria-label="Maintenant">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 1.8"/></svg>
     </button>
-    <button class="tab" data-tab="routines">
-      <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>
-      <span class="lb">Routines</span>
+    <button class="tab" data-tab="aujourdhui" aria-label="Aujourd'hui">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><circle cx="12" cy="15" r="2.2"/></svg>
     </button>
-    <button class="tab" data-tab="pieces">
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>
-      <span class="lb">Pièce par pièce</span>
+    <button class="tab" data-tab="chezmoi" aria-label="Chez moi">
+      <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.3V20h14V9.3"/><path d="M10 20v-5h4v5"/></svg>
     </button>
-    <button class="tab add" data-tab="plus">
+    <button class="tab add" data-tab="plus" aria-label="Ajouter une tâche">
       <span class="pl"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
-      <span class="lb">Plus</span>
     </button>
   </nav>
 
   <div class="toast" id="toast"></div>
+  <div class="scrim" id="planScrim"><div class="sheet plansheet" id="planSheet"></div></div>
+  <div class="scrim" id="acctScrim"><div class="sheet">
+    <div class="pop-grip"></div>
+    <div class="auth-h">Garde ta progression</div>
+    <div class="auth-s">Un compte pour ne rien perdre — tes coches, tes points, tes pièces.</div>
+    <button class="authbtn apple" onclick="createAccount()">Continuer avec Apple</button>
+    <button class="authbtn google" onclick="createAccount()">Continuer avec Google</button>
+    <button class="authbtn mail" onclick="createAccount()">Avec un e-mail</button>
+    <div class="auth-free">S’inscrire est gratuit, sans carte.</div>
+    <div class="auth-later" onclick="closeAccountSheet()">Plus tard</div>
+  </div></div>
+  <div id="onboard"></div>
+  <div id="coach"></div>
 
   <div class="scrim" id="scrim">
     <div class="sheet">
-      <h3>Ajouter un geste</h3>
+      <h3>Ajouter une tâche</h3>
       <div class="fl">
         <label>Quoi ?</label>
         <input id="addLabel" placeholder="Ex. passer l'aspirateur" autocomplete="off">
       </div>
+      <div class="fl">
+        <label>Dans quelle(s) pièce(s) ?</label>
+        <div class="addchips" id="addRoomChips"></div>
+      </div>
       <div class="fl two">
-        <div>
-          <label>Pièce</label>
-          <select id="addRoom"></select>
-        </div>
         <div>
           <label>Chaque</label>
           <select id="addFreq">
@@ -218,8 +447,18 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
             <option value="1s" selected>semaine</option>
             <option value="2s">2 semaines</option>
             <option value="1m">mois</option>
+            <option value="3m">trimestre</option>
+            <option value="1a">an</option>
           </select>
         </div>
+        <div>
+          <label>Temps (min)</label>
+          <input type="number" id="addMins" min="1" max="240" value="10" inputmode="numeric">
+        </div>
+      </div>
+      <div class="fl">
+        <label>Déjà fait ?</label>
+        <div class="addchips"><button type="button" class="dchip on" id="dchipNo" onclick="setAddDone(false)">Jamais</button><button type="button" class="dchip" id="dchipYes" onclick="setAddDone(true)">Fait aujourd'hui</button></div>
       </div>
       <div class="act">
         <button class="cancel" onclick="closeSheet()">Annuler</button>
@@ -231,13 +470,23 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 
 <script>
 /* ---------- données ---------- */
-const ROOMS=[
-  {id:'cuisine',name:'Cuisine',hue:'var(--cuisine)',ini:'C',order:1},
-  {id:'salon',name:'Salon',hue:'var(--salon)',ini:'S',order:2},
-  {id:'sdb',name:'Salle de bain',hue:'var(--sdb)',ini:'B',order:3},
-  {id:'chambre',name:'Chambre',hue:'var(--chambre)',ini:'Ch',order:4},
-  {id:'entree',name:'Entrée',hue:'var(--entree)',ini:'E',order:5},
+let ROOMS=[
+  {id:'entree',name:'Entrée',hue:'var(--entree)',ini:'E',order:1,icon:'door'},
+  {id:'salon',name:'Salon',hue:'var(--salon)',ini:'S',order:2,icon:'sofa'},
+  {id:'cuisine',name:'Cuisine',hue:'var(--cuisine)',ini:'C',order:3,icon:'cutlery'},
+  {id:'sdb',name:'Salle de bain',hue:'var(--sdb)',ini:'B',order:4,icon:'bath'},
+  {id:'chambre',name:'Chambre',hue:'var(--chambre)',ini:'Ch',order:5,icon:'bed'},
 ];
+const ROOMICON={
+  door:'<rect x="6" y="3" width="12" height="18" rx="1"/><path d="M4 21h16"/><circle cx="14.5" cy="12" r="1"/>',
+  sofa:'<path d="M3 12V8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4"/><rect x="3" y="11" width="18" height="6" rx="2"/><path d="M6 17v2M18 17v2"/>',
+  cutlery:'<path d="M7 3v8M5 3v3a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M15 3c-1.4 1-2 3-2 5s.8 3 2 3v10"/>',
+  bath:'<path d="M4 5a2 2 0 0 1 4 0"/><path d="M3 12h18v3a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M6 12V7"/><path d="M7 19l-1 2M18 19l1 2"/>',
+  bed:'<path d="M3 8v10M3 13h13a5 5 0 0 1 5 5M21 18v-3"/><rect x="6" y="9.5" width="5" height="3" rx="1"/>',
+  desk:'<rect x="3" y="5" width="13" height="8" rx="1"/><path d="M9 13v3M6 16h6"/><path d="M20 7v9"/>',
+  garage:'<path d="M3 21V9l9-5 9 5v12"/><path d="M6 21v-7h12v7"/><path d="M6 17h12"/>',
+  generic:'<path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/>'
+};
 let TID=0;
 function T(room,name,mins,state,freq,pts){return{id:++TID,room,name,mins,state,freq,pts,done:false};}
 let tasks=[
@@ -256,14 +505,19 @@ let tasks=[
   T('entree','Trier le courrier',4,'todo','1j',7),
   T('entree','Ranger les chaussures',6,'ok','2j',4),
 ];
-const FREQLBL={'1j':'tous les jours','2j':'tous les 2 jours','1s':'1× / semaine','2s':'toutes les 2 semaines','1m':'1× / mois'};
-const FREQDAYS={'1j':1,'2j':2,'1s':7,'2s':14,'1m':30};
+const FREQLBL={'1j':'tous les jours','2j':'tous les 2 jours','1s':'1× / semaine','2s':'toutes les 2 semaines','1m':'1× / mois','3m':'1× / trimestre','1a':'1× / an'};
+const FREQDAYS={'1j':1,'2j':2,'1s':7,'2s':14,'1m':30,'3m':90,'1a':365};
 const STLBL={ok:'à jour',soon:'bientôt',todo:'à faire',late:'en retard'};
 const RANK={ok:0,soon:1,todo:2,late:3};
 const LVLNAMES=['Campement','Nid douillet','Chez-soi','Cocon','Maisonnée','Petit havre','Refuge','Nid parfait','Palais douillet'];
 
-let xp=540, mins=30;
-let nav={tab:'accueil',screen:'home',mode:null,room:null};
+let xp=0, mins=30;
+let account=false, acctPrompted=false, onboardStep=null, housing=null, fillChoice='auto', editRoom=null, showCoach=true;
+let nav={tab:'maintenant',screen:'home',mode:null,room:null};
+let planVariant=0, execIds=[], planOpen=false, chezFilter='afaire';
+let addRooms=new Set(), addDone=false;
+let roomSug=false;
+const ROOMSUG=[{name:'Bureau',icon:'desk'},{name:'Garage',icon:'garage'},{name:'Buanderie',icon:'generic'},{name:'Dressing',icon:'generic'},{name:'WC',icon:'bath'},{name:'Balcon',icon:'generic'},{name:'Terrasse',icon:'generic'},{name:'Cave',icon:'garage'},{name:'Couloir',icon:'generic'},{name:'Chambre d’ami',icon:'bed'},{name:'Chambre d’enfant',icon:'bed'}];
 
 /* ---------- utils ---------- */
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -277,18 +531,35 @@ function roomWorst(rid){return roomDue(rid).reduce((w,t)=>RANK[t.state]>RANK[w]?
 function levelInfo(x){let lvl=1,need=100,acc=0;while(x>=acc+need){acc+=need;lvl++;need=100+(lvl-1)*60;}return{lvl,into:x-acc,span:need,name:LVLNAMES[Math.min(lvl-1,LVLNAMES.length-1)],pct:Math.round((x-acc)/need*100)};}
 
 /* ---------- plan ---------- */
+// classe les pièces : la plus en retard d'abord, puis gestes urgents en tête dans chaque pièce
+function roomsByUrgency(pool){
+  const by=new Map();
+  pool.forEach(t=>{if(!by.has(t.room))by.set(t.room,[]);by.get(t.room).push(t);});
+  return [...by.entries()].map(([rid,items])=>({
+    rid,
+    items:items.sort((a,b)=>(RANK[b.state]-RANK[a.state])||(a.mins-b.mins)),
+    worst:items.reduce((w,t)=>RANK[t.state]>RANK[w]?t.state:w,'ok'),
+    urg:items.reduce((a,t)=>a+RANK[t.state],0)
+  })).sort((a,b)=>(RANK[b.worst]-RANK[a.worst])||(b.urg-a.urg)||(room(a.rid).order-room(b.rid).order));
+}
+function pack(groups,chosen){return{chosen,groups,total:chosen.reduce((a,t)=>a+t.mins,0)};}
 function buildPlan(mode,rid){
   let pool=tasks.filter(due);
   if(mode==='piece') pool=pool.filter(t=>t.room===rid);
-  pool.sort((a,b)=>(RANK[b.state]-RANK[a.state])||(a.mins-b.mins));
-  let chosen;
-  if(mode==='maison'){chosen=pool;}
-  else{chosen=[];let acc=0;for(const t of pool){if(acc+t.mins<=mins){chosen.push(t);acc+=t.mins;}}if(!chosen.length&&pool.length){chosen=[pool[0]];}}
-  const groups=new Map();
-  chosen.forEach(t=>{if(!groups.has(t.room))groups.set(t.room,[]);groups.get(t.room).push(t);});
-  const ordered=[...groups.entries()].map(([rid,items])=>({rid,items,worst:items.reduce((w,t)=>RANK[t.state]>RANK[w]?t.state:w,'ok')}))
-    .sort((a,b)=>(RANK[b.worst]-RANK[a.worst])||(room(a.rid).order-room(b.rid).order));
-  return{chosen,groups:ordered,total:chosen.reduce((a,t)=>a+t.mins,0)};
+  const ordered=roomsByUrgency(pool);
+  // toute la maison : tout, juste rangé par pièce
+  if(mode==='maison') return pack(ordered,pool);
+  // « Un autre plan » : on fait tourner la pièce de départ sans casser la logique
+  let seq=ordered;
+  if(mode==='choisis'&&planVariant>0&&ordered.length>1){const k=planVariant%ordered.length;seq=ordered.slice(k).concat(ordered.slice(0,k));}
+  // on finit une pièce avant de passer à la suivante, dans le budget temps
+  let acc=0;const chosen=[];
+  for(const g of seq){
+    for(const t of g.items){if(acc+t.mins<=mins){chosen.push(t);acc+=t.mins;}}
+  }
+  if(!chosen.length&&pool.length){const sm=pool.slice().sort((a,b)=>a.mins-b.mins)[0];chosen.push(sm);acc=sm.mins;}
+  const chosenGroups=seq.map(g=>({...g,items:g.items.filter(t=>chosen.includes(t))})).filter(g=>g.items.length);
+  return pack(chosenGroups,chosen);
 }
 function bestRoom(){let best=null,bs=-1;ROOMS.forEach(r=>{const sc=roomDue(r.id).reduce((a,t)=>a+RANK[t.state],0);if(sc>bs){bs=sc;best=r.id;}});return bs>0?best:null;}
 
@@ -296,51 +567,56 @@ function bestRoom(){let best=null,bs=-1;ROOMS.forEach(r=>{const sc=roomDue(r.id)
 function award(pts){const before=levelInfo(xp).lvl;xp+=pts;const after=levelInfo(xp).lvl;
   if(after>before)toast('Niveau '+after+' — '+levelInfo(xp).name+' ✦',true);else toast('+'+pts+' pts ✦');}
 function toggleTask(id){const t=tasks.find(x=>x.id===id);if(!t)return;
-  if(!t.done){t.done=true;t.state='ok';award(t.pts);}else{t.done=false;t.state='todo';}
-  render();}
+  const wasDone=t.done;
+  if(!t.done){t._prev=t.state;t.done=true;t.doneToday=true;t.state='ok';award(t.pts);}
+  else{t.done=false;t.doneToday=false;t.state=t._prev||'todo';}
+  render();
+  if(!account&&!acctPrompted&&!wasDone){acctPrompted=true;setTimeout(openAccountSheet,500);}}
 let toastT;
 function toast(msg,lvl){const el2=el('toast');el2.textContent=msg;el2.className='toast show'+(lvl?' lvl':'');clearTimeout(toastT);toastT=setTimeout(()=>el2.className='toast'+(lvl?' lvl':''),2200);}
 
-function go(tab){if(tab==='plus'){openSheet();return;}nav={tab,screen:tab==='accueil'?'home':'list',mode:null,room:null};render();}
-function openPlan(mode,rid){nav={tab:'accueil',screen:'plan',mode,room:rid||null};window.scrollReset=true;render();}
-function openPiecePicker(){nav={tab:'accueil',screen:'piecepick',mode:null,room:null};render();}
-function openRoom(rid){nav={tab:'pieces',screen:'room',mode:null,room:rid};render();}
-function home(){nav={tab:'accueil',screen:'home',mode:null,room:null};render();}
+function go(tab){if(tab==='plus'){openSheet();return;}nav={tab,screen:tab==='maintenant'?'home':'list',mode:null,room:null};render();}
+function openPlan(mode,rid){if(mode==='choisis'){planVariant=0;planOpen=false;}nav={tab:'maintenant',screen:'plan',mode,room:rid||null};window.scrollReset=true;render();}
+function openPiecePicker(){nav={tab:'maintenant',screen:'piecepick',mode:null,room:null};render();}
+function openRoom(rid){nav={tab:'chezmoi',screen:'room',mode:null,room:rid};render();}
+function home(){nav={tab:'maintenant',screen:'home',mode:null,room:null};render();}
 
 /* ---------- sheet ---------- */
-function openSheet(){const sel=el('addRoom');sel.innerHTML=ROOMS.map(r=>'<option value="'+r.id+'">'+esc(r.name)+'</option>').join('');el('addLabel').value='';el('scrim').classList.add('show');}
+function openSheet(){addRooms=new Set();addDone=false;el('addLabel').value='';el('addMins').value='10';el('addFreq').value='1s';renderAddChips();setAddDone(false);el('scrim').classList.add('show');setTimeout(()=>el('addLabel').focus(),60);}
 function closeSheet(){el('scrim').classList.remove('show');}
+function isAllRooms(){return ROOMS.every(r=>addRooms.has(r.id));}
+function renderAddChips(){let h='<button type="button" class="addchip hero'+(isAllRooms()?' on':'')+'" onclick="toggleAllRooms()">Toute la maison</button>';h+=ROOMS.map(r=>'<button type="button" class="addchip'+(addRooms.has(r.id)?' on':'')+'" onclick="toggleAddRoom(\''+r.id+'\')">'+esc(r.name)+'</button>').join('');el('addRoomChips').innerHTML=h;}
+function toggleAllRooms(){if(isAllRooms())addRooms=new Set();else addRooms=new Set(ROOMS.map(r=>r.id));renderAddChips();}
+function toggleAddRoom(id){if(addRooms.has(id))addRooms.delete(id);else addRooms.add(id);renderAddChips();}
+function setAddDone(v){addDone=v;el('dchipNo').classList.toggle('on',!v);el('dchipYes').classList.toggle('on',v);}
 function addTask(){const lbl=el('addLabel').value.trim();if(!lbl){el('addLabel').focus();return;}
-  const rid=el('addRoom').value,freq=el('addFreq').value;const d=FREQDAYS[freq];
-  const pts=d<=1?4:d<=3?7:d<=7?11:16;
-  tasks.push(T(rid,lbl,7,'todo',freq,pts));
-  closeSheet();toast('Ajouté dans '+room(rid).name);
-  if(nav.tab==='pieces'&&nav.screen==='room'&&nav.room===rid)render();else{nav={tab:'pieces',screen:'room',mode:null,room:rid};render();}
+  if(!addRooms.size){toast('Choisis au moins une pièce');return;}
+  const freq=el('addFreq').value;const d=FREQDAYS[freq];const pts=d<=1?4:d<=3?7:d<=7?11:16;const dur=+el('addMins').value||10;
+  let last=null;
+  [...addRooms].forEach(rid=>{const t=T(rid,lbl,dur,'todo',freq,pts);if(addDone){t.done=true;t.doneToday=true;t.state='ok';}tasks.push(t);last=rid;});
+  closeSheet();
+  toast(addRooms.size>1?'Ajoutée dans '+addRooms.size+' pièces':'Ajoutée dans '+room(last).name);
+  nav={tab:'chezmoi',screen:'room',mode:null,room:last};render();
 }
 
 /* ---------- vues ---------- */
 function headerHome(){const li=levelInfo(xp);
   const j=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'][new Date().getDay()];
   const jcap=j.charAt(0).toUpperCase()+j.slice(1);
-  return '<div class="top"><div><div class="h1">Aujourd’hui</div><div class="sub">'+jcap+' · journée tranquille</div></div>'+
-    '<div class="lvl"><span class="n">'+li.lvl+'</span><span class="t"><b>Niveau '+li.lvl+'</b>'+xp+' pts</span></div></div>';
+  return '<div class="top"><div><div class="h1">Maintenant</div></div></div>';
 }
 function viewHome(){
-  return headerHome()+
+  return headerHome()+'<div class="homebody">'+
   '<div class="card timecard"><div class="q">J’ai combien de temps ?<span class="r">là, maintenant</span></div>'+
     '<div class="tv"><b id="mval">'+minsLabel(mins)+'</b><span>devant moi</span></div>'+
     '<input type="range" id="slider" min="5" max="120" step="5" value="'+mins+'">'+
     '<div class="ticks"><span>5</span><span>30</span><span>1 h</span><span>1 h 30</span><span>2 h</span></div></div>'+
-  '<div class="lead">Par où on commence ?</div>'+
-  '<div class="doors">'+
-    '<button class="door hero" onclick="openPlan(\'choisis\')"><span class="ic">✦</span><span class="tx"><span class="nm">Choisis pour moi</span><span class="ds">Le plan qui rentre dans tes '+minsLabel(mins)+'</span></span><span class="go">→</span></button>'+
-    '<button class="door" onclick="openPiecePicker()"><span class="ic clay">◧</span><span class="tx"><span class="nm">Une pièce</span><span class="ds">Tu choisis où attaquer</span></span><span class="go">→</span></button>'+
-    '<button class="door" onclick="openPlan(\'maison\')"><span class="ic clay">⬚</span><span class="tx"><span class="nm">Toute la maison</span><span class="ds">Le plan complet, pièce par pièce</span></span><span class="go">→</span></button>'+
+  '<button class="door hero solo" onclick="openChoisis()"><span class="ic">✦</span><span class="tx"><span class="nm">Choisis pour moi</span><span class="ds">Ce que tu peux faire en '+minsLabel(mins)+'</span></span><span class="go">→</span></button>'+
+  (showCoach&&!account?'<div class="coachhome">Dis-moi ton temps, puis <b>Choisis pour moi</b> ✦</div>':'')+
   '</div>';
 }
-function planHeader(title,sub){
-  return '<div class="back"><button onclick="home()"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Accueil</button></div>'+
-    '<div class="ph1">'+esc(title)+(sub?' <small>'+esc(sub)+'</small>':'')+'</div>';
+function planHeader(title,sub,backTo){
+  return '<div class="ph1">'+esc(title)+(sub?' <small>'+esc(sub)+'</small>':'')+'</div>';
 }
 function planRows(plan){
   if(!plan.chosen.length) return celebrate('Tout est à jour ✦','Rien qui presse. Tu peux souffler.');
@@ -354,53 +630,73 @@ function planRows(plan){
         '<button class="check'+(t.done?' on':'')+'" onclick="toggleTask('+t.id+')"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></button></div>';
     });
   });
-  html+='<div class="plantot">'+plan.chosen.length+' geste'+(plan.chosen.length>1?'s':'')+' · ~'+plan.total+' min au total</div>';
+  html+='<div class="plantot">'+plan.chosen.length+' tâche'+(plan.chosen.length>1?'s':'')+' · ~'+plan.total+' min au total</div>';
   return html;
 }
 function celebrate(big,small){return '<div class="celebrate"><div class="em">✦</div><div class="big">'+esc(big)+'</div><div class="small">'+esc(small)+'</div></div>';}
+function victory(){
+  const stars=[['st1','9%','16%',26],['st3','83%','12%',20],['st2','22%','66%',22],['st1','74%','72%',28],['st3','47%','6%',18],['st2','90%','42%',24],['st1','6%','44%',21],['st3','60%','30%',16]];
+  const s=stars.map(c=>'<span class="cf '+c[0]+'" style="left:'+c[1]+';top:'+c[2]+';font-size:'+c[3]+'px">✦</span>').join('');
+  return '<div class="victory">'+s+'<div class="vbig">Tout est à jour</div><div class="vsmall">Tu peux souffler.</div></div>';
+}
 
 function viewPlan(){
   if(nav.mode==='choisis'){
     const plan=buildPlan('choisis');
-    const br=bestRoom();
-    let fb='';
-    if(br&&plan.chosen.length){fb='<div class="focusbar"><span>Je te conseille : <b>'+esc(room(br).name.toLowerCase())+'</b></span></div>';}
-    return planHeader('Choisis pour moi',minsLabel(mins))+fb+planRows(plan);
+    const head=planHeader('Choisis pour moi',minsLabel(mins));
+    if(!plan.chosen.length) return head+celebrate('Rien à faire ✦','Tout est à jour. Tu peux souffler.');
+    const names=plan.groups.map(g=>room(g.rid).name.toLowerCase());
+    let advice;
+    if(names.length===1) advice='Je te conseille de commencer par <i>'+esc(names[0])+'</i>.';
+    else if(names.length===2) advice='Je te conseille de commencer par <i>'+esc(names[0])+'</i>, puis d’enchaîner avec <i>'+esc(names[1])+'</i> si tu as encore du temps.';
+    else advice='Je te conseille de commencer par <i>'+esc(names[0])+'</i>, puis d’enchaîner avec '+names.slice(1,-1).map(n=>'<i>'+esc(n)+'</i>').join(', ')+' puis <i>'+esc(names[names.length-1])+'</i> si tu as encore du temps.';
+    const toggle='<button class="plantoggle" onclick="togglePlan()">'+(planOpen?'Masquer le plan':'Voir le plan')+' <span>('+plan.chosen.length+' tâche'+(plan.chosen.length>1?'s':'')+' · ~'+plan.total+' min)</span></button>';
+    const body='<div class="advicebig">'+advice+'</div>'+
+      '<div class="planbtns"><button class="btn-ghost" onclick="regen()">Un autre plan</button><button class="btn-go" onclick="startExec()">Bon plan, je m’y mets</button></div>'+toggle;
+    return planOpen?(head+body+planRows(plan)):(head+'<div class="planbody">'+body+'</div>');
   }
   if(nav.mode==='maison'){
     const plan=buildPlan('maison');
-    return planHeader('Toute la maison')+planRows(plan);
+    return planHeader('Toute la maison',null,'chezmoi')+planRows(plan);
   }
   if(nav.mode==='piece'){
     const r=room(nav.room);const plan=buildPlan('piece',nav.room);
-    return planHeader(r.name,minsLabel(mins))+planRows(plan);
+    return planHeader(r.name,minsLabel(mins),'piece')+planRows(plan);
   }
 }
 function viewPiecePick(){
-  let html='<div class="back"><button onclick="home()"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Accueil</button></div>'+
-    '<div class="ph1">Quelle pièce ?</div>';
+  let html='<div class="ph1">Quelle pièce ?</div>';
   ROOMS.forEach(r=>{const d=roomDue(r.id);const w=roomWorst(r.id);
     html+='<button class="roomcard" style="--hue:'+r.hue+'" onclick="openPlan(\'piece\',\''+r.id+'\')">'+
       '<span class="avatar">'+esc(r.ini)+'</span>'+
-      '<span class="tx"><span class="rn">'+esc(r.name)+'</span><span class="rm">'+(d.length?d.length+' geste'+(d.length>1?'s':'')+' à faire':'tout est à jour')+'</span></span>'+
+      '<span class="tx"><span class="rn">'+esc(r.name)+'</span><span class="rm">'+(d.length?d.length+' tâche'+(d.length>1?'s':'')+' à faire':'tout est à jour')+'</span></span>'+
       (w!=='ok'?'<span class="pill '+w+'"><span class="d"></span>'+STLBL[w]+'</span>':'<span class="pill ok"><span class="d"></span>à jour</span>')+'</button>';
   });
   return html;
 }
-function viewPieces(){
-  let html='<div class="top"><div><div class="h1">Les pièces</div><div class="sub">Entre dans une pièce, coche ce qui est fait</div></div></div>';
-  ROOMS.forEach(r=>{const d=roomDue(r.id);const late=roomTasks(r.id).filter(t=>due(t)&&t.state==='late').length;const w=roomWorst(r.id);
-    html+='<button class="roomcard" style="--hue:'+r.hue+'" onclick="openRoom(\''+r.id+'\')">'+
-      '<span class="avatar">'+esc(r.ini)+'</span>'+
-      '<span class="tx"><span class="rn">'+esc(r.name)+'</span><span class="rm">'+roomTasks(r.id).length+' gestes'+(late?' · '+late+' en retard':(d.length?' · '+d.length+' à faire':' · à jour'))+'</span></span>'+
-      '<span class="pill '+w+'"><span class="d"></span>'+STLBL[w]+'</span></button>';
+function viewChezMoi(){
+  let html='<div class="top"><div><div class="h1">Chez moi</div></div></div>';
+  html+='<button class="allhouse" onclick="openPlan(\'maison\')"><span class="ahic"><svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="ahtx"><span class="ahn">Toute la maison</span><span class="ahs">Le plan complet, pièce par pièce</span></span><span class="go">→</span></button>';
+  html+='<div class="filters">'+[['afaire','À faire'],['retard','En retard'],['az','A–Z']].map(f=>'<button class="fchip'+(chezFilter===f[0]?' on':'')+'" onclick="setChezFilter(\''+f[0]+'\')">'+f[1]+'</button>').join('')+'</div>';
+  let rooms=ROOMS.slice();
+  if(chezFilter==='afaire') rooms.sort((a,b)=>((roomDue(b.id).length>0)-(roomDue(a.id).length>0))||(RANK[roomWorst(b.id)]-RANK[roomWorst(a.id)])||(a.order-b.order));
+  else if(chezFilter==='retard') rooms.sort((a,b)=>(lateCount(b.id)-lateCount(a.id))||(roomDue(b.id).length-roomDue(a.id).length)||(a.order-b.order));
+  else rooms.sort((a,b)=>a.name.localeCompare(b.name,'fr'));
+  html+='<div class="rooms">';
+  rooms.forEach(r=>{const d=roomDue(r.id).length;const w=roomWorst(r.id);
+    html+='<button class="rtile" style="--hue:'+r.hue+'" onclick="openRoom(\''+r.id+'\')">'+
+      (w!=='ok'?'<span class="rdot '+w+'"></span>':'')+
+      '<span class="ric"><svg viewBox="0 0 24 24">'+(ROOMICON[r.icon]||'')+'</svg></span>'+
+      '<span class="rtn">'+esc(r.name)+'</span>'+
+      '<span class="rtc">'+(d?d+' à faire':'à jour')+'</span>'+
+      '</button>';
   });
+  html+='</div>';
   return html;
 }
 function viewRoom(){
   const r=room(nav.room);
-  let html='<div class="back"><button onclick="go(\'pieces\')"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Les pièces</button></div>'+
-    '<div class="ph1" style="color:color-mix(in srgb,'+r.hue+' 72%,var(--ink))">'+esc(r.name)+'</div>';
+  let html='<div class="ph1" style="color:color-mix(in srgb,'+r.hue+' 72%,var(--ink))">'+esc(r.name)+'</div>';
   roomTasks(r.id).forEach(t=>{
     html+='<div class="trow'+(t.done||t.state==='ok'?' done':'')+'">'+
       '<button class="check'+(t.done||t.state==='ok'?' on':'')+'" onclick="toggleTask('+t.id+')"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></button>'+
@@ -410,47 +706,216 @@ function viewRoom(){
   });
   return html;
 }
-function viewRoutines(){
-  let html='<div class="top"><div><div class="h1">Routines</div><div class="sub">Tes gestes récurrents et leur rythme</div></div></div>';
-  const cats=[['quotidien','Le quotidien','un petit coup chaque jour',['1j','2j']],
-    ['hebdo','Le reset de la semaine','une fois par semaine',['1s','2s']],
-    ['mensuel','Le grand reset','une fois par mois',['1m']]];
-  cats.forEach(([id,title,sub,freqs])=>{
-    const list=tasks.filter(t=>freqs.includes(t.freq)).sort((a,b)=>RANK[b.state]-RANK[a.state]);
-    if(!list.length)return;
-    html+='<div class="cathd">'+title+'</div><div class="catsub">'+sub+'</div>';
-    list.forEach(t=>{const r=room(t.room);const st=t.done?'ok':t.state;
-      html+='<div class="trow'+(st==='ok'?' done':'')+'">'+
-        '<span class="avatar" style="--hue:'+r.hue+';width:34px;height:34px;border-radius:9px;font-size:16px">'+esc(r.ini)+'</span>'+
-        '<div class="tx"><div class="nm">'+esc(t.name)+'</div><div class="mt">'+esc(r.name)+' · '+FREQLBL[t.freq]+'</div></div>'+
-        '<span class="pill '+st+'"><span class="d"></span>'+STLBL[st]+'</span></div>';
+function viewAujourdhui(){
+  let html='<div class="top"><div><div class="h1">Aujourd’hui</div></div></div>';
+  const isToday=t=>(due(t)&&(t.state==='todo'||t.state==='late'))||t.doneToday;
+  const remainingGlobal=tasks.filter(t=>due(t)&&(t.state==='todo'||t.state==='late'));
+  if(!remainingGlobal.length) return html+victory();
+  // ordre fixe des pièces, pas de tri par urgence ; une pièce finie se replie
+  ROOMS.forEach(r=>{
+    const items=tasks.filter(t=>t.room===r.id&&isToday(t));
+    if(!items.length)return;
+    const undone=items.filter(t=>!t.done);
+    if(!undone.length){
+      html+='<div class="aroomdone" style="--hue:'+r.hue+'"><span class="adot"></span>'+esc(r.name)+'<span class="afin">fini</span></div>';
+      return;
+    }
+    html+='<div class="aroom" style="--hue:'+r.hue+'"><span class="adot"></span>'+esc(r.name)+'</div>';
+    const stable=items.slice().sort((a,b)=>((a.done?1:0)-(b.done?1:0))||(a.id-b.id));
+    stable.forEach(t=>{
+      html+='<div class="aline'+(t.done?' done':'')+'" onclick="toggleTask('+t.id+')">'+
+        '<span class="an">'+esc(t.name)+'</span>'+
+        (t.done?'<span class="afait">fait</span>':(t.started?'<span class="apill encours">en cours</span>':'<span class="apill '+t.state+'">'+STLBL[t.state]+'</span>'))+
+        '</div>';
     });
   });
+  return html;
+}
+
+/* ---------- exécution + moi ---------- */
+function regen(){planVariant++;if(el('planScrim').classList.contains('show'))renderChoisis();else{window.scrollReset=true;render();}}
+function openChoisis(){showCoach=false;planVariant=0;planOpen=false;renderChoisis();el('planScrim').classList.add('show');}
+function closeChoisis(){el('planScrim').classList.remove('show');}
+function togglePlanPop(){planOpen=!planOpen;renderChoisis();}
+function startFromPop(){closeChoisis();startExec();}
+function renderChoisis(){
+  const plan=buildPlan('choisis');
+  let html='<div class="pop-grip"></div>';
+  if(!plan.chosen.length){html+='<div class="pop-empty"><div class="pe-star">✦</div><div class="pe-big">Rien à faire</div><div class="pe-small">Tout est à jour. Tu peux souffler.</div><button class="btn-go" style="width:100%;margin-top:18px" onclick="closeChoisis()">Fermer</button></div>';el('planSheet').innerHTML=html;return;}
+  const names=plan.groups.map(g=>room(g.rid).name.toLowerCase());
+  let advice;
+  if(names.length===1) advice='Je te conseille de commencer par <i>'+esc(names[0])+'</i>.';
+  else if(names.length===2) advice='Je te conseille de commencer par <i>'+esc(names[0])+'</i>, puis d’enchaîner avec <i>'+esc(names[1])+'</i> si tu as encore du temps.';
+  else advice='Je te conseille de commencer par <i>'+esc(names[0])+'</i>, puis d’enchaîner avec '+names.slice(1,-1).map(n=>'<i>'+esc(n)+'</i>').join(', ')+' puis <i>'+esc(names[names.length-1])+'</i> si tu as encore du temps.';
+  const toggle='<button class="plantoggle" onclick="togglePlanPop()">'+(planOpen?'Masquer le plan':'Voir le plan')+' <span>('+plan.chosen.length+' tâche'+(plan.chosen.length>1?'s':'')+' · ~'+plan.total+' min)</span></button>';
+  html+='<div class="pop-h">Ton plan · '+minsLabel(mins)+'</div>'+
+    '<div class="advicebig">'+advice+'</div>'+
+    '<div class="planbtns"><button class="btn-ghost" onclick="regen()">Un autre plan</button><button class="btn-go" onclick="startFromPop()">Bon plan, je m’y mets</button></div>'+
+    toggle+(planOpen?'<div class="pop-rows">'+planRows(plan)+'</div>':'');
+  el('planSheet').innerHTML=html;
+}
+function startExec(){const plan=buildPlan('choisis');execIds=plan.chosen.map(t=>t.id);nav={tab:'maintenant',screen:'exec',mode:'choisis',room:null};window.scrollReset=true;render();}
+function execList(){return execIds.map(id=>tasks.find(t=>t.id===id)).filter(Boolean);}
+function execLater(id){execIds=execIds.filter(x=>x!==id);toast('Repoussé à plus tard');render();}
+function execStarted(id){const t=tasks.find(x=>x.id===id);if(t)t.started=true;execIds=execIds.filter(x=>x!==id).concat(id);toast('Mis en « à finir »');render();}
+function togglePlan(){planOpen=!planOpen;render();}
+function setChezFilter(k){chezFilter=k;render();}
+function lateCount(rid){return roomTasks(rid).filter(t=>due(t)&&t.state==='late').length;}
+function viewExec(){
+  const list=execList();
+  const back='';
+  const remaining=list.filter(t=>!t.done);
+  if(!remaining.length) return back+celebrate('Terminé ✦','Tout le plan est bouclé. Respect.')+'<div class="execfoot"><button class="btn-go" onclick="home()">Revenir à l’accueil</button></div>';
+  const cur=remaining[0];const r=room(cur.room);
+  const left=remaining.reduce((a,t)=>a+t.mins,0);
+  const end=new Date(Date.now()+left*60000);
+  const hh=String(end.getHours()).padStart(2,'0'),mm=String(end.getMinutes()).padStart(2,'0');
+  let html=back;
+  html+='<div class="execnow" style="--hue:'+r.hue+'">'+
+    '<div class="execroom"><span class="adot" style="background:'+r.hue+'"></span>'+esc(r.name)+'</div>'+
+    '<div class="exectask">'+esc(cur.name)+'</div>'+
+    '<div class="execmeta">~'+cur.mins+' min · +'+cur.pts+' pts</div>'+
+    '<button class="execdone" onclick="toggleTask('+cur.id+')">C’est fait ✓</button>'+
+    '<div class="execopts"><button onclick="execStarted('+cur.id+')">Commencé, à finir</button><button onclick="execLater('+cur.id+')">Plus tard</button></div>'+
+  '</div>';
+  html+='<div class="execend">Fini vers <b>'+hh+'h'+mm+'</b> · '+left+' min restantes<button class="recalc" onclick="render()">↻ recalculer</button></div>';
+  const rest=remaining.slice(1);
+  if(rest.length){html+='<div class="execlbl">Ensuite</div>';
+    rest.forEach(t=>{const rr=room(t.room);
+      html+='<div class="execline" onclick="toggleTask('+t.id+')"><span class="exdot" style="background:'+rr.hue+'"></span><span class="exn">'+esc(t.name)+'</span>'+(t.started?'<span class="exstarted">en cours</span>':'<span class="exm">~'+t.mins+' min</span>')+'</div>';});}
+  const done=list.filter(t=>t.done);
+  if(done.length){html+='<div class="execlbl">Déjà fait</div>';
+    done.forEach(t=>{html+='<div class="execline done"><span class="exn">'+esc(t.name)+'</span><span class="exfait">fait</span></div>';});}
+  return html;
+}
+function openMoi(){if(!account){openAccountSheet();return;}nav={tab:'moi',screen:'moi',mode:null,room:null};window.scrollReset=true;render();}
+function viewMoi(){
+  const li=levelInfo(xp);
+  let html='<div class="ph1">Moi</div>';
+  html+='<div class="card moicard"><div class="moilvl"><span class="moin">'+li.lvl+'</span><div style="flex:1"><div class="moiname">Niveau '+li.lvl+' · '+esc(li.name)+'</div><div class="bar"><i style="width:'+li.pct+'%"></i></div><div class="moisub">'+xp+' pts</div></div></div></div>';
+  html+='<div class="setlist">';
+  [['Mes pièces','Ajouter, renommer, choisir les icônes'],['Ordre des pièces','Par quoi commencer en priorité'],['Mon logement','Maison ou appart, qui vit ici'],['Compte','Abonnement, données']].forEach(p=>{
+    html+='<button class="setrow" onclick="toast(\'Bientôt — ça viendra avec l’inscription\')"><span class="sett"><span class="setn">'+p[0]+'</span><span class="sets">'+p[1]+'</span></span><span class="go">→</span></button>';
+  });
+  html+='</div>';
   return html;
 }
 
 /* ---------- render ---------- */
 function render(){
   const s=el('screen');
-  if(nav.tab==='accueil'){
+  if(nav.tab==='maintenant'){
     if(nav.screen==='home')s.innerHTML=viewHome();
     else if(nav.screen==='plan')s.innerHTML=viewPlan();
     else if(nav.screen==='piecepick')s.innerHTML=viewPiecePick();
-  }else if(nav.tab==='routines')s.innerHTML=viewRoutines();
-  else if(nav.tab==='pieces'){
+    else if(nav.screen==='exec')s.innerHTML=viewExec();
+  }else if(nav.tab==='aujourdhui')s.innerHTML=viewAujourdhui();
+  else if(nav.tab==='chezmoi'){
     if(nav.screen==='room')s.innerHTML=viewRoom();
-    else s.innerHTML=viewPieces();
+    else s.innerHTML=viewChezMoi();
   }
+  else if(nav.tab==='moi')s.innerHTML=viewMoi();
   // nav actif
   [...el('nav').children].forEach(b=>b.classList.toggle('on',b.dataset.tab===nav.tab));
+  updateMe();
   // slider live
   const sl=el('slider');
   if(sl){sl.addEventListener('input',()=>{mins=+sl.value;el('mval').textContent=minsLabel(mins);
-    const ds=document.querySelector('.door.hero .ds');if(ds)ds.textContent='Le plan qui rentre dans tes '+minsLabel(mins);});}
+    const ds=document.querySelector('.door.hero .ds');if(ds)ds.textContent='Ce que tu peux faire en '+minsLabel(mins);});}
   if(window.scrollReset){s.scrollTop=0;window.scrollReset=false;}
 }
 el('nav').addEventListener('click',e=>{const b=e.target.closest('.tab');if(b)go(b.dataset.tab);});
 el('scrim').addEventListener('click',e=>{if(e.target===el('scrim'))closeSheet();});
+el('planScrim').addEventListener('click',e=>{if(e.target===el('planScrim'))closeChoisis();});
+el('acctScrim').addEventListener('click',e=>{if(e.target===el('acctScrim'))closeAccountSheet();});
+/* ---------- first-run / compte ---------- */
+function openAccountSheet(){el('acctScrim').classList.add('show');}
+function closeAccountSheet(){el('acctScrim').classList.remove('show');}
+function createAccount(){account=true;acctPrompted=true;closeAccountSheet();onboardStep='appart';renderOnboard();el('onboard').classList.add('show');}
+function passStep(){if(onboardStep==='appart')onboardStep='pieces';else if(onboardStep==='pieces')onboardStep='remplissage';else{finishOnboard();return;}renderOnboard();}
+function chooseHousing(h){housing=h;applyHousing(h);onboardStep='pieces';renderOnboard();}
+function applyHousing(h){const ids=ROOMS.map(r=>r.id);
+  if(h==='maison'){if(!ids.includes('bureau'))ROOMS.push({id:'bureau',name:'Bureau',hue:'#70757c',ini:'B',order:6,icon:'desk'});if(!ids.includes('garage'))ROOMS.push({id:'garage',name:'Garage',hue:'#8a7f68',ini:'G',order:7,icon:'garage'});}
+  else{ROOMS=ROOMS.filter(r=>r.id!=='bureau'&&r.id!=='garage');tasks=tasks.filter(t=>t.room!=='bureau'&&t.room!=='garage');}}
+function removeOnbRoom(id){if(ROOMS.length<=1)return;ROOMS=ROOMS.filter(r=>r.id!==id);tasks=tasks.filter(t=>t.room!==id);if(editRoom===id)editRoom=null;renderOnboard();}
+const ROOMPAL=['#b23a48','#5f8050','#875f87','#3f8a86','#c0882a','#2b7490'];
+function toggleRoomSug(){roomSug=!roomSug;editRoom=null;renderOnboard();}
+function addSugRoom(name,icon){const n='r'+Date.now().toString(36).slice(-4);ROOMS.push({id:n,name:name,hue:ROOMPAL[ROOMS.length%ROOMPAL.length],ini:(name[0]||'N').toUpperCase(),order:ROOMS.length+1,icon:icon||'generic'});roomSug=false;renderOnboard();}
+function addCustomRoom(){const n='r'+Date.now().toString(36).slice(-4);ROOMS.push({id:n,name:'Nouvelle pièce',hue:ROOMPAL[ROOMS.length%ROOMPAL.length],ini:'N',order:ROOMS.length+1,icon:'generic'});roomSug=false;editRoom=n;renderOnboard();setTimeout(()=>{const i=el('obEdit');if(i){i.focus();i.select();}},30);}
+function startEditRoom(id){editRoom=id;renderOnboard();setTimeout(()=>{const i=el('obEdit');if(i){i.focus();i.select();}},30);}
+function commitEditRoom(id,val){const r=room(id);if(r){const v=(val||'').trim();if(v)r.name=v;}editRoom=null;renderOnboard();}
+function chooseFill(f){fillChoice=f;finishOnboard();}
+function finishOnboard(){const manual=fillChoice==='manual';if(manual)tasks=[];onboardStep=null;roomSug=false;el('onboard').classList.remove('show');updateMe();
+  if(manual)go('chezmoi');else home();
+  setTimeout(()=>openCoach(manual?'manual':'auto'),80);}
+let coachIdx=0, coachMode='auto';
+function coachMarks(){return [
+ {sel:'#meBtn',h:'Moi',s:'Tes points, ton niveau et tes réglages. En haut à droite, partout.'},
+ {sel:'[data-tab="maintenant"]',h:'Maintenant',s:'Dis-moi le temps que t’as, je te sors un plan qui rentre dedans.'},
+ {sel:'[data-tab="aujourdhui"]',h:'Aujourd’hui',s:'Ta journée pièce par pièce. Tu barres au fur et à mesure.'},
+ {sel:'[data-tab="chezmoi"]',h:'Chez moi',s:'Toutes tes pièces réunies, pour retrouver ou lancer n’importe quoi.'},
+ {sel:'[data-tab="plus"]',h:'Ajouter',s:coachMode==='manual'?'Ta maison est vide — appuie sur le + pour ajouter ta première tâche.':'Ajoute une tâche ici. Appuie sur le + pour essayer tout de suite.'}
+];}
+function openCoach(mode){coachMode=mode||'auto';coachIdx=0;el('coach').classList.add('show');renderCoach();}
+function coachNext(){const m=coachMarks();if(coachIdx>=m.length-1){closeCoach();return;}coachIdx++;renderCoach();}
+function closeCoach(){el('coach').classList.remove('show');el('coach').innerHTML='';toast('C’est prêt ✦',true);}
+function coachTap(){const mk=coachMarks()[coachIdx];const tgt=document.querySelector(mk.sel);el('coach').classList.remove('show');el('coach').innerHTML='';if(tgt)tgt.click();}
+function renderCoach(){const marks=coachMarks(),m=marks[coachIdx],last=coachIdx===marks.length-1;
+  const ph=document.querySelector('.phone').getBoundingClientRect();const tgt=document.querySelector(m.sel);
+  if(!tgt){closeCoach();return;}
+  const r=tgt.getBoundingClientRect(),pad=7;const x=r.left-ph.left,y=r.top-ph.top;const topHalf=y<ph.height/2;
+  const bw=244;let bx=Math.max(12,Math.min(x+r.width/2-bw/2,ph.width-bw-12));
+  const bstyle=topHalf?('left:'+bx+'px;top:'+(y+r.height+pad+12)+'px'):('left:'+bx+'px;bottom:'+(ph.height-y+pad+12)+'px');
+  el('coach').innerHTML=
+   '<div class="cm-spot" onclick="coachTap()" style="left:'+(x-pad)+'px;top:'+(y-pad)+'px;width:'+(r.width+2*pad)+'px;height:'+(r.height+2*pad)+'px"></div>'+
+   '<div class="cm-bubble" style="'+bstyle+'"><div class="cm-h">'+m.h+'</div><div class="cm-s">'+m.s+'</div>'+
+     '<div class="cm-row"><div class="cm-dots">'+marks.map((_,i)=>'<i class="'+(i===coachIdx?'on':'')+'"></i>').join('')+'</div>'+
+     '<div class="cm-btns">'+(last?'':'<span class="cm-skip" onclick="closeCoach()">Passer</span>')+'<button class="cm-next" onclick="coachNext()">'+(last?'Compris ✦':'Suivant')+'</button></div></div></div>';}
+function renderOnboard(){const o=el('onboard');let h='';
+  if(onboardStep==='appart'){
+    h='<div class="ob-step">Perso · 1/3</div><div class="ob-h">Tu habites en…</div><div class="ob-s">Pour te préparer les bonnes pièces.</div>'+
+      '<button class="hcard" onclick="chooseHousing(\'appart\')"><span class="hi"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2M10 21v-3h4v3"/></svg></span><span><span class="hn">Appartement</span><span class="hd">Entrée, salon, cuisine, sdb, chambre</span></span></button>'+
+      '<button class="hcard" onclick="chooseHousing(\'maison\')"><span class="hi"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.3V20h14V9.3"/><path d="M10 20v-5h4v5"/></svg></span><span><span class="hn">Maison</span><span class="hd">+ bureau, garage…</span></span></button>'+
+      '<div class="ob-pass" onclick="passStep()">Passer</div>';
+  }else if(onboardStep==='pieces'){
+    h='<div class="ob-step">Perso · 2/3</div><div class="ob-h">Tes pièces</div><div class="ob-s">Enlève ce que t’as pas, ajoute ce qui manque. Appuie sur un nom pour le changer.</div><div class="obrooms">';
+    ROOMS.forEach(r=>{const ic=ROOMICON[r.icon]||ROOMICON.generic;
+      if(editRoom===r.id)h+='<div class="obrt" style="--hue:'+r.hue+'"><svg class="ri" viewBox="0 0 24 24">'+ic+'</svg><input id="obEdit" value="'+esc(r.name)+'" onblur="commitEditRoom(\''+r.id+'\',this.value)" onkeydown="if(event.key===\'Enter\')this.blur()"></div>';
+      else h+='<div class="obrt" style="--hue:'+r.hue+'"><svg class="ri" viewBox="0 0 24 24">'+ic+'</svg><span class="nm" onclick="startEditRoom(\''+r.id+'\')">'+esc(r.name)+'</span><svg class="pen" viewBox="0 0 24 24" onclick="startEditRoom(\''+r.id+'\')"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><button class="rm" onclick="removeOnbRoom(\''+r.id+'\')">×</button></div>';
+    });
+    h+='<button class="obrt add'+(roomSug?' on':'')+'" onclick="toggleRoomSug()"><svg class="ri" viewBox="0 0 24 24" style="color:currentColor"><path d="M12 5v14M5 12h14"/></svg><span class="nm">Ajouter</span></button></div>';
+    if(roomSug){const have=ROOMS.map(r=>r.name.toLowerCase());
+      h+='<div class="obsug"><div class="obsug-h">Ajouter une pièce</div><div class="obsug-chips">'+
+        ROOMSUG.filter(s=>!have.includes(s.name.toLowerCase())).map(s=>'<button class="sugchip" onclick="addSugRoom(\''+s.name.replace(/'/g,"\\'")+'\',\''+s.icon+'\')">'+esc(s.name)+'</button>').join('')+
+        '<button class="sugchip other" onclick="addCustomRoom()">+ Autre</button></div></div>';
+    }
+    h+='<button class="btn-go ob-cont" onclick="passStep()">Continuer</button>'+
+      '<div class="ob-pass" onclick="passStep()">Passer</div>';
+  }else if(onboardStep==='remplissage'){
+    h='<div class="ob-step">Perso · 3/3</div><div class="ob-h">On démarre comment ?</div><div class="ob-s">Pour que ton premier plan ne tombe pas dans le vide.</div><div class="obopt">'+
+      '<button class="oboc on" onclick="chooseFill(\'auto\')"><div class="t">✦ Mets-moi quelques tâches <span class="rec">reco</span></div><div class="d">Je remplis chaque pièce avec les gestes classiques. Tu ajustes après.</div></button>'+
+      '<button class="oboc" onclick="chooseFill(\'manual\')"><div class="t">Je fais moi-même</div><div class="d">Pièce par pièce, à ton rythme. Tu pars d’une maison vide.</div></button></div>'+
+      '<div class="ob-pass" onclick="chooseFill(\'auto\')">Passer</div>';
+  }
+  o.innerHTML=h;}
+function updateMe(){const b=el('melbl');if(b)b.textContent=account?('Niveau '+levelInfo(xp).lvl):'Moi';}
+function goBack(){
+  if(nav.tab==='moi'){home();return;}
+  if(nav.tab==='chezmoi'&&nav.screen==='room'){go('chezmoi');return;}
+  if(nav.tab==='maintenant'){
+    if(nav.screen==='exec'){home();return;}
+    if(nav.screen==='plan'){if(nav.mode==='maison')go('chezmoi');else if(nav.mode==='piece')openPiecePicker();else home();return;}
+    if(nav.screen==='piecepick'){home();return;}
+  }
+}
+(function(){const scr=el('screen');let tsx=0,tsy=0,sk=false;const order=['maintenant','aujourdhui','chezmoi'];
+  scr.addEventListener('touchstart',e=>{const t=e.target;sk=!!(t.closest&&t.closest('input[type=range]'));const c=e.changedTouches[0];tsx=c.clientX;tsy=c.clientY;},{passive:true});
+  scr.addEventListener('touchend',e=>{if(sk)return;const c=e.changedTouches[0];const dx=c.clientX-tsx,dy=c.clientY-tsy;if(Math.abs(dx)<60||Math.abs(dy)>50)return;
+    const onTab=(nav.tab==='maintenant'&&nav.screen==='home')||nav.tab==='aujourdhui'||(nav.tab==='chezmoi'&&nav.screen!=='room');
+    if(dx>0){if(onTab){const i=order.indexOf(nav.tab);if(i>0)go(order[i-1]);}else goBack();}
+    else{if(onTab){const i=order.indexOf(nav.tab);if(i<order.length-1)go(order[i+1]);}}
+  },{passive:true});
+})();
 render();
 </script>
 </body>
