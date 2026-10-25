@@ -61,9 +61,9 @@ input,select{font:inherit;color:inherit}
 .tv{display:flex;align-items:baseline;gap:7px;margin-top:10px}
 .tv b{font-family:var(--serif);font-size:68px;line-height:.8;color:var(--teal-ink);font-variant-numeric:tabular-nums}
 .tv span{font-size:12px;color:var(--muted)}
-input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:26px;background:transparent;margin:12px 0 4px}
-input[type=range]::-webkit-slider-runnable-track{height:26px;border-radius:999px;background:var(--track)}
-input[type=range]::-moz-range-track{height:26px;border-radius:999px;background:var(--track)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:26px;background:transparent;margin:12px 0 4px;--fill:22%}
+input[type=range]::-webkit-slider-runnable-track{height:26px;border-radius:999px;background:linear-gradient(to right,var(--teal) 0,var(--teal) var(--fill),var(--track) var(--fill),var(--track) 100%)}
+input[type=range]::-moz-range-track{height:26px;border-radius:999px;background:linear-gradient(to right,var(--teal) 0,var(--teal) var(--fill),var(--track) var(--fill),var(--track) 100%)}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;margin-top:1px;border-radius:50%;background:var(--teal);border:3px solid var(--surface);box-shadow:0 1px 4px rgba(0,0,0,.25)}
 input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--teal);border:3px solid var(--surface);box-shadow:0 1px 4px rgba(0,0,0,.25)}
 .ticks{display:flex;justify-content:space-between;font-size:9.5px;color:var(--faint);font-variant-numeric:tabular-nums}
@@ -129,6 +129,47 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 /* room detail rows */
 .trow{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 13px;margin-top:8px}
 .trow .tx{flex:1;min-width:0}
+.trow .tx.tap{cursor:pointer}
+.paplist{margin-top:16px}
+.moitools{margin-top:18px}
+.rctl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:14px 2px 0;font-size:14px;color:var(--muted)}
+.rctl input[type=time]{font-size:14px;padding:7px 10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink)}
+.rlink{border:0;background:none;color:var(--teal-ink);font-weight:700;font-size:13px;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:4px}
+.rset{margin-top:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.rset label{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.rset input[type=number]{width:52px;text-align:center;font-size:13px;padding:5px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.rnow{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 1px 3px rgba(60,45,33,.06);padding:20px 22px;display:flex;flex-direction:column;gap:12px}
+.rnow .rz{font-family:var(--serif);font-size:17px;color:color-mix(in srgb,var(--hue) 74%,var(--ink))}
+.rnow .rtask{font-family:var(--serif);font-size:27px;line-height:1.1}
+.rnow .rmeta{font-size:13px;color:var(--muted)}
+.rnote{font-size:13px;background:color-mix(in srgb,var(--clay) 12%,var(--surface));color:var(--ink);border-radius:10px;padding:9px 12px}
+.rnow .rrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.rnow .execdone{width:auto;margin:0}
+.rsum{font-size:13px;color:var(--muted)}
+.rsum b{color:var(--ink)}
+.rhead2{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-family:var(--serif);font-size:19px;color:var(--ink);margin:24px 2px 10px}
+.rhead2 span{font-family:var(--sans);font-size:12.5px;color:var(--faint)}
+.rlist{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.rlist .plangrp{border-top:1px solid var(--line)}
+.rlist .plangrp:first-child{border-top:none}
+.rline{display:flex;align-items:center;gap:11px;padding:12px 15px;border-top:1px solid var(--line)}
+.rline .rt{flex:0 0 3.5em;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.rline .tx{flex:1;min-width:0}
+.rline .nm{font-size:14px;font-weight:500}
+.rline .mt{font-size:11.5px;color:var(--muted);margin-top:2px}
+.rline .rd{flex:0 0 auto;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.rline.cur{background:var(--teal-soft)}
+.rline.cur .nm{font-weight:700}
+.rline.brk .nm{color:var(--teal-ink);font-style:italic}
+.rline.done .nm{text-decoration:line-through;color:var(--muted)}
+.papintro{font-size:13px;color:var(--muted);line-height:1.5;margin:2px 2px 14px;max-width:34ch}
+.papempty{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center;color:var(--muted);font-size:13.5px}
+.trow.pap{cursor:pointer}
+.papdot{width:11px;height:11px;border-radius:50%;flex:none}
+.addhere{width:100%;margin-top:14px;background:var(--surface);border:1px dashed var(--teal);border-radius:14px;padding:13px;font:inherit;font-size:14px;font-weight:700;color:var(--teal-ink);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px}
+.addhere svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.delrow{width:100%;margin-top:6px;background:transparent;border:1px solid var(--line);border-radius:12px;padding:12px;font:inherit;font-size:13.5px;font-weight:700;color:var(--clay);cursor:pointer}
+.delrow.arm{background:color-mix(in srgb,var(--clay) 12%,var(--surface));border-color:var(--clay)}
 .trow .nm{font-size:14px;font-weight:600}
 .trow.done .nm{text-decoration:line-through;color:var(--muted)}
 .trow .mt{font-size:11px;color:var(--muted);margin-top:2px}
@@ -295,6 +336,113 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .filters{display:flex;gap:7px;margin:16px 0 0;flex-wrap:wrap}
 .fchip{border:1px solid var(--line);background:var(--surface);color:var(--muted);font-size:12px;font-weight:600;padding:7px 13px;border-radius:999px}
 .fchip.on{background:var(--teal);border-color:var(--teal);color:#fff}
+/* bouton démarrer le focus */
+.focusstart{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;background:var(--teal);color:#fff;border:0;border-radius:14px;padding:13px;font:inherit;font-size:14px;font-weight:700;margin:14px 0 4px;cursor:pointer}
+.focusstart svg{width:19px;height:19px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+/* session de focus plein écran */
+#focus{position:absolute;inset:0;z-index:58;background:var(--bg);display:none;flex-direction:column;
+  background-image:radial-gradient(120% 55% at 100% -8%,color-mix(in srgb,var(--clay) 11%,transparent),transparent 60%),radial-gradient(120% 60% at -10% 2%,color-mix(in srgb,var(--teal) 10%,transparent),transparent 55%)}
+#focus.show{display:flex}
+.fx-wrap{flex:1;display:flex;flex-direction:column;padding:28px 24px calc(28px + env(safe-area-inset-bottom,0px))}
+.fx-top{display:flex;align-items:center;justify-content:space-between}
+.fx-time{font-family:var(--serif);font-size:30px;color:var(--teal-ink);font-variant-numeric:tabular-nums;line-height:1}
+.fx-time.over{color:var(--clay)}
+.fx-close{background:none;border:0;color:var(--faint);font-weight:600;font-size:13px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.fx-mid{flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center}
+.fx-prog{font-size:12px;font-weight:700;color:var(--faint);letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px}
+.fx-room{font-family:var(--serif);font-style:italic;font-size:18px;margin-bottom:8px}
+.fx-task{font-family:var(--serif);font-size:34px;line-height:1.12;text-wrap:balance;margin-bottom:10px}
+.fx-mins{font-size:14px;color:var(--muted)}
+.fx-actions{display:flex;flex-direction:column;gap:12px;align-items:center}
+.fx-done{flex:none;width:100%}
+.fx-skip{background:none;border:0;color:var(--faint);font-weight:600;font-size:13.5px;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:6px}
+.fx-end{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.fx-star{font-size:40px;color:var(--teal);margin-bottom:14px}
+.fx-bh{font-family:var(--serif);font-size:32px;margin-bottom:8px}
+.fx-bs{font-size:14px;color:var(--muted);margin-bottom:26px;max-width:26ch}
+.fx-go{flex:none;width:100%;max-width:300px}
+/* Aujourd'hui : conteneur pièce + poignée + repli */
+.aujroom{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:4px 14px;margin-top:12px;transition:transform .16s ease}
+.aujroom:first-of-type{margin-top:16px}
+.aujroom.done{background:color-mix(in srgb,var(--surface) 60%,transparent);border-style:dashed}
+.aujroom.dragging{transition:none;z-index:6;position:relative;border-color:var(--teal);box-shadow:0 14px 30px color-mix(in srgb,var(--teal) 24%,transparent)}
+.aujroom.dragging .ajhandle{color:var(--teal-ink)}
+.aujroom .aline{padding:11px 0}
+.aujroom .aline:not(:last-child){border-bottom:1px solid var(--line)}
+.aujroom .aline:last-child{border-bottom:0}
+.aujroom .aroom{padding:9px 0 7px}
+.aujroom.done .aroomdone{margin:0;border-bottom:0;padding:8px 0}
+.aroom{margin:0}
+.aroom .ajhandle{display:flex;align-items:center;color:var(--faint);cursor:grab;touch-action:none;padding:4px 2px 4px 0;margin-left:-2px}
+.aroom .ajhandle svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.aroom .aroom-nm{cursor:pointer}
+.aroom .aroom-c{margin-left:auto;display:flex;align-items:center;gap:6px;font-family:var(--sans);font-style:normal;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer}
+.aroom .achev{width:16px;height:16px;fill:none;stroke:var(--faint);stroke-width:2;transition:transform .2s}
+.aroom .achev.col{transform:rotate(-90deg)}
+.aujbar{min-height:14px;margin-top:14px;display:flex;justify-content:flex-end}
+.aujreset{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 13px;font:inherit;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer}
+.aujreset svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+/* champ date */
+.datefield{margin-top:9px;width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font:inherit;font-size:14px;color:var(--ink)}
+/* Organiser : mes pièces + icônes */
+.obrooms.orgp{margin-top:16px}
+.obrt .ri-btn{border:0;background:none;padding:0;display:flex;cursor:pointer}
+.obrt .ri-btn .ri{width:20px;height:20px}
+.iconpick{margin-top:14px;background:color-mix(in srgb,var(--teal-soft) 40%,var(--surface));border:1px solid var(--line);border-radius:14px;padding:13px}
+.iconpick-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:9px}
+.iconcell{aspect-ratio:1;display:grid;place-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;cursor:pointer}
+.iconcell svg{width:24px;height:24px;fill:none;stroke:var(--ink);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.iconcell.on{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
+.iconcell.on svg{stroke:var(--teal-ink)}
+/* Organiser : ordre des pièces */
+.ordlist{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.ordrow{display:flex;align-items:center;gap:11px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 14px;transition:transform .16s ease}
+.ordrow.dragging{transition:none;z-index:6;position:relative;border-color:var(--teal);box-shadow:0 12px 28px color-mix(in srgb,var(--teal) 26%,transparent)}
+.ordrow .ordnum{font-family:var(--serif);font-size:19px;color:var(--teal-ink);width:20px;text-align:center}
+.ordrow .ajhandle{display:flex;color:var(--faint);cursor:grab;touch-action:none;padding:4px 0}
+.ordrow .ajhandle svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.ordrow .ri{width:20px;height:20px;flex:none;color:color-mix(in srgb,var(--hue) 68%,var(--ink));stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ordrow{gap:9px}
+.ordrow .ordnm{font-size:14.5px;font-weight:600;flex:1;min-width:0}
+.ordrow .ri-btn{border:0;background:none;padding:0;display:flex;cursor:pointer}
+.ordrow .ri-btn .ri{width:20px;height:20px;color:color-mix(in srgb,var(--hue) 68%,var(--ink));stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ordrow .ordedit{flex:1;min-width:0;font:inherit;font-size:14.5px;font-weight:600;border:0;background:transparent;outline:none;border-bottom:1.5px solid var(--teal);color:var(--ink)}
+.ordrow .pen{width:15px;height:15px;flex:none;color:var(--faint);stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;cursor:pointer}
+.ordrow .rm{border:0;background:none;color:var(--faint);font-size:18px;line-height:1;padding:0 2px;cursor:pointer;flex:none}
+.dsub2{font-size:12.5px;color:var(--muted);margin:4px 2px 12px;line-height:1.4}
+.lgadd{margin-top:12px;width:100%;border:1px dashed var(--line);background:transparent;border-radius:13px;padding:12px;font:inherit;font-size:13.5px;font-weight:600;color:var(--muted);cursor:pointer}
+.lgadd.on{border-color:var(--teal);color:var(--teal-ink)}
+/* Organiser : mon logement */
+.hopts{display:flex;gap:11px;margin-top:4px}
+.hopt{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px 10px;cursor:pointer;font:inherit;font-size:13px;font-weight:600;color:var(--ink)}
+.hopt svg{width:26px;height:26px;fill:none;stroke:var(--ink);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.hopt.on{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
+.hopt.on svg{stroke:var(--teal-ink)}
+.hhlist{display:flex;flex-direction:column;gap:9px;margin-top:2px}
+.hhempty{font-size:13px;color:var(--muted);padding:6px 2px}
+.hhrow{display:flex;align-items:center;gap:11px;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:11px 13px}
+.hhav{width:32px;height:32px;flex:none;border-radius:50%;background:color-mix(in srgb,var(--clay) 14%,var(--surface));color:var(--clay);font-family:var(--serif);font-size:16px;display:grid;place-items:center}
+.hhn{flex:1;font-size:14.5px;font-weight:600}
+.hhyou{font-size:10px;font-weight:700;color:var(--teal-ink);background:var(--teal-soft);padding:2px 8px;border-radius:999px;margin-left:6px;vertical-align:1px}
+.hhadd{display:flex;gap:9px;margin-top:12px}
+.hhadd input{flex:1;padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font:inherit;font-size:14px;color:var(--ink);outline:none}
+.hhaddbtn{background:var(--teal);color:#fff;border:0;border-radius:12px;padding:0 18px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.hhav.animal{background:color-mix(in srgb,var(--teal) 14%,var(--surface));color:var(--teal-ink)}
+.hhav.animal svg{width:18px;height:18px;fill:currentColor;stroke:none}
+.hhkind{display:flex;gap:7px;margin-top:12px}
+.kbtn{border:1px solid var(--line);background:var(--surface);color:var(--muted);font:inherit;font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:999px;cursor:pointer}
+.kbtn.on{background:var(--teal);border-color:var(--teal);color:#fff}
+/* type en réglage (segmenté) */
+.typeseg{display:inline-flex;background:var(--track);border-radius:999px;padding:3px;gap:2px}
+.segbtn{border:0;background:none;font:inherit;font-size:13px;font-weight:600;color:var(--muted);padding:8px 18px;border-radius:999px;cursor:pointer}
+.segbtn.on{background:var(--surface);color:var(--teal-ink);box-shadow:0 1px 3px rgba(60,45,33,.12)}
+/* pop-up modifier les pièces */
+#piecesMod{position:absolute;inset:0;z-index:56;display:none;background:rgba(38,29,22,.5)}
+#piecesMod.show{display:flex;align-items:flex-end}
+.pm-sheet{background:var(--surface);width:100%;border-radius:22px 22px 0 0;max-height:84vh;overflow-y:auto;padding:12px 18px calc(22px + env(safe-area-inset-bottom,0px));box-shadow:0 -12px 40px rgba(38,29,22,.28)}
+.pm-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}
+.pm-h{font-family:var(--serif);font-size:24px}
+.pm-done{background:var(--teal);color:#fff;border:0;border-radius:999px;padding:8px 16px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
 .apill.encours{background:var(--teal-soft);color:var(--teal-ink)}
 /* Coach première visite */
 .coachhome{margin-top:18px;background:var(--ink);color:var(--bg);border-radius:12px;padding:11px 14px;font-size:12.5px;font-weight:600;text-align:center}
@@ -374,6 +522,12 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .delta{font-size:12px;font-weight:700;color:var(--muted);background:var(--track);padding:2px 9px;border-radius:999px;align-self:center}
 .delta.up{color:var(--teal-ink);background:var(--teal-soft)}
 .dashnote{background:color-mix(in srgb,var(--teal-soft) 45%,var(--surface));border:1px solid var(--line);border-radius:14px;padding:14px;font-size:13px;color:var(--teal-ink);line-height:1.4;margin-top:4px}
+.dashempty{text-align:center;padding:48px 18px 20px;display:flex;flex-direction:column;align-items:center}
+.dashempty .de-ic{width:76px;height:76px;border-radius:22px;background:var(--teal-soft);display:grid;place-items:center;margin-bottom:20px}
+.dashempty .de-ic svg{width:38px;height:38px;fill:none;stroke:var(--teal-ink);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.dashempty .de-h{font-family:var(--serif);font-size:28px;color:var(--ink);margin-bottom:8px}
+.dashempty .de-d{font-size:13.5px;color:var(--muted);line-height:1.5;max-width:28ch;margin-bottom:22px}
+.dashempty .de-preview{border:0;background:none;color:var(--faint);font:inherit;font-size:13px;font-weight:600;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 /* carte devenir premium */
 .joincard{background:color-mix(in srgb,var(--clay) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--clay) 30%,var(--line));border-radius:16px;padding:16px}
 .joincard .jc-h{font-family:var(--serif);font-size:20px;color:var(--ink);display:flex;align-items:center;gap:7px}
@@ -381,6 +535,91 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .joincard .jc-d{font-size:12.5px;color:var(--muted);margin-top:5px;line-height:1.4}
 .joincard .jc-go{flex:none;width:100%;margin-top:12px}
 .joincard.prem{background:color-mix(in srgb,var(--teal-soft) 50%,var(--surface));border-color:color-mix(in srgb,var(--teal) 30%,var(--line))}
+.joincard .jc-manage{margin-top:12px;width:100%;background:transparent;border:1px solid color-mix(in srgb,var(--teal) 40%,var(--line));color:var(--teal-ink);border-radius:12px;padding:11px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+/* Mon compte */
+.acctid{display:flex;align-items:center;gap:13px;margin-top:16px;margin-bottom:4px}
+.acctid .acctav{width:48px;height:48px;flex:none;border-radius:50%;background:color-mix(in srgb,var(--clay) 15%,var(--surface));color:var(--clay);font-family:var(--serif);font-size:24px;display:grid;place-items:center}
+.acctid .acctname{font-size:17px;font-weight:700}
+.acctid .acctmail{font-size:13px;color:var(--muted);margin-top:1px}
+.toggrow{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 15px;width:100%;text-align:left}
+.toggrow .sett{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.toggrow .setn{font-size:14.5px;font-weight:700;color:var(--ink)}
+.toggrow .sets{font-size:11.5px;color:var(--muted)}
+.switch{flex:none;width:42px;height:25px;border-radius:999px;background:var(--track);position:relative;transition:background .2s}
+.switch.on{background:var(--teal)}
+.switch .knob{position:absolute;top:3px;left:3px;width:19px;height:19px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:left .2s}
+.switch.on .knob{left:20px}
+.dangerrow{width:100%;margin-top:9px;background:transparent;border:1px solid color-mix(in srgb,var(--late) 40%,var(--line));color:var(--late);border-radius:13px;padding:13px;font:inherit;font-size:13.5px;font-weight:600;text-align:center;cursor:pointer}
+.dangerrow:first-of-type{margin-top:2px}
+.mailnote{font-size:12px;color:var(--muted);margin:2px 2px 10px;line-height:1.4}
+.exportcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 15px;display:flex;align-items:center;gap:12px}
+.exportcard .sett{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.exportcard .setn{font-size:14.5px;font-weight:700;color:var(--ink)}
+.exportcard .sets{font-size:11.5px;color:var(--muted)}
+.exportfmts{display:flex;gap:8px;flex:none}
+.fmtchip{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:8px 15px;font:inherit;font-size:13px;font-weight:700;color:var(--teal-ink);cursor:pointer}
+.logoutrow{width:100%;margin-top:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;font:inherit;font-size:14.5px;font-weight:700;color:var(--ink);text-align:center;cursor:pointer}
+.moisec.danger{color:var(--late)}
+/* Aide et FAQ */
+.faqtheme{font-family:var(--serif);font-weight:400;font-size:17px;color:var(--teal-ink);margin:20px 2px 9px}
+.faqtheme:first-of-type{margin-top:4px}
+.faq{display:flex;flex-direction:column;gap:9px}
+.faqitem{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.faqitem.open{border-color:color-mix(in srgb,var(--teal) 30%,var(--line))}
+.faqq{width:100%;display:flex;align-items:center;gap:12px;background:none;border:0;padding:14px 15px;text-align:left;cursor:pointer}
+.faqq span{flex:1;font-size:14px;font-weight:700;color:var(--ink);line-height:1.3}
+.faqchev{width:17px;height:17px;flex:none;fill:none;stroke:var(--faint);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.faqitem.open .faqchev{transform:rotate(180deg)}
+.faqa{padding:0 15px 15px;font-size:13px;color:var(--muted);line-height:1.5}
+.faqa .faqul{margin:6px 0 0;padding-left:18px}
+.faqa .faqul li{margin-top:7px}
+.finl{display:inline-flex;width:16px;height:16px;vertical-align:-3px;margin:0 1px}
+.finl svg{width:16px;height:16px;fill:none;stroke:var(--clay);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.plusic{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--teal);vertical-align:-4px;margin:0 1px}
+.plusic svg{width:11px;height:11px;fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.addphoto{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:9px 13px;border:1px dashed var(--line);border-radius:12px;background:var(--bg);font-size:13px;font-weight:600;color:var(--teal-ink);cursor:pointer}
+.addphoto svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.addphoto.has{border-style:solid;border-color:var(--teal);color:var(--teal-ink)}
+.contactcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.ctfield{width:100%;border:1px solid var(--line);border-radius:12px;background:var(--bg);font:inherit;font-size:14px;color:var(--ink);padding:11px 13px;outline:none}
+.ctarea{resize:vertical;min-height:88px;line-height:1.4}
+.ct-send{flex:none;width:100%}
+.faqa .ctfield{margin-top:2px}
+.faqa .ct-send{margin-top:10px}
+/* noter l'app */
+.ratecard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center}
+.rate-stars{display:flex;justify-content:center;gap:8px}
+.rstar{border:0;background:none;padding:2px;cursor:pointer;line-height:0}
+.rstar svg{width:34px;height:34px;fill:none;stroke:var(--faint);stroke-width:1.4}
+.rstar.on svg{fill:var(--clay);stroke:var(--clay)}
+.ratecard .rate-s{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.4}
+/* pop-up store */
+#rateMod{position:absolute;inset:0;z-index:57;display:none;background:rgba(38,29,22,.5)}
+#rateMod.show{display:flex;align-items:flex-end}
+.rate-sheet{background:var(--surface);width:100%;border-radius:22px 22px 0 0;padding:12px 22px calc(24px + env(safe-area-inset-bottom,0px));text-align:center;box-shadow:0 -12px 40px rgba(38,29,22,.28)}
+.rate-top{display:flex;justify-content:center;gap:7px;margin:8px 0 14px}
+.rstar.big svg{width:30px;height:30px;fill:none;stroke:var(--clay);stroke-width:1.4}
+.rstar.big.on svg{fill:var(--clay)}
+.rate-bh{font-family:var(--serif);font-size:24px;margin-bottom:8px}
+.rate-bs{font-size:13.5px;color:var(--muted);line-height:1.5;max-width:30ch;margin:0 auto 18px}
+.rate-go{flex:none;width:100%}
+.rate-later{text-align:center;padding:15px 0 2px;color:var(--faint);font-weight:600;font-size:13.5px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+#guideMod{position:absolute;inset:0;z-index:57;display:none;background:rgba(38,29,22,.5)}
+#guideMod.show{display:flex;align-items:flex-end}
+.guide-sheet{background:var(--surface);width:100%;border-radius:22px 22px 0 0;padding:12px 22px calc(22px + env(safe-area-inset-bottom,0px));text-align:center;box-shadow:0 -12px 40px rgba(38,29,22,.28)}
+.guide-ic{width:58px;height:58px;margin:10px auto 14px;border-radius:17px;background:color-mix(in srgb,var(--clay) 12%,var(--surface));display:grid;place-items:center}
+.guide-ic .finl,.guide-ic .plusic{width:30px;height:30px;vertical-align:0;margin:0}
+.guide-ic .finl svg{width:28px;height:28px}
+.guide-ic .plusic{width:34px;height:34px}
+.guide-ic .plusic svg{width:19px;height:19px}
+.guide-h{font-family:var(--serif);font-size:26px;margin-bottom:8px}
+.guide-s{font-size:14px;color:var(--muted);line-height:1.5;max-width:32ch;margin:0 auto 18px}
+.guide-dots{display:flex;justify-content:center;gap:7px;margin-bottom:18px}
+.guide-dots i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.guide-dots i.on{background:var(--clay);width:20px;border-radius:4px}
+.guide-row{display:flex;align-items:center;gap:12px}
+.guide-skip{flex:none;color:var(--faint);font-weight:700;font-size:14px;cursor:pointer;padding:12px 4px}
+.guide-next{flex:1}
 .ob-step{font-size:11px;font-weight:700;color:var(--clay);letter-spacing:.06em;text-transform:uppercase}
 .ob-h{font-family:var(--serif);font-size:32px;line-height:1.08;margin:8px 0 4px;text-wrap:balance}
 .ob-s{font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.4;max-width:30ch}
@@ -418,7 +657,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 #meBtn .melbl{font-size:12px;font-weight:700;color:var(--ink);white-space:nowrap}
 /* Centrages */
 .planbody{min-height:calc(100dvh - 250px);display:flex;flex-direction:column;justify-content:center}
-.victory{min-height:calc(100dvh - 280px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.victory{min-height:calc(100dvh - 180px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .victory .stars{display:flex;gap:11px;font-size:26px;margin-bottom:14px}
 .victory .st1{color:var(--teal)} .victory .st2{color:var(--ink)} .victory .st3{color:var(--clay)}
 .victory .vbig{font-family:var(--serif);font-size:36px;line-height:1.1;color:var(--ink)}
@@ -434,7 +673,9 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 /* Espacement accueil + pop-up plan + confettis */
 .door.solo{margin-top:20px}
 .victory{position:relative}
-.victory .cf{position:absolute;opacity:.92;pointer-events:none}
+.victory .vcontent{position:relative;z-index:1}
+.vfx{position:fixed;inset:0;width:100%;height:100%;z-index:4;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.vfx{display:none}}
 .plansheet{max-height:82vh;overflow-y:auto}
 .pop-grip{width:40px;height:4px;border-radius:999px;background:var(--line);margin:2px auto 14px}
 .pop-h{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--muted);margin:0 2px 2px}
@@ -460,6 +701,9 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
     <button class="tab" data-tab="chezmoi" aria-label="Chez moi">
       <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.3V20h14V9.3"/><path d="M10 20v-5h4v5"/></svg>
     </button>
+    <button class="tab" data-tab="papiers" id="papTab" aria-label="Mes papiers" style="display:none">
+      <svg viewBox="0 0 24 24"><path d="M3.5 7a1.6 1.6 0 0 1 1.6-1.6h3.3a1.6 1.6 0 0 1 1.13.47l1 1a1.6 1.6 0 0 0 1.13.47h6.24A1.6 1.6 0 0 1 20.5 9v8a1.6 1.6 0 0 1-1.6 1.6H5.1A1.6 1.6 0 0 1 3.5 17z"/></svg>
+    </button>
     <button class="tab add" data-tab="plus" aria-label="Ajouter une tâche">
       <span class="pl"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
     </button>
@@ -480,6 +724,10 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   <div id="onboard"></div>
   <div id="coach"></div>
   <div id="prem"></div>
+  <div id="focus"></div>
+  <div id="piecesMod"></div>
+  <div id="rateMod"></div>
+  <div id="guideMod"></div>
 
   <div class="scrim" id="scrim">
     <div class="sheet">
@@ -512,11 +760,123 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
       </div>
       <div class="fl">
         <label>Déjà fait ?</label>
-        <div class="addchips"><button type="button" class="dchip on" id="dchipNo" onclick="setAddDone(false)">Jamais</button><button type="button" class="dchip" id="dchipYes" onclick="setAddDone(true)">Fait aujourd'hui</button></div>
+        <div class="addchips"><button type="button" class="dchip on" id="dchipNo" onclick="setDoneMode('never')">Jamais</button><button type="button" class="dchip" id="dchipYes" onclick="setDoneMode('today')">Fait aujourd'hui</button><button type="button" class="dchip" id="dchipDate" onclick="setDoneMode('date')">À une date</button></div>
+        <input type="date" id="addDate" class="datefield" style="display:none">
       </div>
       <div class="act">
         <button class="cancel" onclick="closeSheet()">Annuler</button>
         <button class="save" onclick="addTask()">Ajouter</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="scrim" id="editScrim">
+    <div class="sheet">
+      <h3>Modifier la tâche</h3>
+      <div class="fl">
+        <label>Quoi ?</label>
+        <input id="editLabel" autocomplete="off">
+      </div>
+      <div class="fl two">
+        <div>
+          <label>Chaque</label>
+          <select id="editFreq">
+            <option value="1j">jour</option>
+            <option value="2j">2 jours</option>
+            <option value="1s">semaine</option>
+            <option value="2s">2 semaines</option>
+            <option value="1m">mois</option>
+            <option value="3m">trimestre</option>
+            <option value="1a">an</option>
+          </select>
+        </div>
+        <div>
+          <label>Temps (min)</label>
+          <input type="number" id="editMins" min="1" max="240" inputmode="numeric">
+        </div>
+      </div>
+      <button type="button" class="delrow" id="delBtn" onclick="deleteTask()">Supprimer cette tâche</button>
+      <div class="act">
+        <button class="cancel" onclick="closeEdit()">Annuler</button>
+        <button class="save" onclick="saveEdit()">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="scrim" id="papierScrim">
+    <div class="sheet">
+      <h3 id="papTitle">Ajouter un papier</h3>
+      <div class="fl">
+        <label>Quoi ?</label>
+        <input id="papName" placeholder="Ex. Assurance habitation" autocomplete="off">
+      </div>
+      <div class="fl two">
+        <div>
+          <label>Catégorie</label>
+          <select id="papCat">
+            <option value="assurance">Assurance</option>
+            <option value="taxes">Impôts locaux</option>
+            <option value="energie">Énergie & contrats</option>
+            <option value="entretien">Entretien</option>
+            <option value="charges">Charges</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+        <div>
+          <label>Échéance</label>
+          <input type="date" id="papDate" class="datefield">
+        </div>
+      </div>
+      <div class="fl two">
+        <div>
+          <label>Récurrence</label>
+          <select id="papFreq">
+            <option value="ponctuel">ponctuel</option>
+            <option value="1m">chaque mois</option>
+            <option value="3m">chaque trimestre</option>
+            <option value="6m">chaque semestre</option>
+            <option value="1a" selected>chaque année</option>
+          </select>
+        </div>
+        <div>
+          <label>Rappel</label>
+          <select id="papRemind">
+            <option value="7">7 jours avant</option>
+            <option value="15">15 jours avant</option>
+            <option value="30" selected>30 jours avant</option>
+            <option value="60">60 jours avant</option>
+          </select>
+        </div>
+      </div>
+      <button type="button" class="delrow" id="papDel" onclick="deletePapier()">Supprimer ce papier</button>
+      <div class="act">
+        <button class="cancel" onclick="closePapierSheet()">Annuler</button>
+        <button class="save" onclick="savePapier()">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="scrim" id="printempsScrim">
+    <div class="sheet">
+      <h3 id="prTitle">Ajouter une corvée</h3>
+      <div class="fl">
+        <label>Quoi ?</label>
+        <input id="prName" placeholder="Ex. Nettoyer le four" autocomplete="off">
+      </div>
+      <div class="fl two">
+        <div>
+          <label>Pièce</label>
+          <select id="prRoom"></select>
+        </div>
+        <div>
+          <label>Durée (min)</label>
+          <input type="number" id="prMins" min="1" max="120" value="10" inputmode="numeric">
+        </div>
+      </div>
+      <button type="button" class="delrow" id="prDel" onclick="deletePrintemps()">Supprimer cette mini-tâche</button>
+      <div class="act">
+        <button class="cancel" onclick="closePrintempsSheet()">Annuler</button>
+        <button class="save" onclick="savePrintemps()">Enregistrer</button>
       </div>
     </div>
   </div>
@@ -539,8 +899,20 @@ const ROOMICON={
   bed:'<path d="M3 8v10M3 13h13a5 5 0 0 1 5 5M21 18v-3"/><rect x="6" y="9.5" width="5" height="3" rx="1"/>',
   desk:'<rect x="3" y="5" width="13" height="8" rx="1"/><path d="M9 13v3M6 16h6"/><path d="M20 7v9"/>',
   garage:'<path d="M3 21V9l9-5 9 5v12"/><path d="M6 21v-7h12v7"/><path d="M6 17h12"/>',
-  generic:'<path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/>'
+  generic:'<path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/>',
+  washer:'<rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="13" r="4.3"/><circle cx="8" cy="6.5" r=".6"/><circle cx="10.4" cy="6.5" r=".6"/>',
+  plant:'<path d="M12 21v-7"/><path d="M12 14c-2.6 0-4.5-2-4.5-4.6C10.1 9.4 12 11.4 12 14z"/><path d="M12 13c0-2.6 1.9-4.6 4.5-4.6C16.5 11 14.6 13 12 13z"/><path d="M8 21h8"/>',
+  stairs:'<path d="M4 20h3.5v-3.5h3.5V13h3.5V9.5H21"/>',
+  baby:'<circle cx="12" cy="7.5" r="3"/><path d="M6.5 20c0-3.4 2.5-5.5 5.5-5.5s5.5 2.1 5.5 5.5"/><path d="M10.6 7.5h.01M13.4 7.5h.01"/>',
+  tv:'<rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/>',
+  books:'<path d="M5 4h8.5a1 1 0 0 1 1 1v15H6a1 1 0 0 1-1-1z"/><path d="M9 4v16"/><path d="M14.5 7l3.4-.9 2.4 13.6-3.4.9"/>',
+  car:'<path d="M5 13.5l1.6-4.3A2 2 0 0 1 8.5 8h7a2 2 0 0 1 1.9 1.2L19 13.5V18h-2v-1.6H7V18H5z"/><circle cx="8" cy="15.6" r="1.1"/><circle cx="16" cy="15.6" r="1.1"/>',
+  box:'<path d="M3 8l9-4 9 4-9 4z"/><path d="M3 8v8l9 4 9-4V8"/><path d="M12 12v8"/>',
+  tools:'<path d="M14.6 6.6a3 3 0 0 0-4 4l-5.4 5.4 2 2 5.4-5.4a3 3 0 0 0 4-4l-2 2-2-.1-.1-2z"/>',
+  paw:'<ellipse cx="7.6" cy="10" rx="1.4" ry="1.9"/><ellipse cx="12" cy="8.4" rx="1.5" ry="2.1"/><ellipse cx="16.4" cy="10" rx="1.4" ry="1.9"/><path d="M12 12.4c-2.5 0-4 2-4 3.9A1.7 1.7 0 0 0 9.8 18c1 0 1.5-.6 2.2-.6s1.2.6 2.2.6a1.7 1.7 0 0 0 1.8-1.7c0-1.9-1.5-3.9-4-3.9z"/>',
+  gym:'<circle cx="12" cy="12" r="8"/><path d="M7 12h10M9 9v6M15 9v6"/>'
 };
+const ICONPICK=['generic','door','sofa','tv','cutlery','bath','bed','baby','desk','books','washer','plant','box','stairs','car','garage','tools','gym','paw'];
 let TID=0;
 function T(room,name,mins,state,freq,pts){return{id:++TID,room,name,mins,state,freq,pts,done:false};}
 let tasks=[
@@ -566,7 +938,84 @@ const RANK={ok:0,soon:1,todo:2,late:3};
 const LVLNAMES=['Campement','Nid douillet','Chez-soi','Cocon','Maisonnée','Petit havre','Refuge','Nid parfait','Palais douillet'];
 
 let xp=0, mins=30;
-let account=false, acctPrompted=false, onboardStep=null, housing=null, fillChoice='auto', editRoom=null, showCoach=true, premium=false;
+// TESTS : parcours d'inscription désactivé (compte simulé actif). Remettre account=false et showCoach=true pour réactiver fenêtre de compte + onboarding + visite guidée.
+let account=true, acctPrompted=true, onboardStep=null, housing=null, fillChoice='auto', editRoom=null, showCoach=false, premium=false, firstWeek=true;
+let doneMode='never';
+let notifs={echeances:true, essai:true, jour:false, bilan:true}, mailprefs={marketing:false, produit:false, newsletter:false};
+const ACCT={name:'Aurélie',email:'aurelie@exemple.fr'};
+const NOTIFTYPES=[['echeances','Échéances','Avant qu’une échéance maison arrive'],['essai','Fin d’essai','Avant la fin de ton essai premium'],['jour','Rappel du jour','Un petit coup de pouce quotidien'],['bilan','Bilan de la semaine','Ton récap du dimanche']];
+const MAILTYPES=[['marketing','Offres et promotions','Nos bons plans et réductions'],['produit','Infos produit','Nouveautés et mises à jour de l’app'],['newsletter','Newsletter','Conseils rangement et TDAH']];
+let faqOpen=null, rating=0, attachPhoto={ct:null,bug:null};
+let PID=0;
+function P(name,cat,due,freq,remind){return{id:++PID,name,cat,due,freq,remind};}
+let papiers=[
+  P('Taxe foncière','taxes','2026-10-15','1a',30),
+  P('Assurance habitation','assurance','2026-11-20','1a',30),
+  P('Ramonage cheminée','entretien','2026-12-15','1a',30),
+  P('Entretien chaudière','entretien','2027-02-10','1a',30),
+  P('Contrat électricité','energie','2027-04-01','1a',30),
+];
+const PAPCAT=[['assurance','Assurance','#3f8a86'],['taxes','Impôts locaux','#b23a48'],['energie','Énergie & contrats','#5f8050'],['entretien','Entretien','#c0882a'],['charges','Charges','#875f87'],['autre','Autre','#8d7e6c']];
+const PAPFREQ={ponctuel:'ponctuel','1m':'chaque mois','3m':'chaque trimestre','6m':'chaque semestre','1a':'chaque année'};
+function papCat(id){return PAPCAT.find(c=>c[0]===id)||PAPCAT[PAPCAT.length-1];}
+// Grand reset : planning horodaté, une mini-tâche à la fois, avec des pauses à cocher et une heure de fin.
+let PRID=0;
+function PR(room,label,mins,note){return{id:'r'+(++PRID),room,label,mins,note:note||''};}
+let resetTasks=[
+  PR('cuisine','Vider et nettoyer le frigo',15,'Jette le périmé, un coup d’éponge sur les clayettes.'),
+  PR('cuisine','Dégraisser la plaque et la hotte',12,''),
+  PR('cuisine','Nettoyer le four',15,''),
+  PR('cuisine','Détartrer la bouilloire',5,''),
+  PR('salon','Laver les vitres',12,''),
+  PR('salon','Dépoussiérer derrière les meubles',10,''),
+  PR('salon','Aspirer sous le canapé',6,''),
+  PR('chambre','Retourner le matelas',5,''),
+  PR('chambre','Laver la couette et les oreillers',8,'Lance la machine, elle tourne pendant que tu continues.'),
+  PR('sdb','Détartrer la robinetterie',8,''),
+  PR('sdb','Récurer les joints de douche',12,''),
+  PR('entree','Nettoyer les plinthes',8,''),
+];
+let reset={startAt:'09:00', brk:5, every:40, done:{}};
+let resetSet=false;
+const RBREAKS=['Pause : un grand verre d’eau','Pause : t’asseoir, sans écran','Pause : fenêtre ouverte, trois respirations','Pause : un petit snack','Pause : une chanson que tu aimes'];
+function hm(s){const p=String(s||'0:0').split(':').map(Number);return(p[0]||0)*60+(p[1]||0);}
+function fmtHM(m){m=Math.round(m);const h=Math.floor(m/60)%24;return h+' h '+String(((m%60)+60)%60).padStart(2,'0');}
+function nowM(){const d=new Date();return d.getHours()*60+d.getMinutes();}
+function resetSeq(){
+  const brk=Number(reset.brk)||0, every=Math.max(15,Number(reset.every)||40);
+  const seq=[];let work=0,bi=0;
+  resetTasks.forEach(t=>{
+    if(brk>0&&work>0&&work+t.mins>every){seq.push({id:'brk'+bi,kind:'brk',label:RBREAKS[bi%RBREAKS.length],mins:brk});bi++;work=0;}
+    seq.push({id:t.id,kind:'task',room:t.room,label:t.label,note:t.note,mins:t.mins});work+=t.mins;
+  });
+  let t=hm(reset.startAt||'09:00');seq.forEach(x=>{x.start=t;t+=x.mins;});
+  return{seq,end:t};
+}
+const SILH='<span class="finl"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20c0-4.2 3.4-7 7.5-7s7.5 2.8 7.5 7"/></svg></span>';
+const PNOW='<span class="finl"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 1.8"/></svg></span>';
+const PTODAY='<span class="finl"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><circle cx="12" cy="15" r="2.2"/></svg></span>';
+const PHOME='<span class="finl"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.3V20h14V9.3"/><path d="M10 20v-5h4v5"/></svg></span>';
+const PLUSIC='<span class="plusic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>';
+const FAQTHEMES=[['demarrer','Bien démarrer'],['taches','Pièces et tâches'],['premium','Abonnement'],['compte','Compte et données']];
+const FAQ=[
+ ['Est-ce que cette app est faite pour moi ?','Si tu es TDAH, oui. Elle a été pensée et codée par une personne TDAH, pour des cerveaux TDAH : une seule tâche à la fois, des plans qui décident à ta place quand tu es paralysée, zéro culpabilisation et du concret. Pas un outil de productivité générique repeint en joli, un truc fait pour la façon dont ton attention marche vraiment.','demarrer'],
+ ['Comment utiliser l’app au mieux ?','Quatre réflexes qui changent tout :<ul class="faqul"><li>Mets tes vraies pièces et classe-les par priorité dans <i>Mon logement</i> : l’app s’en sert pour choisir à ta place.</li><li>Quand tu bloques, passe par '+PNOW+', donne ton temps dispo et laisse-la te faire le plan au lieu de décider toi-même.</li><li>Lance un <i>focus</i> pour les grosses sessions : une seule tâche à la fois en plein écran, zéro distraction.</li><li>Ne cherche pas à tout finir. Une tâche cochée, c’est déjà gagné : l’app garde le reste pour la prochaine fois, sans te culpabiliser.</li></ul>','demarrer'],
+ ['Comment marche <i>Choisis pour moi</i> ?','Avec le curseur, tu indiques combien de temps tu as devant toi et tu laisses l’app te composer un plan qui rentre dedans, pièce par pièce. Elle te dit par où commencer, tu n’as plus à décider.','demarrer'],
+ ['Quelle est la différence entre '+PNOW+' et '+PTODAY+' ?',PNOW+' te fait un plan sur mesure selon le temps que tu as là, tout de suite : tu donnes tes minutes, l’app choisit les tâches.<br><br>'+PTODAY+', ce sont tes routines : ce qui revient régulièrement, pièce par pièce, à cocher à ton rythme.<br><br>L’un décide pour toi quand tu es perdue, l’autre déroule tes habitudes.','demarrer'],
+ ['Comment marche le <i>focus</i> dans '+PHOME+' ?','Le <i>focus</i>, c’est pour les grosses sessions ménage. Dans '+PHOME+', appuie sur <i>Toute la maison</i> pour afficher ton plan, puis <i>Démarrer le focus</i> : l’app passe en plein écran et t’affiche une seule tâche à la fois avec un minuteur. Tu fais, tu valides, elle enchaîne. Pour les tâches du quotidien, ça se passe plutôt dans '+PTODAY+'.','demarrer'],
+ ['Comment ajouter des tâches ?','Appuie sur le '+PLUSIC+' en bas de l’écran, accessible partout. Tu choisis la ou les pièces, le nom, la durée et la fréquence. C’est ajouté.<br><br>Tu peux aussi ouvrir une pièce depuis '+PHOME+' et utiliser <i>Ajouter une tâche</i> : elle sera déjà rangée dans la bonne pièce.','taches'],
+ ['Comment modifier une tâche ?','Ouvre la pièce concernée dans '+PHOME+' et touche la tâche pour changer son nom, sa durée ou sa fréquence.','taches'],
+ ['Comment ajouter ou renommer une pièce ?','Va dans '+SILH+', puis <i>Mon logement</i>, puis <i>Modifier mes pièces</i>. Tu peux renommer, ajouter, choisir les icônes et réordonner par priorité en glissant.','taches'],
+ ['C’est gratuit ?','Oui. Tout le cœur de l’app est gratuit : '+PNOW+', '+PTODAY+', '+PHOME+' et ton <i>focus</i>. Pas de pub, pas de limite de temps.','premium'],
+ ['Qu’est-ce qui change entre la version gratuite et la version payante ?','Le gratuit organise ce que tu lui dis : tes plans, ta journée, tes pièces.<br><br>Le premium réfléchit à ta place : il découpe tes tâches en petits gestes, suit tes échéances maison, estime les durées et débloque l’Admin pour tes papiers et démarches (impôts, contrats…).<br><br>D’autres nouveautés arrivent prochainement. Inscris-toi à notre newsletter pour être au courant dès que ça arrive !','premium'],
+ ['Comment annuler mon abonnement ?','L’abonnement se gère depuis ton compte App Store ou Google Play, dans tes abonnements. Tu gardes l’accès jusqu’à la fin de la période déjà payée.','premium'],
+ ['Est-ce qu’il y a un délai de rétractation ?','Les 7 jours d’essai te laissent tout tester sans payer, donc sans risque. Et pas de piège : une notification te prévient avant la fin de l’essai pour que tu puisses annuler à temps si ce n’est pas pour toi (coucou le TDAH). Ensuite, les remboursements passent par les règles de l’App Store ou de Google Play. Le délai de rétractation classique de 14 jours ne s’applique en général pas aux contenus numériques dès qu’on commence à s’en servir.','premium'],
+ ['Mes données sont-elles en sécurité ?','Tes données sont stockées en sécurité sur des serveurs situés en Europe, ce qui te laisse retrouver ton ménage sur plusieurs appareils, ton téléphone comme ton iPad. Tu peux en télécharger une copie en JSON ou CSV et tout supprimer quand tu veux.','compte'],
+ ['Comment supprimer mon compte ?','Va dans '+SILH+', puis Mon compte, puis <i>Supprimer mon compte</i> tout en bas, dans la zone de danger. Ça efface ton compte et tes données.','compte']
+];
+let focusEnd=null, focusTimer=null;
+let aujOrder=null, aujCollapsed=new Set(), dragRoom=null, dragEl=null, dragStartY=0;
+let household=[{name:'Moi',owner:true}], orgEdit=null, iconPickRoom=null, ordDragEl=null, ordDragStartY=0;
 let nav={tab:'maintenant',screen:'home',mode:null,room:null};
 let planVariant=0, execIds=[], planOpen=false, chezFilter='afaire';
 let addRooms=new Set(), addDone=false;
@@ -629,29 +1078,41 @@ function toggleTask(id){const t=tasks.find(x=>x.id===id);if(!t)return;
 let toastT;
 function toast(msg,lvl){const el2=el('toast');el2.textContent=msg;el2.className='toast show'+(lvl?' lvl':'');clearTimeout(toastT);toastT=setTimeout(()=>el2.className='toast'+(lvl?' lvl':''),2200);}
 
-function go(tab){if(tab==='plus'){openSheet();return;}nav={tab,screen:tab==='maintenant'?'home':'list',mode:null,room:null};render();}
+function go(tab){if(tab==='plus'){openSheet();return;}if(tab==='papiers'){openPapiers();return;}nav={tab,screen:tab==='maintenant'?'home':'list',mode:null,room:null};render();}
 function openPlan(mode,rid){if(mode==='choisis'){planVariant=0;planOpen=false;}nav={tab:'maintenant',screen:'plan',mode,room:rid||null};window.scrollReset=true;render();}
 function openPiecePicker(){nav={tab:'maintenant',screen:'piecepick',mode:null,room:null};render();}
 function openRoom(rid){nav={tab:'chezmoi',screen:'room',mode:null,room:rid};render();}
 function home(){nav={tab:'maintenant',screen:'home',mode:null,room:null};render();}
 
 /* ---------- sheet ---------- */
-function openSheet(){addRooms=new Set();addDone=false;el('addLabel').value='';el('addMins').value='10';el('addFreq').value='1s';renderAddChips();setAddDone(false);el('scrim').classList.add('show');setTimeout(()=>el('addLabel').focus(),60);}
+function openSheet(){addRooms=new Set();addDone=false;el('addLabel').value='';el('addMins').value='10';el('addFreq').value='1j';el('addDate').value='';renderAddChips();setDoneMode('never');el('scrim').classList.add('show');setTimeout(()=>el('addLabel').focus(),60);}
 function closeSheet(){el('scrim').classList.remove('show');}
 function isAllRooms(){return ROOMS.every(r=>addRooms.has(r.id));}
 function renderAddChips(){let h='<button type="button" class="addchip hero'+(isAllRooms()?' on':'')+'" onclick="toggleAllRooms()">Toute la maison</button>';h+=ROOMS.map(r=>'<button type="button" class="addchip'+(addRooms.has(r.id)?' on':'')+'" onclick="toggleAddRoom(\''+r.id+'\')">'+esc(r.name)+'</button>').join('');el('addRoomChips').innerHTML=h;}
 function toggleAllRooms(){if(isAllRooms())addRooms=new Set();else addRooms=new Set(ROOMS.map(r=>r.id));renderAddChips();}
 function toggleAddRoom(id){if(addRooms.has(id))addRooms.delete(id);else addRooms.add(id);renderAddChips();}
-function setAddDone(v){addDone=v;el('dchipNo').classList.toggle('on',!v);el('dchipYes').classList.toggle('on',v);}
+function todayStr(){return new Date().toISOString().slice(0,10);}
+function daysBetween(ds){const a=new Date(ds+'T00:00:00'),b=new Date(todayStr()+'T00:00:00');return Math.round((b-a)/86400000);}
+function setDoneMode(m){doneMode=m;el('dchipNo').classList.toggle('on',m==='never');el('dchipYes').classList.toggle('on',m==='today');el('dchipDate').classList.toggle('on',m==='date');el('addDate').style.display=m==='date'?'block':'none';if(m==='date'&&!el('addDate').value)el('addDate').value=todayStr();}
 function addTask(){const lbl=el('addLabel').value.trim();if(!lbl){el('addLabel').focus();return;}
   if(!addRooms.size){toast('Choisis au moins une pièce');return;}
   const freq=el('addFreq').value;const d=FREQDAYS[freq];const pts=d<=1?4:d<=3?7:d<=7?11:16;const dur=+el('addMins').value||10;
+  let st='todo', okNow=false, lastDone=null;
+  if(doneMode==='today'){okNow=true;st='ok';lastDone=todayStr();}
+  else if(doneMode==='date'){const ds=el('addDate').value;if(ds){lastDone=ds;const days=daysBetween(ds);st=days<d?'ok':(days>=d*1.6?'late':'todo');}}
   let last=null;
-  [...addRooms].forEach(rid=>{const t=T(rid,lbl,dur,'todo',freq,pts);if(addDone){t.done=true;t.doneToday=true;t.state='ok';}tasks.push(t);last=rid;});
+  [...addRooms].forEach(rid=>{const t=T(rid,lbl,dur,st,freq,pts);t.lastDone=lastDone;if(okNow){t.done=true;t.doneToday=true;}tasks.push(t);last=rid;});
   closeSheet();
   toast(addRooms.size>1?'Ajoutée dans '+addRooms.size+' pièces':'Ajoutée dans '+room(last).name);
   nav={tab:'chezmoi',screen:'room',mode:null,room:last};render();
 }
+
+/* ---------- éditer une tâche ---------- */
+let editId=null;
+function openEdit(id){const t=tasks.find(x=>x.id===id);if(!t)return;editId=id;el('editLabel').value=t.name;el('editFreq').value=t.freq;el('editMins').value=t.mins;el('delBtn').classList.remove('arm');el('delBtn').textContent='Supprimer cette tâche';el('editScrim').classList.add('show');setTimeout(()=>el('editLabel').focus(),60);}
+function closeEdit(){el('editScrim').classList.remove('show');editId=null;}
+function saveEdit(){const t=tasks.find(x=>x.id===editId);if(!t)return;const lbl=el('editLabel').value.trim();if(!lbl){el('editLabel').focus();return;}const freq=el('editFreq').value;const d=FREQDAYS[freq];t.name=lbl;t.freq=freq;t.mins=+el('editMins').value||t.mins;t.pts=d<=1?4:d<=3?7:d<=7?11:16;closeEdit();toast('Tâche modifiée ✦');render();}
+function deleteTask(){const b=el('delBtn');if(!b.classList.contains('arm')){b.classList.add('arm');b.textContent='Confirmer la suppression';return;}tasks=tasks.filter(x=>x.id!==editId);closeEdit();toast('Tâche supprimée');render();}
 
 /* ---------- vues ---------- */
 function headerHome(){const li=levelInfo(xp);
@@ -661,7 +1122,7 @@ function headerHome(){const li=levelInfo(xp);
 }
 function viewHome(){
   return headerHome()+'<div class="homebody">'+
-  '<div class="card timecard"><div class="q">J’ai combien de temps ?<span class="r">là, maintenant</span></div>'+
+  '<div class="card timecard"><div class="q">J’ai combien de temps ?</div>'+
     '<div class="tv"><b id="mval">'+minsLabel(mins)+'</b><span>devant moi</span></div>'+
     '<input type="range" id="slider" min="5" max="120" step="5" value="'+mins+'">'+
     '<div class="ticks"><span>5</span><span>30</span><span>1 h</span><span>1 h 30</span><span>2 h</span></div></div>'+
@@ -673,14 +1134,15 @@ function planHeader(title,sub,backTo){
   return '<div class="ph1">'+esc(title)+(sub?' <small>'+esc(sub)+'</small>':'')+'</div>';
 }
 function planRows(plan){
-  if(!plan.chosen.length) return celebrate('Tout est à jour ✦','Rien qui presse. Tu peux souffler.');
+  if(!plan.chosen.length) return victory('Tout est à jour','Rien qui presse. Tu peux souffler.');
   let n=0,html='';
   plan.groups.forEach(g=>{const r=room(g.rid);
     const gm=g.items.reduce((a,t)=>a+t.mins,0);
     html+='<div class="plangrp" style="--hue:'+r.hue+'"><span class="dot"></span>'+esc(r.name)+'<span class="gm">~'+gm+' min</span></div>';
     g.items.forEach(t=>{n++;
       html+='<div class="pstep'+(t.done?' done':'')+'"><span class="pnum">'+n+'</span>'+
-        '<div class="tx"><div class="nm">'+esc(t.name)+'</div><div class="mt"><span>~'+t.mins+' min</span><span class="pts">+'+t.pts+'</span></div></div>'+
+        '<div class="tx"><div class="nm">'+esc(t.name)+'</div><div class="mt"><span>~'+t.mins+' min</span><span class="pts">+'+t.pts+'</span></div>'+
+          '<button class="decoup" onclick="decoup(event,'+t.id+')">'+STAR+' Découper</button></div>'+
         '<button class="check'+(t.done?' on':'')+'" onclick="toggleTask('+t.id+')"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></button></div>';
     });
   });
@@ -688,17 +1150,64 @@ function planRows(plan){
   return html;
 }
 function celebrate(big,small){return '<div class="celebrate"><div class="em">✦</div><div class="big">'+esc(big)+'</div><div class="small">'+esc(small)+'</div></div>';}
-function victory(){
-  const stars=[['st1','9%','16%',26],['st3','83%','12%',20],['st2','22%','66%',22],['st1','74%','72%',28],['st3','47%','6%',18],['st2','90%','42%',24],['st1','6%','44%',21],['st3','60%','30%',16]];
-  const s=stars.map(c=>'<span class="cf '+c[0]+'" style="left:'+c[1]+';top:'+c[2]+';font-size:'+c[3]+'px">✦</span>').join('');
-  return '<div class="victory">'+s+'<div class="vbig">Tout est à jour</div><div class="vsmall">Tu peux souffler.</div></div>';
+function victory(big,small){
+  return '<div class="victory"><canvas class="vfx"></canvas><div class="vcontent"><div class="vbig">'+esc(big||'Tout est à jour')+'</div><div class="vsmall">'+esc(small||'Tu peux souffler.')+'</div></div></div>';
+}
+let vfxRAF=null;
+function launchConfetti(canvas){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  if(vfxRAF)cancelAnimationFrame(vfxRAF);
+  const ctx=canvas.getContext('2d');const dpr=Math.min(window.devicePixelRatio||1,2);
+  canvas.width=innerWidth*dpr;canvas.height=innerHeight*dpr;
+  const W=canvas.width,H=canvas.height;
+  const COLORS=['#2d7c7e','#bd6a46','#e0b654','#f6efe0','#5f8050','#875f87'];
+  let parts=[];
+  function part(x,y,vx,vy){parts.push({x,y,vx,vy,g:.1*dpr,life:1,fade:.006+Math.random()*.006,s:(3+Math.random()*4)*dpr,rot:Math.random()*6.28,vr:(Math.random()-.5)*.35,c:COLORS[(Math.random()*COLORS.length)|0]});}
+  function fountain(cx,cy,n,pw,dir){for(let i=0;i<n;i++){const a=-Math.PI/2+dir+(Math.random()-.5)*.7,sp=pw*(.7+Math.random()*.6);part(cx,cy,Math.cos(a)*sp,Math.sin(a)*sp);}}
+  function firework(cx,cy,n,pw){for(let i=0;i<n;i++){const a=Math.random()*6.28,sp=pw*(.4+Math.random()*.8);part(cx,cy,Math.cos(a)*sp,Math.sin(a)*sp-pw*.15);}}
+  const t0=performance.now(),shots=[0,220,480,820,1200];let fired=0;
+  function frame(now){const t=now-t0;
+    while(fired<shots.length&&t>=shots[fired]){
+      if(fired%2===0){fountain(W*.12,H,44,10*dpr,.35);fountain(W*.88,H,44,10*dpr,-.35);}
+      else{firework(W*(.3+Math.random()*.4),H*(.28+Math.random()*.22),58,7*dpr);}
+      fired++;
+    }
+    ctx.clearRect(0,0,W,H);
+    parts.forEach(p=>{p.vy+=p.g;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;p.life-=p.fade;});
+    parts=parts.filter(p=>p.life>0&&p.y<H+30);
+    parts.forEach(p=>{ctx.save();ctx.globalAlpha=Math.max(0,p.life);ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.c;ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.62);ctx.restore();});
+    if(parts.length||fired<shots.length)vfxRAF=requestAnimationFrame(frame);else vfxRAF=null;
+  }
+  vfxRAF=requestAnimationFrame(frame);
+}
+/* ---------- session de focus (plein écran, une tâche à la fois) ---------- */
+let focusTasks=[], focusIdx=0;
+function fmtMMSS(ms){ms=Math.max(0,ms);const s=Math.round(ms/1000);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+function focusControl(total){return '<button class="focusstart" onclick="startFocus()"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 1.8"/></svg> Démarrer le focus · '+total+' min</button>';}
+function startFocus(){const plan=buildPlan(nav.mode==='piece'?'piece':'maison',nav.room);if(!plan.chosen.length)return;focusTasks=plan.chosen.map(t=>t.id);focusEnd=Date.now()+plan.total*60000;if(focusTimer)clearInterval(focusTimer);focusTimer=setInterval(tickFocus,1000);el('focus').classList.add('show');renderFocus();}
+function tickFocus(){const n=el('focusTime');if(!n)return;const left=focusEnd-Date.now();if(left<=0){n.textContent='0:00';n.classList.add('over');}else n.textContent=fmtMMSS(left);}
+function stopFocus(){if(focusTimer)clearInterval(focusTimer);focusTimer=null;focusEnd=null;el('focus').classList.remove('show');el('focus').innerHTML='';render();}
+function focusDone(id){const t=tasks.find(x=>x.id===id);if(t&&!t.done){t._prev=t.state;t.done=true;t.doneToday=true;t.state='ok';award(t.pts);}renderFocus();}
+function focusSkip(){const rem=focusTasks.filter(id=>{const t=tasks.find(x=>x.id===id);return t&&!t.done;});if(rem.length<2){renderFocus();return;}const cur=rem[0];focusTasks=focusTasks.filter(id=>id!==cur).concat(cur);renderFocus();}
+function renderFocus(){
+  const rem=focusTasks.map(id=>tasks.find(t=>t.id===id)).filter(t=>t&&!t.done);
+  const total=focusTasks.length, done=total-rem.length;
+  if(!rem.length){el('focus').innerHTML='<div class="fx-wrap"><div class="fx-end"><div class="fx-star">✦</div><div class="fx-bh">Session terminée</div><div class="fx-bs">'+total+' tâche'+(total>1?'s':'')+' pliée'+(total>1?'s':'')+'. Beau boulot.</div><button class="btn-go fx-go" onclick="stopFocus()">Terminer</button></div></div>';return;}
+  const t=rem[0], r=room(t.room), left=focusEnd-Date.now();
+  el('focus').innerHTML='<div class="fx-wrap">'+
+    '<div class="fx-top"><span class="fx-time'+(left<=0?' over':'')+'" id="focusTime">'+fmtMMSS(left)+'</span><button class="fx-close" onclick="stopFocus()">Arrêter</button></div>'+
+    '<div class="fx-mid"><div class="fx-prog">Tâche '+(done+1)+' sur '+total+'</div>'+
+      '<div class="fx-room" style="color:color-mix(in srgb,'+r.hue+' 72%,var(--ink))">'+esc(r.name)+'</div>'+
+      '<div class="fx-task">'+esc(t.name)+'</div><div class="fx-mins">~'+t.mins+' min</div></div>'+
+    '<div class="fx-actions"><button class="btn-go fx-done" onclick="focusDone('+t.id+')">C’est fait ✓</button>'+
+      '<button class="fx-skip" onclick="focusSkip()">Passer cette tâche</button></div></div>';
 }
 
 function viewPlan(){
   if(nav.mode==='choisis'){
     const plan=buildPlan('choisis');
     const head=planHeader('Choisis pour moi',minsLabel(mins));
-    if(!plan.chosen.length) return head+celebrate('Rien à faire ✦','Tout est à jour. Tu peux souffler.');
+    if(!plan.chosen.length) return head+victory('Tout est à jour','Tout est réglé. Tu peux souffler.');
     const names=plan.groups.map(g=>room(g.rid).name.toLowerCase());
     let advice;
     if(names.length===1) advice='Je te conseille de commencer par <i>'+esc(names[0])+'</i>.';
@@ -711,11 +1220,11 @@ function viewPlan(){
   }
   if(nav.mode==='maison'){
     const plan=buildPlan('maison');
-    return planHeader('Toute la maison',null,'chezmoi')+planRows(plan);
+    return planHeader('Toute la maison',null,'chezmoi')+(plan.chosen.length?focusControl(plan.total):'')+planRows(plan);
   }
   if(nav.mode==='piece'){
     const r=room(nav.room);const plan=buildPlan('piece',nav.room);
-    return planHeader(r.name,minsLabel(mins),'piece')+planRows(plan);
+    return planHeader(r.name,minsLabel(mins),'piece')+(plan.chosen.length?focusControl(plan.total):'')+planRows(plan);
   }
 }
 function viewPiecePick(){
@@ -731,15 +1240,14 @@ function viewPiecePick(){
 function viewChezMoi(){
   let html='<div class="top"><div><div class="h1">Chez moi</div></div></div>';
   html+='<button class="allhouse" onclick="openPlan(\'maison\')"><span class="ahic"><svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="ahtx"><span class="ahn">Toute la maison</span><span class="ahs">Le plan complet, pièce par pièce</span></span><span class="go">→</span></button>';
-  html+='<div class="filters">'+[['afaire','À faire'],['retard','En retard'],['az','A–Z']].map(f=>'<button class="fchip'+(chezFilter===f[0]?' on':'')+'" onclick="setChezFilter(\''+f[0]+'\')">'+f[1]+'</button>').join('')+'</div>';
+  html+='<div class="filters">'+[['afaire','À faire'],['prio','Priorité'],['az','A–Z']].map(f=>'<button class="fchip'+(chezFilter===f[0]?' on':'')+'" onclick="setChezFilter(\''+f[0]+'\')">'+f[1]+'</button>').join('')+'</div>';
   let rooms=ROOMS.slice();
-  if(chezFilter==='afaire') rooms.sort((a,b)=>((roomDue(b.id).length>0)-(roomDue(a.id).length>0))||(RANK[roomWorst(b.id)]-RANK[roomWorst(a.id)])||(a.order-b.order));
-  else if(chezFilter==='retard') rooms.sort((a,b)=>(lateCount(b.id)-lateCount(a.id))||(roomDue(b.id).length-roomDue(a.id).length)||(a.order-b.order));
-  else rooms.sort((a,b)=>a.name.localeCompare(b.name,'fr'));
+  if(chezFilter==='prio') rooms.sort((a,b)=>a.order-b.order);
+  else if(chezFilter==='az') rooms.sort((a,b)=>a.name.localeCompare(b.name,'fr'));
+  else rooms.sort((a,b)=>(roomDue(b.id).length-roomDue(a.id).length)||(RANK[roomWorst(b.id)]-RANK[roomWorst(a.id)])||(a.order-b.order));
   html+='<div class="rooms">';
   rooms.forEach(r=>{const d=roomDue(r.id).length;const w=roomWorst(r.id);
     html+='<button class="rtile" style="--hue:'+r.hue+'" onclick="openRoom(\''+r.id+'\')">'+
-      (w!=='ok'?'<span class="rdot '+w+'"></span>':'')+
       '<span class="ric"><svg viewBox="0 0 24 24">'+(ROOMICON[r.icon]||'')+'</svg></span>'+
       '<span class="rtn">'+esc(r.name)+'</span>'+
       '<span class="rtc">'+(d?d+' à faire':'à jour')+'</span>'+
@@ -754,38 +1262,86 @@ function viewRoom(){
   roomTasks(r.id).forEach(t=>{
     html+='<div class="trow'+(t.done||t.state==='ok'?' done':'')+'">'+
       '<button class="check'+(t.done||t.state==='ok'?' on':'')+'" onclick="toggleTask('+t.id+')"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></button>'+
-      '<div class="tx"><div class="nm">'+esc(t.name)+'</div><div class="mt">~'+t.mins+' min · '+FREQLBL[t.freq]+'</div>'+
+      '<div class="tx tap" onclick="openEdit('+t.id+')"><div class="nm">'+esc(t.name)+'</div><div class="mt">~'+t.mins+' min · '+FREQLBL[t.freq]+'</div>'+
         '<button class="decoup" onclick="decoup(event,'+t.id+')">'+STAR+' Découper cette tâche</button></div>'+
       (t.done||t.state==='ok'?'<span class="pill ok"><span class="d"></span>à jour</span>':'<span class="pill '+t.state+'"><span class="d"></span>'+STLBL[t.state]+'</span>')+
       '</div>';
   });
+  html+='<button class="addhere" onclick="openSheetRoom(\''+r.id+'\')"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg> Ajouter une tâche ici</button>';
   return html;
 }
+function openSheetRoom(rid){openSheet();addRooms=new Set([rid]);renderAddChips();}
 function viewAujourdhui(){
   let html='<div class="top"><div><div class="h1">Aujourd’hui</div></div></div>';
   const isToday=t=>(due(t)&&(t.state==='todo'||t.state==='late'))||t.doneToday;
   const remainingGlobal=tasks.filter(t=>due(t)&&(t.state==='todo'||t.state==='late'));
   if(!remainingGlobal.length) return html+victory();
-  // ordre fixe des pièces, pas de tri par urgence ; une pièce finie se replie
-  ROOMS.forEach(r=>{
-    const items=tasks.filter(t=>t.room===r.id&&isToday(t));
+  html+='<div class="aujbar">'+(aujOrder?'<button class="aujreset" onclick="resetAujOrder()"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v4h4"/></svg> Remettre par priorité</button>':'')+'</div>';
+  // ordre manuel (glisser-déposer), pièce repliable, pièce finie repliée
+  aujOrderIds().forEach(rid=>{
+    const r=room(rid);if(!r)return;
+    const items=tasks.filter(t=>t.room===rid&&isToday(t));
     if(!items.length)return;
     const undone=items.filter(t=>!t.done);
     if(!undone.length){
-      html+='<div class="aroomdone" style="--hue:'+r.hue+'"><span class="adot"></span>'+esc(r.name)+'<span class="afin">fini</span></div>';
+      html+='<div class="aujroom done" data-aroom="'+rid+'" style="--hue:'+r.hue+'"><div class="aroomdone"><span class="adot"></span>'+esc(r.name)+'<span class="afin">fini</span></div></div>';
       return;
     }
-    html+='<div class="aroom" style="--hue:'+r.hue+'"><span class="adot"></span>'+esc(r.name)+'</div>';
-    const stable=items.slice().sort((a,b)=>((a.done?1:0)-(b.done?1:0))||(a.id-b.id));
-    stable.forEach(t=>{
-      html+='<div class="aline'+(t.done?' done':'')+'" onclick="toggleTask('+t.id+')">'+
-        '<span class="atx"><span class="an">'+esc(t.name)+'</span>'+
-          '<span class="ameta">~'+t.mins+' min <button class="decoup" onclick="decoup(event,'+t.id+')">'+STAR+' Découper</button></span></span>'+
-        (t.done?'<span class="afait">fait</span>':(t.started?'<span class="apill encours">en cours</span>':'<span class="apill '+t.state+'">'+STLBL[t.state]+'</span>'))+
-        '</div>';
-    });
+    const collapsed=aujCollapsed.has(rid);
+    html+='<div class="aujroom" data-aroom="'+rid+'" style="--hue:'+r.hue+'"><div class="aroom">'+
+      '<span class="ajhandle" onpointerdown="aujDragStart(event,\''+rid+'\')"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 14h16"/></svg></span>'+
+      '<span class="adot"></span><span class="aroom-nm" onclick="toggleAujRoom(\''+rid+'\')">'+esc(r.name)+'</span>'+
+      '<span class="aroom-c" onclick="toggleAujRoom(\''+rid+'\')">'+(collapsed?undone.length+' à faire':'')+'<svg class="achev'+(collapsed?' col':'')+'" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></div>';
+    if(!collapsed){
+      const stable=items.slice().sort((a,b)=>((a.done?1:0)-(b.done?1:0))||(a.id-b.id));
+      stable.forEach(t=>{
+        html+='<div class="aline'+(t.done?' done':'')+'" onclick="toggleTask('+t.id+')">'+
+          '<span class="atx"><span class="an">'+esc(t.name)+'</span>'+
+            '<span class="ameta">~'+t.mins+' min <button class="decoup" onclick="decoup(event,'+t.id+')">'+STAR+' Découper</button></span></span>'+
+          (t.done?'<span class="afait">fait</span>':(t.started?'<span class="apill encours">en cours</span>':'<span class="apill '+t.state+'">'+STLBL[t.state]+'</span>'))+
+          '</div>';
+      });
+    }
+    html+='</div>';
   });
   return html;
+}
+/* ---------- Aujourd'hui : repli + glisser-déposer ---------- */
+function aujOrderIds(){const ids=ROOMS.map(r=>r.id);if(!aujOrder)return ids.slice();return aujOrder.filter(id=>ids.includes(id)).concat(ids.filter(id=>!aujOrder.includes(id)));}
+function resetAujOrder(){aujOrder=null;render();}
+function toggleAujRoom(id){if(aujCollapsed.has(id))aujCollapsed.delete(id);else aujCollapsed.add(id);render();}
+function aujDragStart(e,id){
+  e.preventDefault();e.stopPropagation();
+  dragEl=document.querySelector('.aujroom[data-aroom="'+id+'"]');
+  if(!dragEl)return;
+  window._aujDrag=true;dragRoom=id;dragStartY=e.clientY;
+  dragEl.classList.add('dragging');
+  try{dragEl.setPointerCapture(e.pointerId);}catch(_){}
+  document.addEventListener('pointermove',aujDragMove,{passive:false});
+  document.addEventListener('pointerup',aujDragEnd);
+}
+function aujDragMove(e){
+  if(!dragEl)return;e.preventDefault();
+  dragEl.style.transform='translateY('+(e.clientY-dragStartY)+'px)';
+  const cy=e.clientY;
+  for(const sib of document.querySelectorAll('.aujroom:not(.dragging)')){
+    const rct=sib.getBoundingClientRect();
+    if(cy>rct.top&&cy<rct.bottom){
+      const mid=rct.top+rct.height/2, parent=dragEl.parentNode;
+      if(cy<mid){if(sib.previousElementSibling!==dragEl){parent.insertBefore(dragEl,sib);dragStartY=e.clientY;dragEl.style.transform='translateY(0px)';}}
+      else{if(sib.nextElementSibling!==dragEl){parent.insertBefore(dragEl,sib.nextElementSibling);dragStartY=e.clientY;dragEl.style.transform='translateY(0px)';}}
+      break;
+    }
+  }
+}
+function aujDragEnd(){
+  document.removeEventListener('pointermove',aujDragMove);
+  document.removeEventListener('pointerup',aujDragEnd);
+  if(dragEl){dragEl.classList.remove('dragging');dragEl.style.transform='';}
+  const ids=[...document.querySelectorAll('.aujroom')].map(x=>x.getAttribute('data-aroom'));
+  if(ids.length)aujOrder=ids;
+  dragEl=null;dragRoom=null;render();
+  setTimeout(()=>{window._aujDrag=false;},100);
 }
 
 /* ---------- exécution + moi ---------- */
@@ -849,6 +1405,158 @@ function moiBack(){nav={tab:'moi',screen:'moi',mode:null,room:null};window.scrol
 function openDash(){nav={tab:'moi',screen:'dash',mode:null,room:null};window.scrollReset=true;render();}
 function openOrganiser(){nav={tab:'moi',screen:'organiser',mode:null,room:null};window.scrollReset=true;render();}
 function openCompte(){nav={tab:'moi',screen:'compte',mode:null,room:null};window.scrollReset=true;render();}
+function openAide(){faqOpen=null;nav={tab:'moi',screen:'aide',mode:null,room:null};window.scrollReset=true;render();}
+function toggleFaq(i){faqOpen=faqOpen===i?null:i;render();}
+/* ---------- Mes papiers (premium) ---------- */
+function daysUntil(ds){return -daysBetween(ds);}
+function fmtDate(ds){try{return new Intl.DateTimeFormat('fr-FR',{day:'numeric',month:'short',year:'numeric'}).format(new Date(ds+'T00:00:00'));}catch(e){return ds;}}
+function papState(p){const d=daysUntil(p.due);if(d<0)return'late';if(d<=p.remind)return'soon';return'todo';}
+function openPapiers(){if(!premium){openPremium();return;}nav={tab:'papiers',screen:'papiers',mode:null,room:null};window.scrollReset=true;render();}
+function viewPapiers(){
+  let html='<div class="ph1">Mes papiers</div><div class="paplist">';
+  const list=papiers.slice().sort((a,b)=>a.due.localeCompare(b.due));
+  if(!list.length)html+='<div class="papempty">Rien pour l’instant. Ajoute ta première échéance.</div>';
+  list.forEach(p=>{const st=papState(p),c=papCat(p.cat),d=daysUntil(p.due);
+    const lbl=st==='late'?'en retard':(st==='soon'?(d===0?'aujourd’hui':'dans '+d+' j'):fmtDate(p.due));
+    html+='<div class="trow pap" onclick="openPapierSheet('+p.id+')">'+
+      '<span class="papdot" style="background:'+c[2]+'"></span>'+
+      '<div class="tx"><div class="nm">'+esc(p.name)+'</div><div class="mt">'+c[1]+' · '+PAPFREQ[p.freq]+'</div></div>'+
+      '<span class="pill '+st+'"><span class="d"></span>'+lbl+'</span></div>';
+  });
+  html+='<button class="addhere" onclick="openPapierSheet()"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg> Ajouter un papier</button>';
+  html+='</div>';
+  return html;
+}
+let papierId=null;
+function openPapierSheet(id){papierId=id||null;const p=id?papiers.find(x=>x.id===id):null;
+  el('papName').value=p?p.name:'';el('papCat').value=p?p.cat:'assurance';el('papDate').value=p?p.due:'';el('papFreq').value=p?p.freq:'1a';el('papRemind').value=p?String(p.remind):'30';
+  el('papDel').style.display=p?'block':'none';el('papDel').classList.remove('arm');el('papDel').textContent='Supprimer ce papier';
+  el('papTitle').textContent=p?'Modifier le papier':'Ajouter un papier';
+  el('papierScrim').classList.add('show');setTimeout(()=>el('papName').focus(),60);}
+function closePapierSheet(){el('papierScrim').classList.remove('show');papierId=null;}
+function savePapier(){const name=el('papName').value.trim();if(!name){el('papName').focus();return;}const due=el('papDate').value;if(!due){toast('Mets une date d’échéance');el('papDate').focus();return;}
+  const cat=el('papCat').value,freq=el('papFreq').value,remind=+el('papRemind').value||30;
+  if(papierId){const p=papiers.find(x=>x.id===papierId);if(p){p.name=name;p.cat=cat;p.due=due;p.freq=freq;p.remind=remind;}}
+  else papiers.push(P(name,cat,due,freq,remind));
+  closePapierSheet();toast('Papier enregistré ✦');render();}
+function deletePapier(){const b=el('papDel');if(!b.classList.contains('arm')){b.classList.add('arm');b.textContent='Confirmer la suppression';return;}papiers=papiers.filter(x=>x.id!==papierId);closePapierSheet();toast('Papier supprimé');render();}
+/* ---------- Ménage de printemps = grand reset (premium) ---------- */
+function openPrintemps(){if(!premium){openPremium();return;}nav={tab:'moi',screen:'printemps',mode:null,room:null};window.scrollReset=true;render();}
+function viewPrintemps(){
+  const r_=resetSeq(),seq=r_.seq,end=r_.end;
+  const total=seq.length,done=seq.filter(x=>reset.done[x.id]).length;
+  const cur=seq.find(x=>!reset.done[x.id]);
+  let html='<div class="ph1">Ménage de printemps</div>';
+  html+='<div class="rctl"><label for="rstart">Je commence à</label><input type="time" id="rstart" onchange="setResetCfg(\'startAt\',this.value)" value="'+esc(reset.startAt)+'">'
+    +'<button class="rlink" onclick="recaler()">Recaler sur maintenant</button>'
+    +'<button class="rlink" onclick="toggleResetSet()">'+(resetSet?'Fermer':'Réglages')+'</button></div>';
+  if(resetSet){
+    html+='<div class="rset"><label>Pause de <input type="number" min="0" max="30" value="'+(Number(reset.brk)||0)+'" onchange="setResetCfg(\'brk\',this.value)"> min toutes les <input type="number" min="15" max="120" value="'+(Number(reset.every)||40)+'" onchange="setResetCfg(\'every\',this.value)"> min de ménage</label>'
+      +'<button class="rlink" onclick="resetAllReset()">Tout décocher</button></div>';
+  }
+  if(cur){
+    const n=nowM(),late=Math.round(n-cur.start),active=n>=cur.start-20&&n<=end+90;
+    const chip=(cur.kind==='task'&&active)?(late>5?'<span class="pill late"><span class="d"></span>en retard de '+late+' min</span>':'<span class="pill ok"><span class="d"></span>dans les temps</span>'):'';
+    const hue=cur.kind==='task'?room(cur.room).hue:'var(--teal)';
+    const zone=cur.kind==='task'?esc(room(cur.room).name)+' · maintenant':'Une pause';
+    html+='<div class="rnow" style="--hue:'+hue+'"><div class="rz">'+zone+'</div><div class="rtask">'+esc(cur.label)+'</div>'
+      +'<div class="rmeta">'+fmtHM(cur.start)+' → '+fmtHM(cur.start+cur.mins)+' · '+cur.mins+' min</div>'
+      +(cur.note?'<div class="rnote">'+esc(cur.note)+'</div>':'')
+      +'<div class="rrow"><button class="execdone" onclick="resetDone(\''+cur.id+'\')">'+(cur.kind==='brk'?'Pause prise':'C’est fait')+' ✓</button>'+chip+'</div>'
+      +'<div class="bar"><i style="width:'+(total?Math.round(done/total*100):0)+'%"></i></div>'
+      +'<div class="rsum">'+done+' sur '+total+' · fin estimée <b>'+fmtHM(end)+'</b></div></div>';
+  }else{
+    html+='<div class="rnow" style="--hue:var(--clay)"><div class="rz">Terminé ✦</div><div class="rtask">La maison est prête. Allume une bougie et profite.</div><div class="bar"><i style="width:100%"></i></div></div>';
+  }
+  html+='<div class="rhead2">Le déroulé<span>fin estimée '+fmtHM(end)+'</span></div><div class="rlist">';
+  let zone=null;
+  seq.forEach(x=>{
+    if(x.kind==='task'&&x.room!==zone){zone=x.room;const rr=room(zone);html+='<div class="plangrp" style="--hue:'+rr.hue+'"><span class="dot"></span>'+esc(rr.name)+'</div>';}
+    const dn=!!reset.done[x.id],isCur=cur&&cur.id===x.id;
+    html+='<div class="rline'+(x.kind==='brk'?' brk':'')+(isCur?' cur':'')+(dn?' done':'')+'">'
+      +'<span class="rt">'+fmtHM(x.start)+'</span>'
+      +'<button class="check'+(dn?' on':'')+'" onclick="toggleReset(\''+x.id+'\')"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></button>'
+      +'<div class="tx'+(x.kind==='task'?' tap':'')+'"'+(x.kind==='task'?' onclick="openPrintempsSheet(\''+x.id+'\')"':'')+'><div class="nm">'+esc(x.label)+'</div>'+(x.note?'<div class="mt">'+esc(x.note)+'</div>':'')+'</div>'
+      +'<span class="rd">'+x.mins+' min</span></div>';
+  });
+  html+='</div>';
+  html+='<button class="addhere" onclick="openPrintempsSheet()"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg> Ajouter une mini-tâche</button>';
+  return html;
+}
+function toggleReset(id){if(reset.done[id])delete reset.done[id];else reset.done[id]=Date.now();render();}
+function resetDone(id){if(!reset.done[id]){reset.done[id]=Date.now();award(id.indexOf('brk')===0?2:10);}render();}
+function recaler(){const d=new Date();reset.startAt=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');render();}
+function toggleResetSet(){resetSet=!resetSet;render();}
+function setResetCfg(f,v){reset[f]=(f==='startAt')?v:(+v||0);render();}
+function resetAllReset(){reset.done={};render();}
+let printempsId=null;
+function prRoomOpts(sel){return ROOMS.slice().sort((a,b)=>a.order-b.order).map(r=>'<option value="'+r.id+'"'+(r.id===sel?' selected':'')+'>'+esc(r.name)+'</option>').join('');}
+function openPrintempsSheet(id){printempsId=id||null;const p=id?resetTasks.find(x=>x.id===id):null;
+  el('prName').value=p?p.label:'';el('prRoom').innerHTML=prRoomOpts(p?p.room:(ROOMS[0]&&ROOMS[0].id));el('prMins').value=p?p.mins:10;
+  el('prDel').style.display=p?'block':'none';el('prDel').classList.remove('arm');el('prDel').textContent='Supprimer cette mini-tâche';
+  el('prTitle').textContent=p?'Modifier la mini-tâche':'Ajouter une mini-tâche';
+  el('printempsScrim').classList.add('show');setTimeout(()=>el('prName').focus(),60);}
+function closePrintempsSheet(){el('printempsScrim').classList.remove('show');printempsId=null;}
+function savePrintemps(){const name=el('prName').value.trim();if(!name){el('prName').focus();return;}const rm=el('prRoom').value,m=+el('prMins').value||10;
+  if(printempsId){const p=resetTasks.find(x=>x.id===printempsId);if(p){p.label=name;p.room=rm;p.mins=m;}}
+  else resetTasks.push(PR(rm,name,m,''));
+  closePrintempsSheet();toast('Mini-tâche enregistrée ✦');render();}
+function deletePrintemps(){const b=el('prDel');if(!b.classList.contains('arm')){b.classList.add('arm');b.textContent='Confirmer la suppression';return;}resetTasks=resetTasks.filter(x=>x.id!==printempsId);closePrintempsSheet();toast('Mini-tâche supprimée');render();}
+function photoBtn(k){const f=attachPhoto[k];return '<label class="addphoto'+(f?' has':'')+'"><input type="file" accept="image/*" hidden onchange="setPhoto(\''+k+'\',this)"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="2.5"/><circle cx="8.5" cy="10.5" r="1.8"/><path d="M21 15l-5-5L5 20"/></svg>'+(f?esc(f):'Ajouter une photo')+'</label>';}
+function setPhoto(k,inp){const file=inp.files&&inp.files[0];attachPhoto[k]=file?file.name:null;render();}
+function sendContact(){const m=el('ctMsg');if(!m||!m.value.trim()){toast('Écris ton message d’abord');return;}toast('Message envoyé ✦',true);attachPhoto.ct=null;faqOpen=null;render();}
+function sendBug(){const m=el('bugMsg');if(!m||!m.value.trim()){toast('Décris le problème d’abord');return;}toast('Bug signalé, merci ✦',true);attachPhoto.bug=null;faqOpen=null;render();}
+function relanceVisite(){home();setTimeout(()=>openCoach('auto'),60);}
+const GUIDE=[
+ [PNOW,'Maintenant','Dis-lui le temps que tu as devant toi, avec le curseur. Elle te compose un plan qui rentre dedans et te dit par où commencer. Tu n’as plus à décider.'],
+ [PTODAY,'Aujourd’hui','Tes routines du jour, pièce par pièce. Tu coches au fur et à mesure, à ton rythme.'],
+ [PHOME,'Chez moi','Toutes tes pièces réunies. Ouvre-en une pour voir, ajouter ou modifier une tâche, ou lance <i>Toute la maison</i> pour une grosse session en <i>focus</i>.'],
+ [PLUSIC,'Ajouter une tâche','Le bouton en bas marche depuis n’importe où. Tu choisis la pièce, le nom, la durée et la fréquence, c’est rangé.'],
+ [SILH,'Ton profil','En haut à droite, partout : tes points, ton niveau, ton logement, ton compte et l’aide.']
+];
+let guideIdx=0;
+function openGuide(){guideIdx=0;renderGuide();el('guideMod').classList.add('show');}
+function closeGuide(){el('guideMod').classList.remove('show');el('guideMod').innerHTML='';}
+function guideStep(d){guideIdx=Math.max(0,Math.min(GUIDE.length-1,guideIdx+d));renderGuide();}
+function renderGuide(){const g=GUIDE[guideIdx],last=guideIdx===GUIDE.length-1,first=guideIdx===0;
+  el('guideMod').innerHTML='<div class="guide-sheet"><div class="pop-grip"></div>'+
+    '<div class="guide-ic">'+g[0]+'</div>'+
+    '<div class="guide-h">'+g[1]+'</div>'+
+    '<div class="guide-s">'+g[2]+'</div>'+
+    '<div class="guide-dots">'+GUIDE.map((_,i)=>'<i class="'+(i===guideIdx?'on':'')+'"></i>').join('')+'</div>'+
+    '<div class="guide-row">'+(first?'<span class="guide-skip" onclick="closeGuide()">Fermer</span>':'<span class="guide-skip" onclick="guideStep(-1)">Précédent</span>')+
+      '<button class="btn-go guide-next" onclick="'+(last?'closeGuide()':'guideStep(1)')+'">'+(last?'C’est parti ✦':'Suivant')+'</button></div></div>';}
+const RSTAR='<svg viewBox="0 0 24 24"><path d="M12 3l2.55 5.36 5.9.78-4.34 4.06 1.1 5.86L12 16.9l-5.21 2.16 1.1-5.86-4.34-4.06 5.9-.78z"/></svg>';
+function setRating(n){rating=n;openRate();}
+function openRate(){el('rateMod').innerHTML='<div class="rate-sheet"><div class="pop-grip"></div><div class="rate-top">'+[1,2,3,4,5].map(n=>'<span class="rstar big'+(n<=rating?' on':'')+'">'+RSTAR+'</span>').join('')+'</div><div class="rate-bh">Merci pour tes '+rating+' étoile'+(rating>1?'s':'')+'</div><div class="rate-bs">Un petit mot sur le store nous aiderait énormément. Ça prend 30 secondes et ça change tout pour une app indépendante.</div><button class="btn-go rate-go" onclick="toast(\'Redirection vers le store, bientôt ✦\');closeRate()">Aller sur le store</button><div class="rate-later" onclick="closeRate()">Plus tard</div></div>';el('rateMod').classList.add('show');}
+function closeRate(){el('rateMod').classList.remove('show');el('rateMod').innerHTML='';}
+function viewAide(){
+  let html='<div class="ph1">Aide et FAQ</div>';
+  html+='<div class="moisec" style="margin-top:8px">Questions fréquentes</div>';
+  FAQTHEMES.forEach(th=>{
+    html+='<div class="faqtheme">'+th[1]+'</div><div class="faq">';
+    FAQ.forEach((f,i)=>{if(f[2]!==th[0])return;const open=faqOpen===i;
+      html+='<div class="faqitem'+(open?' open':'')+'"><button class="faqq" onclick="toggleFaq('+i+')"><span>'+f[0]+'</span><svg class="faqchev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>'+(open?'<div class="faqa">'+f[1]+'</div>':'')+'</div>';
+    });
+    html+='</div>';
+  });
+  // contact + bug
+  html+='<div class="faqtheme">Toujours bloqué·e ?</div><div class="faq">';
+  html+='<div class="faqitem'+(faqOpen==='contact'?' open':'')+'"><button class="faqq" onclick="toggleFaq(\'contact\')"><span>Je n’ai pas trouvé la réponse à ma question</span><svg class="faqchev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>'+(faqOpen==='contact'?'<div class="faqa"><textarea id="ctMsg" class="ctfield ctarea" placeholder="Ta question" rows="4"></textarea>'+photoBtn('ct')+'<button class="btn-go ct-send" onclick="sendContact()">Envoyer</button></div>':'')+'</div>';
+  html+='<div class="faqitem'+(faqOpen==='bug'?' open':'')+'"><button class="faqq" onclick="toggleFaq(\'bug\')"><span>Signaler un bug</span><svg class="faqchev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>'+(faqOpen==='bug'?'<div class="faqa"><textarea id="bugMsg" class="ctfield ctarea" placeholder="Qu’est-ce qui s’est passé ?" rows="4"></textarea>'+photoBtn('bug')+'<button class="btn-go ct-send" onclick="sendBug()">Envoyer</button></div>':'')+'</div>';
+  html+='</div>';
+  // noter l'app
+  html+='<div class="moisec">Tu aimes l’app ?</div><div class="ratecard"><div class="rate-stars">'+[1,2,3,4,5].map(n=>'<button class="rstar'+(n<=rating?' on':'')+'" onclick="setRating('+n+')">'+RSTAR+'</button>').join('')+'</div><div class="rate-s">Note-nous, ça aide énormément une app indépendante.</div></div>';
+  // plus
+  html+='<div class="moisec">Plus</div><div class="setlist">';
+  html+='<button class="setrow" onclick="openGuide()"><span class="sett"><span class="setn">Guide de démarrage</span><span class="sets">Revoir les bases en quelques cartes</span></span><span class="go">→</span></button>';
+  html+='</div>';
+  html+='<div class="moisec">Légal</div><div class="setlist">';
+  html+='<button class="setrow" onclick="toast(\'CGU, bientôt ✦\')"><span class="sett"><span class="setn">Conditions générales</span></span><span class="go">→</span></button>';
+  html+='<button class="setrow" onclick="toast(\'Confidentialité, bientôt ✦\')"><span class="sett"><span class="setn">Confidentialité</span></span><span class="go">→</span></button>';
+  html+='</div>';
+  return html;
+}
 function premEntry(name,desc){
   if(premium)return '<button class="setrow" onclick="toast(\''+name.replace(/'/g,"\\'")+' arrive bientôt ✦\')"><span class="sett"><span class="setn">'+name+'</span><span class="sets">'+desc+'</span></span><span class="go">→</span></button>';
   return '<button class="setrow" onclick="openPremium()"><span class="sett"><span class="setn">'+name+' '+STAR+'</span><span class="sets">'+desc+'</span></span><span class="go">→</span></button>';
@@ -857,18 +1565,25 @@ function viewMoi(){
   const li=levelInfo(xp);
   let html='<div class="ph1">Moi</div>';
   html+='<button class="card moicard moitap" onclick="openDash()"><div class="moilvl"><span class="moin">'+li.lvl+'</span><div style="flex:1"><div class="moiname">Niveau '+li.lvl+' · '+esc(li.name)+'</div><div class="bar"><i style="width:'+li.pct+'%"></i></div><div class="moisub">'+xp+' pts · voir ta semaine →</div></div></div></button>';
-  html+='<div class="moisec">'+(premium?'Tes outils premium':'Premium')+'</div><div class="setlist">';
-  html+=premEntry('Mes papiers','Tes échéances maison, suivies pour toi');
-  html+=premEntry('Ménage de printemps','Le grand coup de propre quand ça déborde');
-  html+='<button class="setrow" onclick="'+(premium?'toast(\'Maison partagée, bientôt ✦\')':'openPremium()')+'"><span class="sett"><span class="setn">Maison partagée <span class="pbadge">bientôt</span></span><span class="sets">Répartir les tâches à plusieurs</span></span><span class="go">→</span></button>';
+  html+='<div class="setlist moitools">';
+  html+='<button class="setrow" onclick="'+(premium?'openPapiers()':'openPremium()')+'"><span class="sett"><span class="setn">Mes papiers'+(premium?'':' '+STAR)+'</span><span class="sets">Tes échéances maison, suivies pour toi</span></span><span class="go">→</span></button>';
+  html+='<button class="setrow" onclick="'+(premium?'openPrintemps()':'openPremium()')+'"><span class="sett"><span class="setn">Ménage de printemps'+(premium?'':' '+STAR)+'</span><span class="sets">Le grand coup de propre quand ça déborde</span></span><span class="go">→</span></button>';
   html+='</div>';
   html+='<div class="moisec">Réglages</div><div class="setlist">';
-  html+='<button class="setrow" onclick="openOrganiser()"><span class="sett"><span class="setn">Organiser ma maison</span><span class="sets">Tes pièces, leur ordre, ton logement</span></span><span class="go">→</span></button>';
+  html+='<button class="setrow" onclick="openLogement()"><span class="sett"><span class="setn">Mon logement</span><span class="sets">Type, pièces, priorité, foyer</span></span><span class="go">→</span></button>';
   html+='<button class="setrow" onclick="openCompte()"><span class="sett"><span class="setn">Mon compte</span><span class="sets">'+(premium?'Premium actif':'Tes infos, tes données')+'</span></span><span class="go">→</span></button>';
+  html+='<button class="setrow" onclick="openAide()"><span class="sett"><span class="setn">Aide et FAQ</span><span class="sets">Questions fréquentes, nous contacter</span></span><span class="go">→</span></button>';
   html+='</div>';
   return html;
 }
 function viewDashboard(){
+  if(firstWeek){
+    return '<div class="ph1">Ta semaine</div>'+
+      '<div class="dashempty"><div class="de-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13V9M12 13l2.5 1.5M9 2.5h6"/></svg></div>'+
+       '<div class="de-h">Reviens dans 7 jours</div>'+
+       '<div class="de-d">Ta première semaine est en cours. Dans 7 jours, tu verras ta progression comparée à toi-même, jamais aux autres.</div>'+
+       '<button class="de-preview" onclick="firstWeek=false;render();">Voir un aperçu</button></div>';
+  }
   const doneSession=tasks.filter(t=>t.done).length;
   const minsSession=tasks.filter(t=>t.done).reduce((a,t)=>a+(t.mins||0),0);
   const thisT=12+doneSession, thisM=85+minsSession, lastT=10, lastM=70;
@@ -880,22 +1595,68 @@ function viewDashboard(){
   html+='<div class="dashnote">'+(dT>=0?'Tu es au-dessus de la semaine dernière. Continue à ton rythme ✦':'La semaine est encore jeune. Chaque tâche cochée compte.')+'</div>';
   return html;
 }
-function viewOrganiser(){
-  let html='<div class="ph1">Organiser ma maison</div><div class="setlist" style="margin-top:14px">';
-  [['Mes pièces','Ajouter, renommer, choisir les icônes'],['Ordre des pièces','Par quoi commencer en priorité'],['Mon logement','Maison ou appart, qui vit ici']].forEach(p=>{
-    html+='<button class="setrow" onclick="toast(\''+p[0]+', bientôt ✦\')"><span class="sett"><span class="setn">'+p[0]+'</span><span class="sets">'+p[1]+'</span></span><span class="go">→</span></button>';
+function openLogement(){iconPickRoom=null;orgEdit=null;nav={tab:'moi',screen:'logement',mode:null,room:null};window.scrollReset=true;render();}
+function viewLogement(){
+  const h=housing||'appart';
+  let html='<div class="ph1">Mon logement</div><div class="dsub">Ton type, qui vit ici et tes pièces.</div>';
+  html+='<div class="moisec" style="margin-top:4px">Type</div><div class="typeseg"><button class="segbtn'+(h==='appart'?' on':'')+'" onclick="setHousing(\'appart\')">Appartement</button><button class="segbtn'+(h==='maison'?' on':'')+'" onclick="setHousing(\'maison\')">Maison</button></div>';
+  html+='<div class="moisec">Qui vit ici</div><div class="hhlist">';
+  household.forEach((m,i)=>{html+='<div class="hhrow"><span class="hhav">'+esc((m.name[0]||'?').toUpperCase())+'</span><span class="hhn">'+esc(m.name)+(m.owner?' <span class="hhyou">toi</span>':'')+'</span>'+(m.owner?'':'<button class="rm" onclick="removeMember('+i+')">×</button>')+'</div>';});
+  html+='</div><div class="hhadd"><input id="hhName" placeholder="Prénom" onkeydown="if(event.key===\'Enter\')addMember()"><button class="hhaddbtn" onclick="addMember()">Ajouter</button></div>';
+  html+='<div class="moisec">Mes pièces</div><div class="dsub2">Glisse pour choisir par quoi commencer en priorité.</div><div class="ordlist">';
+  ROOMS.slice().sort((a,b)=>a.order-b.order).forEach((r,i)=>{const ic=ROOMICON[r.icon]||ROOMICON.generic;
+    html+='<div class="ordrow" data-ord="'+r.id+'" style="--hue:'+r.hue+'"><span class="ordnum">'+(i+1)+'</span><span class="ajhandle" onpointerdown="ordDragStart(event,\''+r.id+'\')"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 14h16"/></svg></span><svg class="ri" viewBox="0 0 24 24">'+ic+'</svg><span class="ordnm">'+esc(r.name)+'</span></div>';
   });
-  html+='</div>';
+  html+='</div><button class="lgadd" onclick="openPiecesMod()">Modifier mes pièces</button>';
   return html;
 }
+/* pop-up édition des pièces (comme l'inscription) */
+function openPiecesMod(){orgEdit=null;roomSug=false;iconPickRoom=null;renderPiecesMod();el('piecesMod').classList.add('show');}
+function closePiecesMod(){orgEdit=null;roomSug=false;iconPickRoom=null;el('piecesMod').classList.remove('show');render();}
+function refreshRooms(){if(el('piecesMod').classList.contains('show'))renderPiecesMod();else if(el('onboard').classList.contains('show'))renderOnboard();else render();}
+function renderPiecesMod(){
+  let h='<div class="pm-sheet"><div class="pop-grip"></div><div class="pm-head"><div class="pm-h">Modifier mes pièces</div><button class="pm-done" onclick="closePiecesMod()">Terminé</button></div>';
+  h+='<div class="ob-s">Renomme, ajoute, supprime, change les icônes.</div><div class="obrooms">';
+  ROOMS.forEach(r=>{const ic=ROOMICON[r.icon]||ROOMICON.generic;
+    if(orgEdit===r.id)h+='<div class="obrt" style="--hue:'+r.hue+'"><button class="ri-btn" onclick="openIconPick(\''+r.id+'\')"><svg class="ri" viewBox="0 0 24 24">'+ic+'</svg></button><input id="obEdit" value="'+esc(r.name)+'" onblur="commitOrgRoom(\''+r.id+'\',this.value)" onkeydown="if(event.key===\'Enter\')this.blur()"></div>';
+    else h+='<div class="obrt" style="--hue:'+r.hue+'"><button class="ri-btn" onclick="openIconPick(\''+r.id+'\')"><svg class="ri" viewBox="0 0 24 24">'+ic+'</svg></button><span class="nm" onclick="startOrgEdit(\''+r.id+'\')">'+esc(r.name)+'</span><svg class="pen" viewBox="0 0 24 24" onclick="startOrgEdit(\''+r.id+'\')"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><button class="rm" onclick="removeOrgRoom(\''+r.id+'\')">×</button></div>';
+  });
+  h+='<button class="obrt add'+(roomSug?' on':'')+'" onclick="toggleRoomSug()"><svg class="ri" viewBox="0 0 24 24" style="color:currentColor"><path d="M12 5v14M5 12h14"/></svg><span class="nm">Ajouter</span></button></div>';
+  if(roomSug){const have=ROOMS.map(r=>r.name.toLowerCase());
+    h+='<div class="obsug"><div class="obsug-h">Ajouter une pièce</div><div class="obsug-chips">'+
+      ROOMSUG.filter(s=>!have.includes(s.name.toLowerCase())).map(s=>'<button class="sugchip" onclick="addSugRoom(\''+s.name.replace(/'/g,"\\'")+'\',\''+s.icon+'\')">'+esc(s.name)+'</button>').join('')+
+      '<button class="sugchip other" onclick="addCustomRoom()">+ Autre</button></div></div>';}
+  if(iconPickRoom){h+='<div class="iconpick"><div class="obsug-h">Choisis une icône</div><div class="iconpick-grid">'+
+    ICONPICK.map(k=>'<button class="iconcell'+(room(iconPickRoom)&&room(iconPickRoom).icon===k?' on':'')+'" onclick="setRoomIcon(\''+k+'\')"><svg viewBox="0 0 24 24">'+ROOMICON[k]+'</svg></button>').join('')+'</div></div>';}
+  h+='</div>';
+  el('piecesMod').innerHTML=h;
+}
+function startOrgEdit(id){orgEdit=id;iconPickRoom=null;refreshRooms();setTimeout(()=>{const i=el('obEdit');if(i){i.focus();i.select();}},30);}
+function commitOrgRoom(id,val){const r=room(id);if(r){const v=(val||'').trim();if(v){r.name=v;r.ini=(v[0]||'N').toUpperCase();}}orgEdit=null;refreshRooms();}
+function removeOrgRoom(id){if(ROOMS.length<=1)return;ROOMS=ROOMS.filter(r=>r.id!==id);tasks=tasks.filter(t=>t.room!==id);if(orgEdit===id)orgEdit=null;if(iconPickRoom===id)iconPickRoom=null;refreshRooms();}
+function openIconPick(id){iconPickRoom=iconPickRoom===id?null:id;orgEdit=null;refreshRooms();}
+function setRoomIcon(k){const r=room(iconPickRoom);if(r)r.icon=k;iconPickRoom=null;refreshRooms();}
+function ordDragStart(e,id){e.preventDefault();e.stopPropagation();ordDragEl=document.querySelector('.ordrow[data-ord="'+id+'"]');if(!ordDragEl)return;window._aujDrag=true;ordDragStartY=e.clientY;ordDragEl.classList.add('dragging');try{ordDragEl.setPointerCapture(e.pointerId);}catch(_){}document.addEventListener('pointermove',ordDragMove,{passive:false});document.addEventListener('pointerup',ordDragEnd);}
+function ordDragMove(e){if(!ordDragEl)return;e.preventDefault();ordDragEl.style.transform='translateY('+(e.clientY-ordDragStartY)+'px)';const cy=e.clientY;for(const sib of document.querySelectorAll('.ordrow:not(.dragging)')){const rct=sib.getBoundingClientRect();if(cy>rct.top&&cy<rct.bottom){const mid=rct.top+rct.height/2,parent=ordDragEl.parentNode;if(cy<mid){if(sib.previousElementSibling!==ordDragEl){parent.insertBefore(ordDragEl,sib);ordDragStartY=e.clientY;ordDragEl.style.transform='translateY(0px)';}}else{if(sib.nextElementSibling!==ordDragEl){parent.insertBefore(ordDragEl,sib.nextElementSibling);ordDragStartY=e.clientY;ordDragEl.style.transform='translateY(0px)';}}break;}}}
+function ordDragEnd(){document.removeEventListener('pointermove',ordDragMove);document.removeEventListener('pointerup',ordDragEnd);if(ordDragEl){ordDragEl.classList.remove('dragging');ordDragEl.style.transform='';}const ids=[...document.querySelectorAll('.ordrow')].map(x=>x.getAttribute('data-ord'));ids.forEach((id,i)=>{const r=room(id);if(r)r.order=i+1;});ordDragEl=null;render();setTimeout(()=>{window._aujDrag=false;},100);}
+function setHousing(h){housing=h;applyHousing(h);render();}
+function addMember(){const i=el('hhName');if(!i)return;const v=(i.value||'').trim();if(!v)return;household.push({name:v});i.value='';render();setTimeout(()=>{const n=el('hhName');if(n)n.focus();},30);}
+function removeMember(idx){household.splice(idx,1);render();}
+function toggRow(title,desc,on,onclick){return '<button class="toggrow" onclick="'+onclick+'"><span class="sett"><span class="setn">'+title+'</span><span class="sets">'+desc+'</span></span><span class="switch'+(on?' on':'')+'"><span class="knob"></span></span></button>';}
+function toggleNotif(k){notifs[k]=!notifs[k];render();}
+function toggleMail(k){mailprefs[k]=!mailprefs[k];render();}
 function viewCompte(){
   let html='<div class="ph1">Mon compte</div>';
-  if(premium)html+='<div class="joincard prem" style="margin-top:14px"><div class="jc-h">'+STAR+' Premium actif</div><div class="jc-d">Essai en cours, 7 jours offerts. Tu as accès à tout.</div></div>';
-  else html+='<div class="joincard" style="margin-top:14px"><div class="jc-h">'+STAR+' Passe premium</div><div class="jc-d">Découpe, papiers, durées, ménage de printemps. 7 jours pour essayer.</div><button class="btn-go jc-go" onclick="openPremium()">Voir le premium</button></div>';
-  html+='<div class="setlist" style="margin-top:14px">';
-  html+='<button class="setrow" onclick="toast(\'Bientôt ✦\')"><span class="sett"><span class="setn">Mes données</span><span class="sets">Export, sauvegarde</span></span><span class="go">→</span></button>';
-  html+='<button class="setrow" onclick="toast(\'Bientôt ✦\')"><span class="sett"><span class="setn">Se déconnecter</span><span class="sets">&nbsp;</span></span><span class="go">→</span></button>';
-  html+='</div>';
+  html+='<div class="acctid"><span class="acctav">'+esc((ACCT.name[0]||'?').toUpperCase())+'</span><div class="acctinfo"><div class="acctname">'+esc(ACCT.name)+'</div><div class="acctmail">'+esc(ACCT.email)+'</div></div></div>';
+  if(premium)html+='<div class="joincard prem"><div class="jc-h">'+STAR+' Premium actif</div><div class="jc-d">Essai en cours, 7 jours offerts. Tu as accès à tout.</div><button class="jc-manage" onclick="toast(\'Gestion via le store, bientôt ✦\')">Gérer mon abonnement</button></div>';
+  else html+='<div class="joincard"><div class="jc-h">'+STAR+' Passe premium</div><div class="jc-d">Découpe, papiers, durées, ménage de printemps. 7 jours pour essayer.</div><button class="btn-go jc-go" onclick="openPremium()">Voir le premium</button></div>';
+  html+='<div class="moisec">Notifications</div><div class="setlist">'+NOTIFTYPES.map(n=>toggRow(n[1],n[2],notifs[n[0]],'toggleNotif(\''+n[0]+'\')')).join('')+'</div>';
+  html+='<div class="moisec">Mails & nouveautés</div><div class="mailnote">Chaque type à part, et rien coché par défaut : c’est toi qui choisis.</div><div class="setlist">'+MAILTYPES.map(m=>toggRow(m[1],m[2],mailprefs[m[0]],'toggleMail(\''+m[0]+'\')')).join('')+'</div>';
+  html+='<div class="moisec">Données</div>';
+  html+='<div class="exportcard"><div class="sett"><span class="setn">Exporter mes données</span><span class="sets">Télécharge une copie dans le format de ton choix</span></div><div class="exportfmts"><button class="fmtchip" onclick="toast(\'Export JSON, bientôt ✦\')">JSON</button><button class="fmtchip" onclick="toast(\'Export CSV, bientôt ✦\')">CSV</button></div></div>';
+  html+='<div class="moisec danger">Zone de danger</div>';
+  html+='<button class="dangerrow" onclick="toast(\'Déconnexion, bientôt ✦\')">Se déconnecter</button>';
+  html+='<button class="dangerrow" onclick="toast(\'Suppression, bientôt ✦\')">Supprimer mon compte</button>';
   return html;
 }
 
@@ -912,25 +1673,38 @@ function render(){
     if(nav.screen==='room')s.innerHTML=viewRoom();
     else s.innerHTML=viewChezMoi();
   }
+  else if(nav.tab==='papiers')s.innerHTML=viewPapiers();
   else if(nav.tab==='moi'){
     if(nav.screen==='dash')s.innerHTML=viewDashboard();
-    else if(nav.screen==='organiser')s.innerHTML=viewOrganiser();
+    else if(nav.screen==='logement')s.innerHTML=viewLogement();
     else if(nav.screen==='compte')s.innerHTML=viewCompte();
+    else if(nav.screen==='aide')s.innerHTML=viewAide();
+    else if(nav.screen==='printemps')s.innerHTML=viewPrintemps();
     else s.innerHTML=viewMoi();
   }
+  // onglet premium Mes papiers
+  el('papTab').style.display=premium?'':'none';
   // nav actif
   [...el('nav').children].forEach(b=>b.classList.toggle('on',b.dataset.tab===nav.tab));
   updateMe();
   // slider live
   const sl=el('slider');
-  if(sl){sl.addEventListener('input',()=>{mins=+sl.value;el('mval').textContent=minsLabel(mins);
+  if(sl){setSliderFill();sl.addEventListener('input',()=>{mins=+sl.value;el('mval').textContent=minsLabel(mins);setSliderFill();
     const ds=document.querySelector('.door.hero .ds');if(ds)ds.textContent='Ce que tu peux faire en '+minsLabel(mins);});}
+  el('meBtn').style.display=(nav.tab==='moi'&&(nav.screen==='moi'||nav.screen==null))?'none':'';
   if(window.scrollReset){s.scrollTop=0;window.scrollReset=false;}
+  const vfx=s.querySelector('.vfx');if(vfx)launchConfetti(vfx);else if(vfxRAF){cancelAnimationFrame(vfxRAF);vfxRAF=null;}
 }
+function setSliderFill(){const sl=el('slider');if(!sl)return;const pct=(sl.value-5)/(120-5)*100;sl.style.setProperty('--fill',pct+'%');}
 el('nav').addEventListener('click',e=>{const b=e.target.closest('.tab');if(b)go(b.dataset.tab);});
 el('scrim').addEventListener('click',e=>{if(e.target===el('scrim'))closeSheet();});
 el('planScrim').addEventListener('click',e=>{if(e.target===el('planScrim'))closeChoisis();});
 el('acctScrim').addEventListener('click',e=>{if(e.target===el('acctScrim'))closeAccountSheet();});
+el('piecesMod').addEventListener('click',e=>{if(e.target===el('piecesMod'))closePiecesMod();});
+el('rateMod').addEventListener('click',e=>{if(e.target===el('rateMod'))closeRate();});
+el('guideMod').addEventListener('click',e=>{if(e.target===el('guideMod'))closeGuide();});
+el('papierScrim').addEventListener('click',e=>{if(e.target===el('papierScrim'))closePapierSheet();});
+el('printempsScrim').addEventListener('click',e=>{if(e.target===el('printempsScrim'))closePrintempsSheet();});
 /* ---------- first-run / compte ---------- */
 function openAccountSheet(){el('acctScrim').classList.add('show');}
 function closeAccountSheet(){el('acctScrim').classList.remove('show');}
@@ -942,9 +1716,9 @@ function applyHousing(h){const ids=ROOMS.map(r=>r.id);
   else{ROOMS=ROOMS.filter(r=>r.id!=='bureau'&&r.id!=='garage');tasks=tasks.filter(t=>t.room!=='bureau'&&t.room!=='garage');}}
 function removeOnbRoom(id){if(ROOMS.length<=1)return;ROOMS=ROOMS.filter(r=>r.id!==id);tasks=tasks.filter(t=>t.room!==id);if(editRoom===id)editRoom=null;renderOnboard();}
 const ROOMPAL=['#b23a48','#5f8050','#875f87','#3f8a86','#c0882a','#2b7490'];
-function toggleRoomSug(){roomSug=!roomSug;editRoom=null;renderOnboard();}
-function addSugRoom(name,icon){const n='r'+Date.now().toString(36).slice(-4);ROOMS.push({id:n,name:name,hue:ROOMPAL[ROOMS.length%ROOMPAL.length],ini:(name[0]||'N').toUpperCase(),order:ROOMS.length+1,icon:icon||'generic'});roomSug=false;renderOnboard();}
-function addCustomRoom(){const n='r'+Date.now().toString(36).slice(-4);ROOMS.push({id:n,name:'Nouvelle pièce',hue:ROOMPAL[ROOMS.length%ROOMPAL.length],ini:'N',order:ROOMS.length+1,icon:'generic'});roomSug=false;editRoom=n;renderOnboard();setTimeout(()=>{const i=el('obEdit');if(i){i.focus();i.select();}},30);}
+function toggleRoomSug(){roomSug=!roomSug;editRoom=null;orgEdit=null;refreshRooms();}
+function addSugRoom(name,icon){const n='r'+Date.now().toString(36).slice(-4);ROOMS.push({id:n,name:name,hue:ROOMPAL[ROOMS.length%ROOMPAL.length],ini:(name[0]||'N').toUpperCase(),order:ROOMS.length+1,icon:icon||'generic'});roomSug=false;refreshRooms();}
+function addCustomRoom(){const n='r'+Date.now().toString(36).slice(-4);ROOMS.push({id:n,name:'Nouvelle pièce',hue:ROOMPAL[ROOMS.length%ROOMPAL.length],ini:'N',order:ROOMS.length+1,icon:'generic'});roomSug=false;editRoom=n;orgEdit=n;refreshRooms();setTimeout(()=>{const i=el('obEdit');if(i){i.focus();i.select();}},30);}
 function startEditRoom(id){editRoom=id;renderOnboard();setTimeout(()=>{const i=el('obEdit');if(i){i.focus();i.select();}},30);}
 function commitEditRoom(id,val){const r=room(id);if(r){const v=(val||'').trim();if(v)r.name=v;}editRoom=null;renderOnboard();}
 function chooseFill(f){fillChoice=f;finishOnboard();}
@@ -1024,6 +1798,7 @@ function renderOnboard(){const o=el('onboard');let h='';
   o.innerHTML=h;}
 function updateMe(){const b=el('melbl');if(b)b.textContent=account?('Niveau '+levelInfo(xp).lvl):'Moi';}
 function goBack(){
+  if(nav.tab==='papiers'){home();return;}
   if(nav.tab==='moi'){if(nav.screen&&nav.screen!=='moi'){moiBack();return;}home();return;}
   if(nav.tab==='chezmoi'&&nav.screen==='room'){go('chezmoi');return;}
   if(nav.tab==='maintenant'){
@@ -1033,8 +1808,8 @@ function goBack(){
   }
 }
 (function(){const scr=el('screen');let tsx=0,tsy=0,sk=false;const order=['maintenant','aujourdhui','chezmoi'];
-  scr.addEventListener('touchstart',e=>{const t=e.target;sk=!!(t.closest&&t.closest('input[type=range]'));const c=e.changedTouches[0];tsx=c.clientX;tsy=c.clientY;},{passive:true});
-  scr.addEventListener('touchend',e=>{if(sk)return;const c=e.changedTouches[0];const dx=c.clientX-tsx,dy=c.clientY-tsy;if(Math.abs(dx)<60||Math.abs(dy)>50)return;
+  scr.addEventListener('touchstart',e=>{const t=e.target;sk=!!(t.closest&&(t.closest('input[type=range]')||t.closest('.ajhandle')));const c=e.changedTouches[0];tsx=c.clientX;tsy=c.clientY;},{passive:true});
+  scr.addEventListener('touchend',e=>{if(sk||window._aujDrag)return;const c=e.changedTouches[0];const dx=c.clientX-tsx,dy=c.clientY-tsy;if(Math.abs(dx)<60||Math.abs(dy)>50)return;
     const onTab=(nav.tab==='maintenant'&&nav.screen==='home')||nav.tab==='aujourdhui'||(nav.tab==='chezmoi'&&nav.screen!=='room');
     if(dx>0){if(onTab){const i=order.indexOf(nav.tab);if(i>0)go(order[i-1]);}else goBack();}
     else{if(onTab){const i=order.indexOf(nav.tab);if(i<order.length-1)go(order[i+1]);}}
