@@ -328,6 +328,59 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .cm-btns{display:flex;align-items:center;gap:12px}
 .cm-skip{color:var(--faint);font-size:12.5px;font-weight:600}
 .cm-next{background:var(--teal);color:#fff;border:0;border-radius:999px;padding:8px 16px;font:inherit;font-size:13px;font-weight:700}
+/* étoile premium + crochet découper */
+.star{display:inline-block;width:13px;height:13px;vertical-align:-1px;fill:var(--clay);stroke:none}
+.decoup{border:0;background:none;font:inherit;font-size:11px;font-weight:700;color:var(--clay);display:inline-flex;align-items:center;gap:4px;padding:3px 0;margin-top:3px;cursor:pointer}
+.decoup .star{fill:var(--clay)}
+.aline .ameta{font-size:11px;color:var(--muted);margin-top:2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.aline .atx{flex:1;min-width:0;display:flex;flex-direction:column}
+.aline .ameta .decoup{margin-top:0}
+/* page Passe premium */
+#prem{position:absolute;inset:0;z-index:55;background:var(--bg);display:none;flex-direction:column;overflow-y:auto;
+  padding:30px 22px calc(24px + env(safe-area-inset-bottom,0px));
+  background-image:radial-gradient(120% 55% at 100% -8%,color-mix(in srgb,var(--clay) 13%,transparent),transparent 60%),radial-gradient(120% 60% at -10% 2%,color-mix(in srgb,var(--teal) 9%,transparent),transparent 55%)}
+#prem.show{display:flex}
+.prem-badge{font-size:11px;font-weight:700;color:var(--clay);letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:5px}
+.prem-h{font-family:var(--serif);font-size:32px;line-height:1.08;margin:8px 0 6px;text-wrap:balance}
+.prem-s{font-size:14px;color:var(--muted);line-height:1.45;margin-bottom:20px;max-width:32ch}
+.prem-feat{display:flex;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:14px;margin-bottom:10px}
+.prem-feat.soon{opacity:.72}
+.prem-feat .pf-ic{flex:none;width:38px;height:38px;border-radius:11px;background:color-mix(in srgb,var(--clay) 13%,var(--surface));display:grid;place-items:center}
+.prem-feat .pf-ic .star{width:18px;height:18px}
+.prem-feat .pf-t{font-size:14.5px;font-weight:700;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.prem-feat .pf-t .soonlbl{font-size:9px;font-weight:700;color:#fff;background:var(--faint);padding:2px 7px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
+.prem-feat .pf-d{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.35}
+.prem-price{text-align:center;margin:18px 0 4px}
+.prem-price .pp-trial{font-family:var(--serif);font-size:27px;color:var(--teal-ink)}
+.prem-price .pp-opts{display:flex;gap:9px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+.prem-price .pp-opt{font-size:13px;font-weight:700;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 15px}
+.prem-price .pp-opt.reco{border-color:var(--teal);color:var(--teal-ink);box-shadow:inset 0 0 0 1px var(--teal)}
+.prem-price .pp-sub{font-size:12px;color:var(--muted);margin-top:10px}
+.prem-go{flex:none;width:100%;margin-top:14px}
+.prem-pass{text-align:center;padding:16px 0 2px;color:var(--faint);font-weight:600;font-size:13.5px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+/* page Moi restructurée */
+.moitap{display:block;width:100%;text-align:left;cursor:pointer;margin-top:22px}
+.moicard .moisub{margin-top:5px}
+.moisec{font-size:11px;font-weight:700;color:var(--faint);letter-spacing:.05em;text-transform:uppercase;margin:22px 2px 9px}
+.setrow .setn .star{margin-left:5px;vertical-align:-1px}
+.pbadge{font-size:9px;font-weight:700;color:#fff;background:var(--faint);padding:2px 7px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em;margin-left:6px;vertical-align:1px}
+/* dashboard perso */
+.dsub{font-size:13px;color:var(--muted);margin:7px 2px 18px;line-height:1.4}
+.dashcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}
+.dashcard .dlbl{font-size:12px;font-weight:700;color:var(--muted)}
+.dashcard .dbigrow{display:flex;align-items:baseline;gap:11px;margin-top:4px}
+.dashcard .dbig{font-family:var(--serif);font-size:34px;color:var(--teal-ink);line-height:1}
+.dashcard .dcmp{font-size:12px;color:var(--faint);margin-top:6px}
+.delta{font-size:12px;font-weight:700;color:var(--muted);background:var(--track);padding:2px 9px;border-radius:999px;align-self:center}
+.delta.up{color:var(--teal-ink);background:var(--teal-soft)}
+.dashnote{background:color-mix(in srgb,var(--teal-soft) 45%,var(--surface));border:1px solid var(--line);border-radius:14px;padding:14px;font-size:13px;color:var(--teal-ink);line-height:1.4;margin-top:4px}
+/* carte devenir premium */
+.joincard{background:color-mix(in srgb,var(--clay) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--clay) 30%,var(--line));border-radius:16px;padding:16px}
+.joincard .jc-h{font-family:var(--serif);font-size:20px;color:var(--ink);display:flex;align-items:center;gap:7px}
+.joincard .jc-h .star{width:17px;height:17px}
+.joincard .jc-d{font-size:12.5px;color:var(--muted);margin-top:5px;line-height:1.4}
+.joincard .jc-go{flex:none;width:100%;margin-top:12px}
+.joincard.prem{background:color-mix(in srgb,var(--teal-soft) 50%,var(--surface));border-color:color-mix(in srgb,var(--teal) 30%,var(--line))}
 .ob-step{font-size:11px;font-weight:700;color:var(--clay);letter-spacing:.06em;text-transform:uppercase}
 .ob-h{font-family:var(--serif);font-size:32px;line-height:1.08;margin:8px 0 4px;text-wrap:balance}
 .ob-s{font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.4;max-width:30ch}
@@ -417,7 +470,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   <div class="scrim" id="acctScrim"><div class="sheet">
     <div class="pop-grip"></div>
     <div class="auth-h">Garde ta progression</div>
-    <div class="auth-s">Un compte pour ne rien perdre — tes coches, tes points, tes pièces.</div>
+    <div class="auth-s">Un compte pour ne rien perdre : tes coches, tes points, tes pièces.</div>
     <button class="authbtn apple" onclick="createAccount()">Continuer avec Apple</button>
     <button class="authbtn google" onclick="createAccount()">Continuer avec Google</button>
     <button class="authbtn mail" onclick="createAccount()">Avec un e-mail</button>
@@ -426,6 +479,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   </div></div>
   <div id="onboard"></div>
   <div id="coach"></div>
+  <div id="prem"></div>
 
   <div class="scrim" id="scrim">
     <div class="sheet">
@@ -512,7 +566,7 @@ const RANK={ok:0,soon:1,todo:2,late:3};
 const LVLNAMES=['Campement','Nid douillet','Chez-soi','Cocon','Maisonnée','Petit havre','Refuge','Nid parfait','Palais douillet'];
 
 let xp=0, mins=30;
-let account=false, acctPrompted=false, onboardStep=null, housing=null, fillChoice='auto', editRoom=null, showCoach=true;
+let account=false, acctPrompted=false, onboardStep=null, housing=null, fillChoice='auto', editRoom=null, showCoach=true, premium=false;
 let nav={tab:'maintenant',screen:'home',mode:null,room:null};
 let planVariant=0, execIds=[], planOpen=false, chezFilter='afaire';
 let addRooms=new Set(), addDone=false;
@@ -565,7 +619,7 @@ function bestRoom(){let best=null,bs=-1;ROOMS.forEach(r=>{const sc=roomDue(r.id)
 
 /* ---------- actions ---------- */
 function award(pts){const before=levelInfo(xp).lvl;xp+=pts;const after=levelInfo(xp).lvl;
-  if(after>before)toast('Niveau '+after+' — '+levelInfo(xp).name+' ✦',true);else toast('+'+pts+' pts ✦');}
+  if(after>before)toast('Niveau '+after+' · '+levelInfo(xp).name+' ✦',true);else toast('+'+pts+' pts ✦');}
 function toggleTask(id){const t=tasks.find(x=>x.id===id);if(!t)return;
   const wasDone=t.done;
   if(!t.done){t._prev=t.state;t.done=true;t.doneToday=true;t.state='ok';award(t.pts);}
@@ -700,7 +754,8 @@ function viewRoom(){
   roomTasks(r.id).forEach(t=>{
     html+='<div class="trow'+(t.done||t.state==='ok'?' done':'')+'">'+
       '<button class="check'+(t.done||t.state==='ok'?' on':'')+'" onclick="toggleTask('+t.id+')"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></button>'+
-      '<div class="tx"><div class="nm">'+esc(t.name)+'</div><div class="mt">'+FREQLBL[t.freq]+'</div></div>'+
+      '<div class="tx"><div class="nm">'+esc(t.name)+'</div><div class="mt">~'+t.mins+' min · '+FREQLBL[t.freq]+'</div>'+
+        '<button class="decoup" onclick="decoup(event,'+t.id+')">'+STAR+' Découper cette tâche</button></div>'+
       (t.done||t.state==='ok'?'<span class="pill ok"><span class="d"></span>à jour</span>':'<span class="pill '+t.state+'"><span class="d"></span>'+STLBL[t.state]+'</span>')+
       '</div>';
   });
@@ -724,7 +779,8 @@ function viewAujourdhui(){
     const stable=items.slice().sort((a,b)=>((a.done?1:0)-(b.done?1:0))||(a.id-b.id));
     stable.forEach(t=>{
       html+='<div class="aline'+(t.done?' done':'')+'" onclick="toggleTask('+t.id+')">'+
-        '<span class="an">'+esc(t.name)+'</span>'+
+        '<span class="atx"><span class="an">'+esc(t.name)+'</span>'+
+          '<span class="ameta">~'+t.mins+' min <button class="decoup" onclick="decoup(event,'+t.id+')">'+STAR+' Découper</button></span></span>'+
         (t.done?'<span class="afait">fait</span>':(t.started?'<span class="apill encours">en cours</span>':'<span class="apill '+t.state+'">'+STLBL[t.state]+'</span>'))+
         '</div>';
     });
@@ -789,14 +845,56 @@ function viewExec(){
   return html;
 }
 function openMoi(){if(!account){openAccountSheet();return;}nav={tab:'moi',screen:'moi',mode:null,room:null};window.scrollReset=true;render();}
+function moiBack(){nav={tab:'moi',screen:'moi',mode:null,room:null};window.scrollReset=true;render();}
+function openDash(){nav={tab:'moi',screen:'dash',mode:null,room:null};window.scrollReset=true;render();}
+function openOrganiser(){nav={tab:'moi',screen:'organiser',mode:null,room:null};window.scrollReset=true;render();}
+function openCompte(){nav={tab:'moi',screen:'compte',mode:null,room:null};window.scrollReset=true;render();}
+function premEntry(name,desc){
+  if(premium)return '<button class="setrow" onclick="toast(\''+name.replace(/'/g,"\\'")+' arrive bientôt ✦\')"><span class="sett"><span class="setn">'+name+'</span><span class="sets">'+desc+'</span></span><span class="go">→</span></button>';
+  return '<button class="setrow" onclick="openPremium()"><span class="sett"><span class="setn">'+name+' '+STAR+'</span><span class="sets">'+desc+'</span></span><span class="go">→</span></button>';
+}
 function viewMoi(){
   const li=levelInfo(xp);
   let html='<div class="ph1">Moi</div>';
-  html+='<div class="card moicard"><div class="moilvl"><span class="moin">'+li.lvl+'</span><div style="flex:1"><div class="moiname">Niveau '+li.lvl+' · '+esc(li.name)+'</div><div class="bar"><i style="width:'+li.pct+'%"></i></div><div class="moisub">'+xp+' pts</div></div></div></div>';
-  html+='<div class="setlist">';
-  [['Mes pièces','Ajouter, renommer, choisir les icônes'],['Ordre des pièces','Par quoi commencer en priorité'],['Mon logement','Maison ou appart, qui vit ici'],['Compte','Abonnement, données']].forEach(p=>{
-    html+='<button class="setrow" onclick="toast(\'Bientôt — ça viendra avec l’inscription\')"><span class="sett"><span class="setn">'+p[0]+'</span><span class="sets">'+p[1]+'</span></span><span class="go">→</span></button>';
+  html+='<button class="card moicard moitap" onclick="openDash()"><div class="moilvl"><span class="moin">'+li.lvl+'</span><div style="flex:1"><div class="moiname">Niveau '+li.lvl+' · '+esc(li.name)+'</div><div class="bar"><i style="width:'+li.pct+'%"></i></div><div class="moisub">'+xp+' pts · voir ta semaine →</div></div></div></button>';
+  html+='<div class="moisec">'+(premium?'Tes outils premium':'Premium')+'</div><div class="setlist">';
+  html+=premEntry('Mes papiers','Tes échéances maison, suivies pour toi');
+  html+=premEntry('Ménage de printemps','Le grand coup de propre quand ça déborde');
+  html+='<button class="setrow" onclick="'+(premium?'toast(\'Maison partagée, bientôt ✦\')':'openPremium()')+'"><span class="sett"><span class="setn">Maison partagée <span class="pbadge">bientôt</span></span><span class="sets">Répartir les tâches à plusieurs</span></span><span class="go">→</span></button>';
+  html+='</div>';
+  html+='<div class="moisec">Réglages</div><div class="setlist">';
+  html+='<button class="setrow" onclick="openOrganiser()"><span class="sett"><span class="setn">Organiser ma maison</span><span class="sets">Tes pièces, leur ordre, ton logement</span></span><span class="go">→</span></button>';
+  html+='<button class="setrow" onclick="openCompte()"><span class="sett"><span class="setn">Mon compte</span><span class="sets">'+(premium?'Premium actif':'Tes infos, tes données')+'</span></span><span class="go">→</span></button>';
+  html+='</div>';
+  return html;
+}
+function viewDashboard(){
+  const doneSession=tasks.filter(t=>t.done).length;
+  const minsSession=tasks.filter(t=>t.done).reduce((a,t)=>a+(t.mins||0),0);
+  const thisT=12+doneSession, thisM=85+minsSession, lastT=10, lastM=70;
+  const dT=thisT-lastT, dM=thisM-lastM;
+  const chip=(d,u)=>'<span class="delta'+(d>=0?' up':'')+'">'+(d>=0?'+':'')+d+(u||'')+'</span>';
+  let html='<div class="ph1">Ta semaine</div><div class="dsub">Ta progression comparée à toi-même, pas aux autres.</div>';
+  html+='<div class="dashcard"><div class="dlbl">Tâches faites</div><div class="dbigrow"><span class="dbig">'+thisT+'</span>'+chip(dT,'')+'</div><div class="dcmp">la semaine dernière : '+lastT+'</div></div>';
+  html+='<div class="dashcard"><div class="dlbl">Temps de ménage</div><div class="dbigrow"><span class="dbig">'+minsLabel(thisM)+'</span>'+chip(dM,' min')+'</div><div class="dcmp">la semaine dernière : '+minsLabel(lastM)+'</div></div>';
+  html+='<div class="dashnote">'+(dT>=0?'Tu es au-dessus de la semaine dernière. Continue à ton rythme ✦':'La semaine est encore jeune. Chaque tâche cochée compte.')+'</div>';
+  return html;
+}
+function viewOrganiser(){
+  let html='<div class="ph1">Organiser ma maison</div><div class="setlist" style="margin-top:14px">';
+  [['Mes pièces','Ajouter, renommer, choisir les icônes'],['Ordre des pièces','Par quoi commencer en priorité'],['Mon logement','Maison ou appart, qui vit ici']].forEach(p=>{
+    html+='<button class="setrow" onclick="toast(\''+p[0]+', bientôt ✦\')"><span class="sett"><span class="setn">'+p[0]+'</span><span class="sets">'+p[1]+'</span></span><span class="go">→</span></button>';
   });
+  html+='</div>';
+  return html;
+}
+function viewCompte(){
+  let html='<div class="ph1">Mon compte</div>';
+  if(premium)html+='<div class="joincard prem" style="margin-top:14px"><div class="jc-h">'+STAR+' Premium actif</div><div class="jc-d">Essai en cours, 7 jours offerts. Tu as accès à tout.</div></div>';
+  else html+='<div class="joincard" style="margin-top:14px"><div class="jc-h">'+STAR+' Passe premium</div><div class="jc-d">Découpe, papiers, durées, ménage de printemps. 7 jours pour essayer.</div><button class="btn-go jc-go" onclick="openPremium()">Voir le premium</button></div>';
+  html+='<div class="setlist" style="margin-top:14px">';
+  html+='<button class="setrow" onclick="toast(\'Bientôt ✦\')"><span class="sett"><span class="setn">Mes données</span><span class="sets">Export, sauvegarde</span></span><span class="go">→</span></button>';
+  html+='<button class="setrow" onclick="toast(\'Bientôt ✦\')"><span class="sett"><span class="setn">Se déconnecter</span><span class="sets">&nbsp;</span></span><span class="go">→</span></button>';
   html+='</div>';
   return html;
 }
@@ -814,7 +912,12 @@ function render(){
     if(nav.screen==='room')s.innerHTML=viewRoom();
     else s.innerHTML=viewChezMoi();
   }
-  else if(nav.tab==='moi')s.innerHTML=viewMoi();
+  else if(nav.tab==='moi'){
+    if(nav.screen==='dash')s.innerHTML=viewDashboard();
+    else if(nav.screen==='organiser')s.innerHTML=viewOrganiser();
+    else if(nav.screen==='compte')s.innerHTML=viewCompte();
+    else s.innerHTML=viewMoi();
+  }
   // nav actif
   [...el('nav').children].forEach(b=>b.classList.toggle('on',b.dataset.tab===nav.tab));
   updateMe();
@@ -854,7 +957,7 @@ function coachMarks(){return [
  {sel:'[data-tab="maintenant"]',h:'Maintenant',s:'Dis-moi le temps que t’as, je te sors un plan qui rentre dedans.'},
  {sel:'[data-tab="aujourdhui"]',h:'Aujourd’hui',s:'Ta journée pièce par pièce. Tu barres au fur et à mesure.'},
  {sel:'[data-tab="chezmoi"]',h:'Chez moi',s:'Toutes tes pièces réunies, pour retrouver ou lancer n’importe quoi.'},
- {sel:'[data-tab="plus"]',h:'Ajouter',s:coachMode==='manual'?'Ta maison est vide — appuie sur le + pour ajouter ta première tâche.':'Ajoute une tâche ici. Appuie sur le + pour essayer tout de suite.'}
+ {sel:'[data-tab="plus"]',h:'Ajouter',s:coachMode==='manual'?'Ta maison est vide, appuie sur le + pour ajouter ta première tâche.':'Ajoute une tâche ici. Appuie sur le + pour essayer tout de suite.'}
 ];}
 function openCoach(mode){coachMode=mode||'auto';coachIdx=0;el('coach').classList.add('show');renderCoach();}
 function coachNext(){const m=coachMarks();if(coachIdx>=m.length-1){closeCoach();return;}coachIdx++;renderCoach();}
@@ -871,6 +974,27 @@ function renderCoach(){const marks=coachMarks(),m=marks[coachIdx],last=coachIdx=
    '<div class="cm-bubble" style="'+bstyle+'"><div class="cm-h">'+m.h+'</div><div class="cm-s">'+m.s+'</div>'+
      '<div class="cm-row"><div class="cm-dots">'+marks.map((_,i)=>'<i class="'+(i===coachIdx?'on':'')+'"></i>').join('')+'</div>'+
      '<div class="cm-btns">'+(last?'':'<span class="cm-skip" onclick="closeCoach()">Passer</span>')+'<button class="cm-next" onclick="coachNext()">'+(last?'Compris ✦':'Suivant')+'</button></div></div></div>';}
+/* ---------- premium ---------- */
+const STAR='<svg class="star" viewBox="0 0 24 24"><path d="M12 3l2.55 5.36 5.9.78-4.34 4.06 1.1 5.86L12 16.9l-5.21 2.16 1.1-5.86-4.34-4.06 5.9-.78z"/></svg>';
+function decoup(e,id){if(e&&e.stopPropagation)e.stopPropagation();if(premium){toast('Le découpage arrive bientôt ✦');}else{openPremium();}}
+function openPremium(){el('prem').innerHTML=viewPremium();el('prem').classList.add('show');el('prem').scrollTop=0;}
+function closePremium(){el('prem').classList.remove('show');}
+function becomePremium(){premium=true;closePremium();render();updateMe();toast('Essai lancé, 7 jours offerts ✦',true);}
+function premFeat(icon,title,desc,soon){return '<div class="prem-feat'+(soon?' soon':'')+'"><span class="pf-ic">'+(icon||STAR)+'</span><span><span class="pf-t">'+title+(soon?'<span class="soonlbl">bientôt</span>':'')+'</span><span class="pf-d">'+desc+'</span></span></div>';}
+function viewPremium(){
+  return '<div class="prem-badge">'+STAR+' Premium</div>'+
+    '<div class="prem-h">L’app porte ce que tu devrais garder en tête</div>'+
+    '<div class="prem-s">Ta maison tenue sans l’avoir en tête.</div>'+
+    premFeat(STAR,'Découper tes tâches','Chaque corvée vague éclatée en petits gestes à cocher. Fini le « par où je commence » devant une pièce en bazar.')+
+    premFeat(STAR,'Mes papiers','Tes échéances maison suivies : assurance, chaudière, impôts. L’app te prévient avant que ça morde.')+
+    premFeat(STAR,'Estimation des durées','Combien de temps chaque tâche prend, calculé pour toi. Tu n’as plus à deviner.')+
+    premFeat(STAR,'Ménage de printemps','Le grand coup de propre quand t’en as marre que ça traîne. L’app sort toutes les tâches de fond et t’emmène pièce par pièce.')+
+    premFeat(STAR,'Maison partagée','Répartir les tâches à plusieurs, chacun son deck. Pour les colocs et les familles.',true)+
+    premFeat(STAR,'Compétition','Te mesurer à toi-même, à tes amis ou au reste du monde. Toujours pour avancer, jamais pour te plomber.',true)+
+    '<div class="prem-price"><div class="pp-trial">7 jours gratuits</div><div class="pp-opts"><span class="pp-opt reco">19,99 € / an</span><span class="pp-opt">1,99 € / mois</span></div><div class="pp-sub">Puis l’abo de ton choix. Sans engagement, résiliable quand tu veux.</div></div>'+
+    '<button class="btn-go prem-go" onclick="becomePremium()">Essayer pendant 7 jours</button>'+
+    '<div class="prem-pass" onclick="closePremium()">Peut-être plus tard</div>';
+}
 function renderOnboard(){const o=el('onboard');let h='';
   if(onboardStep==='appart'){
     h='<div class="ob-step">Perso · 1/3</div><div class="ob-h">Tu habites en…</div><div class="ob-s">Pour te préparer les bonnes pièces.</div>'+
@@ -900,7 +1024,7 @@ function renderOnboard(){const o=el('onboard');let h='';
   o.innerHTML=h;}
 function updateMe(){const b=el('melbl');if(b)b.textContent=account?('Niveau '+levelInfo(xp).lvl):'Moi';}
 function goBack(){
-  if(nav.tab==='moi'){home();return;}
+  if(nav.tab==='moi'){if(nav.screen&&nav.screen!=='moi'){moiBack();return;}home();return;}
   if(nav.tab==='chezmoi'&&nav.screen==='room'){go('chezmoi');return;}
   if(nav.tab==='maintenant'){
     if(nav.screen==='exec'){home();return;}
